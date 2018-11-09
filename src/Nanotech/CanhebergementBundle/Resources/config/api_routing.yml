@@ -1,0 +1,4 @@
+digitpress_utilisateur:
+    resource: "@NanotechCanhebergementBundle/RestController/UtilisateurController.php"
+    type:     annotation
+    prefix:   /utilisateur

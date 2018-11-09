@@ -1,0 +1,73 @@
+services:
+#    nanotech_canhebergement_admin.example:
+#        class: Nanotech\CanhebergementAdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    canhebergement_admin.admin.utilisateur:
+        class: Nanotech\CanhebergementAdminBundle\Admin\UtilisateurAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Utilisateur, NanotechCanhebergementAdminBundle:UtilisateurAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Utilisateur }
+        public: true
+
+    nanotech_canhebergement_admin.admin.parametre:
+        class: Nanotech\CanhebergementAdminBundle\Admin\ParametreAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Parametre, NanotechCanhebergementAdminBundle:ParametreAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Paramètre }
+        public: true
+    
+    nanotech_canhebergement_admin.admin.service:
+        class: Nanotech\CanhebergementAdminBundle\Admin\ServiceAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Service, NanotechCanhebergementAdminBundle:ServiceAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Service }
+        public: true
+    
+    nanotech_canhebergement_admin.admin.moyenpaiement:
+        class: Nanotech\CanhebergementAdminBundle\Admin\MoyenPaiementAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\MoyenPaiement, NanotechCanhebergementAdminBundle:MoyenPaiementAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Moyen de paiement }
+        public: true
+
+    nanotech_canhebergement_admin.admin.banniere:
+        class: Nanotech\CanhebergementAdminBundle\Admin\BanniereAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Banniere, NanotechCanhebergementAdminBundle:BanniereAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Bannière }
+        public: true
+
+    nanotech_canhebergement_admin.admin.proximite:
+        class: Nanotech\CanhebergementAdminBundle\Admin\ProximiteAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Proximite, NanotechCanhebergementAdminBundle:ProximiteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Proximité }
+        public: true
+
+    nanotech_canhebergement_admin.admin.commentaire_client:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CommentaireClientAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\CommentaireClient, NanotechCanhebergementAdminBundle:CommentaireClientAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Commentaire des clients }
+        public: true
+
+    nanotech_canhebergement_admin.admin.partenaire:
+        class: Nanotech\CanhebergementAdminBundle\Admin\PartenaireAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Partenaire, NanotechCanhebergementAdminBundle:PartenaireAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Partenaire }
+        public: true
+
+    nanotech_canhebergement_admin.admin.carte_bar:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CarteBarAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\CarteBar, NanotechCanhebergementAdminBundle:CarteBarAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Carte Bar }
+        public: true
+
+    nanotech_canhebergement_admin.admin.carte_restaurant:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CarteRestaurantAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\CarteRestaurant, NanotechCanhebergementAdminBundle:CarteRestaurantAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Carte Restaurant }
+        public: true

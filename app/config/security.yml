@@ -1,0 +1,56 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+        
+    role_hierarchy:
+        ROLE_ABONE: 
+            - ROLE_USER            
+        ROLE_SUPER_ADMIN:
+            - ROLE_ADMIN
+            - ROLE_ALLOWED_TO_SWITCH
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email        # fos_user.user_provider.username_email does not seem to work (OAuth-spec related ("username + password") ?)
+    firewalls:
+        
+        
+        oauth_token:                                   # Everyone can access the access token URL.
+            pattern: ^/oauth/v2/token
+            security: false
+        doc:
+            pattern: ^/api/doc
+            security: false
+            
+        api:
+            pattern: ^/api                               # All URLs are protected
+            fos_oauth: true                            # OAuth2 protected resource
+            stateless: true                            # Do no set session cookies
+            anonymous: true                          # Anonymous access is not allowed
+        
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path: /login
+                check_path: /login_check
+
+            logout:       true
+            anonymous:    true
+
+        login:
+            pattern:  ^/login$
+            security: false
+
+            remember_me:
+                key: "%secret%"
+                lifetime: 31536000
+                path: /
+                domain: ~
+        
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

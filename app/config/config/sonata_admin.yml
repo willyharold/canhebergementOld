@@ -1,0 +1,64 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.stats:
+            contexts:   [admin]
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+            
+        sonata.block.service.custom: ~
+
+sonata_admin:
+    security:
+        admin_permissions:
+
+            # Defaults:
+            - CREATE
+            - LIST
+            - DELETE
+            - UNDELETE
+            - OPERATOR
+            - MASTER
+    
+    
+    
+    title: CAN Hebergement
+    title_logo: img/logo1.svg
+    templates: 
+        layout: NanotechCanhebergementAdminBundle::standard_layout.html.twig
+        dashboard: NanotechCanhebergementAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        groups:
+            app.admin.group.configuration:
+                label: "Configuration"
+                label_catalogue: CanHebergementBundle
+                icon: '<i class="fa fa-cog"></i>'
+                items:           
+                    - nanotech_canhebergement_admin.admin.parametre 
+                    - nanotech_canhebergement_admin.admin.service
+                    - nanotech_canhebergement_admin.admin.moyenpaiement
+                    - nanotech_canhebergement_admin.admin.banniere
+                    - nanotech_canhebergement_admin.admin.proximite
+                    - nanotech_canhebergement_admin.admin.commentaire_client
+                    
+            
+            app.admin.group.admin:
+                label: "Administration"
+                label_catalogue: CanHebergementBundle
+                icon: '<i class="fa fa-home"></i>'
+                items:           
+                    - canhebergement_admin.admin.utilisateur
+                    - nanotech_canhebergement_admin.admin.partenaire
+                    - nanotech_canhebergement_admin.admin.carte_bar
+                    - nanotech_canhebergement_admin.admin.carte_restaurant
+                    
+                     
+    security:
+        handler: sonata.admin.security.handler.role
+
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
+        

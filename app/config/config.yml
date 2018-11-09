@@ -1,0 +1,172 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: config/sonata_admin.yml }
+    - { resource: config/parameters.yml }
+    - { resource: config/sonata_media.yml }
+    - { resource: "@NanotechCanhebergementBundle/Resources/config/services.yml" }
+    - { resource: "@NanotechCanhebergementAdminBundle/Resources/config/services.yml" }
+
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+    web_dir: "%kernel.root_dir%/../web"
+    jms_serializer.camel_case_naming_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+
+
+framework:
+    #esi: ~
+    translator: { fallback: en }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    serializer:
+        enabled: false
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id: ~
+    fragments: ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form:
+        resources:
+            - 'media_widgets.html.twig'
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        server_version:       5.7
+        driver: pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        max_age: 0
+        hosts: []
+        origin_regex: false
+
+    paths:
+        # Important api settings :
+        # Access-Control-Request-Method
+        '^/api/':
+            allow_origin: ['*']
+            allow_headers: ['X-Custom-Auth','Content-Type','X-Requested-With','accept','Origin','Access-Control-Request-Method','Access-Control-Request-Headers','Authorization']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+        '^/oauth/':
+            allow_origin: ['*']
+            allow_headers: ['X-Custom-Auth','Content-Type','X-Requested-With','accept','Origin','Access-Control-Request-Method','Access-Control-Request-Headers','Authorization']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+        '^/':
+            origin_regex: true
+            allow_origin: ['^http://localhost:[0-9]+']
+            allow_headers: ['X-Custom-Auth']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+            hosts: ['^api\.']
+
+fos_rest:
+    routing_loader:
+        default_format: json
+        include_format: false
+    view:
+        view_response_listener: true
+        formats:
+            json: true
+        templating_formats:
+            html: true
+    format_listener:
+        rules:
+            - { path: '^/admin', priorities: ['html'], fallback_format: 'html', prefer_extension: false }
+            - { path: '^/api', priorities: ['json'], fallback_format: 'json' }
+            - { path: '^/', priorities: ['html'], fallback_format: 'html', prefer_extension: false }
+
+    body_listener:
+        enabled: true
+    param_fetcher_listener:
+        enabled: true
+    serializer:
+        serialize_null:  true
+    
+nelmio_api_doc: ~
+
+sensio_framework_extra:
+    view:    { annotations: true }
+    router:  { annotations: true }
+    request: { converters: true }                                                   
+
+fos_user:
+    db_driver: orm
+    firewall_name: api                                  # Seems to be used when registering user/reseting password,
+                                                        # but since there is no "login", as so it seems to be useless in
+                                                        # our particular context, but still required by "FOSUserBundle"
+    user_class: Nanotech\Canhebergement\Entity\Utilisateur
+    from_email:
+                address: wtakoutsing@gmail.com
+                sender_name: partner team
+
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        Nanotech\CanhebergementBundle\Entity\Client
+    access_token_class:  Nanotech\CanhebergementBundle\Entity\AccessToken
+    refresh_token_class: Nanotech\CanhebergementBundle\Entity\RefreshToken
+    auth_code_class:     Nanotech\CanhebergementBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_provider.username_email             # This property will be used when valid credentials are given to load the user upon access token creation
+        options:
+            access_token_lifetime: 86400 #will set token life time to 1 day
+
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "d-m-Y"
+            default_timezone: "UTC"
+            
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

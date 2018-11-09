@@ -1,0 +1,42 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block title %}{{ 'title_dashboard'|trans({}, 'SonataAdminBundle') }}{% endblock%}
+{% block breadcrumb %}{% endblock %}
+{% block content %}
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row"> 
+             <div class="box-header with-border">
+             
+              <h1 class="" >CAN Hebergement</h1>
+            </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>Harold</h3>
+
+              <p>Utilisateurs</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        
+      </div>
+</section>
+
+{% endblock %}
