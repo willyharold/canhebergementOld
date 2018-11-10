@@ -17,7 +17,8 @@ class ServiceAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('dateEnreg')
-            ->add('nom')
+            ->add('nomFr')
+             ->add('nomEn')
             ->add('code')
         ;
     }
@@ -27,7 +28,8 @@ class ServiceAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('dateEnreg')
-            ->add('nom')
+             ->add('nomFr')
+             ->add('nomEn')
             ->add('code')
             ->add('_action', null, [
                 'actions' => [
@@ -42,7 +44,8 @@ class ServiceAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nom')
+            ->add('nomFr')
+             ->add('nomEn')
             ->add('code')
         ;
     }
@@ -52,7 +55,8 @@ class ServiceAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('dateEnreg')
-            ->add('nom')
+            ->add('nomFr')
+             ->add('nomEn')
             ->add('code')
         ;
     }

@@ -67,6 +67,11 @@ class CommentaireClient
         $this->dateEnreg = new \DateTime();
 
     }
+    
+     public function __toString() {
+        return $this->id? $this->id." ":" ";
+        
+    }
 
     /**
      * Get id
@@ -197,9 +202,7 @@ class CommentaireClient
     {
         return $this->image;
     }
-    public function __toString() {
-        return $this->nom;
-    }
+    
 
     /**
      * Set descriptionFr

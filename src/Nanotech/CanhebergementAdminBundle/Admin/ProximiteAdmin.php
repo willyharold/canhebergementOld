@@ -14,7 +14,8 @@ class ProximiteAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('nom')
+           ->add('nomFr')
+            ->add('nomEn')
             ->add('code')
             ->add('dateEnreg')
         ;
@@ -24,7 +25,8 @@ class ProximiteAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('nom')
+          ->add('nomFr')
+            ->add('nomEn')
             ->add('code')
             ->add('dateEnreg')
             ->add('_action', null, [
@@ -40,7 +42,8 @@ class ProximiteAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nom')
+            ->add('nomFr')
+            ->add('nomEn')
             ->add('code')
         ;
     }
@@ -49,7 +52,8 @@ class ProximiteAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('nom')
+          ->add('nomFr')
+            ->add('nomEn')
             ->add('code')
             ->add('dateEnreg')
         ;

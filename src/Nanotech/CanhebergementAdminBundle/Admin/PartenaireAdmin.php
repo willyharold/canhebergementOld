@@ -86,7 +86,7 @@ class PartenaireAdmin extends AbstractAdmin
                         'uiColor' => '#ffffff',
                     ),
                 ))
-             >add('nbrEtoile')  
+             ->add('nbrEtoile')  
              ->add('coordx')
             ->add('coordy')
             ->add('pays')

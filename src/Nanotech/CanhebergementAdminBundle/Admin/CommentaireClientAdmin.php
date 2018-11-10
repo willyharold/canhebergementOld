@@ -16,7 +16,8 @@ class CommentaireClientAdmin extends AbstractAdmin
             ->add('id')          
             ->add('nom')
             ->add('fonction')
-            ->add('description')
+          ->add('descriptionFr')
+            ->add('descriptionEn')
             ->add('dateEnreg')
         ;
     }
@@ -27,7 +28,8 @@ class CommentaireClientAdmin extends AbstractAdmin
             ->add('id')
             ->add('nom')
             ->add('fonction')
-            ->add('description')
+        ->add('descriptionFr')
+            ->add('descriptionEn')
             ->add('dateEnreg')
             ->add('image')
             ->add('_action', null, [
@@ -45,7 +47,8 @@ class CommentaireClientAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('fonction')
-            ->add('description')
+            ->add('descriptionFr')
+            ->add('descriptionEn')
             ->add('image', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'logo_moyen_paiement',
@@ -61,7 +64,8 @@ class CommentaireClientAdmin extends AbstractAdmin
             ->add('id')
             ->add('nom')
             ->add('fonction')
-            ->add('description')          
+        ->add('descriptionFr')
+            ->add('descriptionEn')         
             ->add('dateEnreg')
             ->add('image')
         ;
