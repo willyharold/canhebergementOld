@@ -144,9 +144,7 @@ class Proximite
         return $this->dateEnreg;
     }
     
-    public function __toString() {
-        return $this->nom;
-    }
+  
 
     /**
      * Set nomFr
