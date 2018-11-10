@@ -55,6 +55,8 @@ class Proximite
         $this->dateEnreg = new \DateTime();
 
     }
+    
+    
     /**
      * Get id
      *
@@ -63,6 +65,11 @@ class Proximite
     public function getId()
     {
         return $this->id;
+    }
+    
+      public function __toString() {
+        return $this->id? $this->id." ":" ";
+        
     }
 
     /**
