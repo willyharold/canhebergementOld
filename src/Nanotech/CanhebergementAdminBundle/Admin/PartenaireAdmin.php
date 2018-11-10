@@ -2,6 +2,7 @@
 
 namespace Nanotech\CanhebergementAdminBundle\Admin;
 
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -73,13 +74,18 @@ class PartenaireAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
-            ->add('id')
+        $formMapper    
+            ->add('nom')
+            ->add('descriptionFr', CKEditorType::class, array(
+                    'config' => array(
+                        'uiColor' => '#ffffff',
+                    ),
+                ))
+            ->add('descriptionEn')
             ->add('pays')
             ->add('ville')
             ->add('quartier')
-            ->add('nbrEtoile')
-            ->add('nom')
+            ->add('nbrEtoile')         
             ->add('adrComplete')
             ->add('numTel1')
             ->add('numTel2')
@@ -87,14 +93,20 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('faxTel')
             ->add('boitPost')
             ->add('adrEmail')
-            ->add('dateEnreg')
             ->add('enable')
             ->add('adrServ')
             ->add('coordx')
             ->add('coordy')
+             ->add('service')
+            ->add('logo', 'sonata_media_type', array(
+                   'provider' => 'sonata.media.provider.image',
+                   'context' => 'logo_moyen_paiement',
+                   'required' => false,
+                   'label' => "logo du partenaire",
+               ))
+              ->add('proximite')
             ->add('slug')
-            ->add('descriptionFr')
-            ->add('descriptionEn')
+           
         ;
     }
 
