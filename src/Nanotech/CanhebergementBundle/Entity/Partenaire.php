@@ -212,6 +212,7 @@ class Partenaire
     {
         $this->dateEnreg = new \DateTime();
         $this->pays = "CAMEROUN";
+         $this->enable = "false";
 
     }
     /**

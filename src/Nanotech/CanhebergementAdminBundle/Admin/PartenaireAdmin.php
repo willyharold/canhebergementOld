@@ -81,11 +81,17 @@ class PartenaireAdmin extends AbstractAdmin
                         'uiColor' => '#ffffff',
                     ),
                 ))
-            ->add('descriptionEn')
+            ->add('descriptionEn', CKEditorType::class, array(
+                    'config' => array(
+                        'uiColor' => '#ffffff',
+                    ),
+                ))
+             >add('nbrEtoile')  
+             ->add('coordx')
+            ->add('coordy')
             ->add('pays')
             ->add('ville')
-            ->add('quartier')
-            ->add('nbrEtoile')         
+            ->add('quartier')                
             ->add('adrComplete')
             ->add('numTel1')
             ->add('numTel2')
@@ -93,19 +99,15 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('faxTel')
             ->add('boitPost')
             ->add('adrEmail')
-            ->add('enable')
-            ->add('adrServ')
-            ->add('coordx')
-            ->add('coordy')
-             ->add('service')
-            ->add('logo', 'sonata_media_type', array(
+            ->add('adrServ')          
+            ->add('service')
+            ->add('proximite')
+           ->add('logo', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'logo_moyen_paiement',
                    'required' => false,
                    'label' => "logo du partenaire",
                ))
-              ->add('proximite')
-            ->add('slug')
            
         ;
     }
