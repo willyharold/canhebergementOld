@@ -214,4 +214,10 @@ class Reservation
     {
         return $this->Piece;
     }
+    
+     public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
 }

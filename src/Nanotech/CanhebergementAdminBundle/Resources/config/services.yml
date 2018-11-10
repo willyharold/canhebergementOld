@@ -71,3 +71,59 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Carte Restaurant }
         public: true
+
+    nanotech_canhebergement_admin.admin.payer:
+        class: Nanotech\CanhebergementAdminBundle\Admin\PayerAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Payer, NanotechCanhebergementAdminBundle:PayerAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Payer }
+        public: true
+
+    nanotech_canhebergement_admin.admin.piece:
+        class: Nanotech\CanhebergementAdminBundle\Admin\PieceAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Piece, NanotechCanhebergementAdminBundle:PieceAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Piece }
+        public: true
+
+    nanotech_canhebergement_admin.admin.planning:
+        class: Nanotech\CanhebergementAdminBundle\Admin\PlanningAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Planning, NanotechCanhebergementAdminBundle:PlanningAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Planning }
+        public: true
+
+    nanotech_canhebergement_admin.admin.internaute:
+        class: Nanotech\CanhebergementAdminBundle\Admin\InternauteAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Internaute, NanotechCanhebergementAdminBundle:InternauteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Internaute }
+        public: true
+
+    nanotech_canhebergement_admin.admin.commande_bar:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CommandeBarAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\CommandeBar, NanotechCanhebergementAdminBundle:CommandeBarAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: CommandeBar }
+        public: true
+
+    nanotech_canhebergement_admin.admin.commande_restaurant:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CommandeRestaurantAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\CommandeRestaurant, NanotechCanhebergementAdminBundle:CommandeRestaurantAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: CommandeRestaurant }
+        public: true
+
+    nanotech_canhebergement_admin.admin.reservation:
+        class: Nanotech\CanhebergementAdminBundle\Admin\ReservationAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Reservation, NanotechCanhebergementAdminBundle:ReservationAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Reservation }
+        public: true
+
+    nanotech_canhebergement_admin.admin.reservation_confirme:
+        class: Nanotech\CanhebergementAdminBundle\Admin\ReservationConfirmeAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\ReservationConfirme, NanotechCanhebergementAdminBundle:ReservationConfirmeAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ReservationConfirme }
+        public: true

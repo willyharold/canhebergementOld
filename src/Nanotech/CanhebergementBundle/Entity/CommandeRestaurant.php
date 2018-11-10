@@ -245,4 +245,10 @@ class CommandeRestaurant
     {
         return $this->partenaire;
     }
+    
+      public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
 }

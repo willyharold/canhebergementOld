@@ -29,9 +29,9 @@ class Planning
     private $dateDebut;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_fin", type="string", length=255)
+     * @ORM\Column(name="date_fin", type="date")
      */
     private $dateFin;
 
@@ -46,6 +46,12 @@ class Planning
     * @ORM\JoinColumn(nullable=false) 
     */
     private $partenaire; 
+    
+     /**
+     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private  $fichier;
 
     /**
      * Get id
@@ -55,6 +61,12 @@ class Planning
     public function getId()
     {
         return $this->id;
+    }
+    
+     public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
     }
 
     /**
@@ -151,5 +163,31 @@ class Planning
     public function getPartenaire()
     {
         return $this->partenaire;
+    }
+    
+    
+
+    /**
+     * Set fichier
+     *
+     * @param \Nanotech\MediaBundle\Entity\Media $fichier
+     *
+     * @return Planning
+     */
+    public function setFichier(\Nanotech\MediaBundle\Entity\Media $fichier = null)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \Nanotech\MediaBundle\Entity\Media
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
     }
 }

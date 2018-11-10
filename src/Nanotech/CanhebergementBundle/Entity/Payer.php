@@ -181,4 +181,9 @@ class Payer
     {
         return $this->Piece;
     }
+     public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
 }

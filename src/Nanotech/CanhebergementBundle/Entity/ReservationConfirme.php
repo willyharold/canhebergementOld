@@ -93,4 +93,10 @@ class ReservationConfirme
     {
         return $this->dateEnreg;
     }
+    
+      public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
 }
