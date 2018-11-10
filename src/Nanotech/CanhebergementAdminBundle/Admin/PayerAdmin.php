@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PayerAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'payer';
+    protected $baseRouteName = 'canhebergement_payer';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

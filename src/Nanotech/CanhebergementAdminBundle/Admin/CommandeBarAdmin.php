@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class CommandeBarAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'coommandebar';
+    protected $baseRouteName = 'canhebergement_commandebar';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

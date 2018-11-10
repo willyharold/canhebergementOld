@@ -11,6 +11,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PartenaireAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'partenaire';
+    protected $baseRouteName = 'canhebergement_partenaire';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

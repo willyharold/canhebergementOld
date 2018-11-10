@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PieceAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'piece';
+    protected $baseRouteName = 'canhebergement_piece';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

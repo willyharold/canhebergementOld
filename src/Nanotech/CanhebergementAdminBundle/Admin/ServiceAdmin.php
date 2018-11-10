@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class ServiceAdmin extends AbstractAdmin
 {
+    
     protected $baseRoutePattern = 'service';
     protected $baseRouteName = 'canhebergement_service';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

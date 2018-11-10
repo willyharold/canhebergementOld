@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class CommentaireClientAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'commentaireclient';
+    protected $baseRouteName = 'canhebergement_commentaireclient';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

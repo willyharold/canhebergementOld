@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class ProximiteAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'proximite';
+    protected $baseRouteName = 'canhebergement_proximite';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

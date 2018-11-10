@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class CarteBarAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'cartebar';
+    protected $baseRouteName = 'canhebergement_cartebar';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper

@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class CommandeRestaurantAdmin extends AbstractAdmin
 {
+     protected $baseRoutePattern = 'commanderestaurant';
+    protected $baseRouteName = 'canhebergement_commanderestaurant';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
