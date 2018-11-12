@@ -62,6 +62,7 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.commande_restaurant
                     - nanotech_canhebergement_admin.admin.reservation
                     - nanotech_canhebergement_admin.admin.reservation_confirme
+                    - nanotech_canhebergement_admin.admin.commentaire
                     
                      
     security:

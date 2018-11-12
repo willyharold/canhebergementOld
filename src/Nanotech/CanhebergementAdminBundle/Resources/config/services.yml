@@ -127,3 +127,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Reservation Confirmé }
         public: true
+
+    nanotech_canhebergement_admin.admin.commentaire:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CommentaireAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Commentaire, NanotechCanhebergementAdminBundle:CommentaireAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Commentaire }
+        public: true
