@@ -10,4 +10,6 @@ class DefaultController extends Controller
     {
         return $this->render('NanotechCanhebergementAdminBundle:Default:index.html.twig');
     }
+    
+      
 }
