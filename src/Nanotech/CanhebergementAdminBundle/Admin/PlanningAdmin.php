@@ -29,6 +29,7 @@ class PlanningAdmin extends AbstractAdmin
             ->add('dateDebut')
             ->add('dateFin')
             ->add('dateEnreg')
+            ->add('fichier') 
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -45,7 +46,12 @@ class PlanningAdmin extends AbstractAdmin
          ->add('partenaire')
             ->add('dateDebut')
             ->add('dateFin')
-          
+            ->add('fichier', 'sonata_media_type', array(
+                   'provider' => 'sonata.media.provider.file',
+                   'context' => 'pdf_planning',
+                   'required' => true,
+                   'label' => "pdf du planning",
+               ))
         ;
     }
 
@@ -55,6 +61,7 @@ class PlanningAdmin extends AbstractAdmin
             ->add('id')
             ->add('dateDebut')
             ->add('dateFin')
+            ->add('fichier')
             ->add('dateEnreg')
         ;
     }

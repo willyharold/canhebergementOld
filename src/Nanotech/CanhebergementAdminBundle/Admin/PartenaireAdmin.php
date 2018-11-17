@@ -106,16 +106,16 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('proximite')
            ->add('logo', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
-                   'context' => 'logo_moyen_paiement',
+                   'context' => 'image_logo',
                    'required' => false,
                    'label' => "logo du partenaire",
                ))
              ->add('image', 'sonata_type_model_list', array(
                         'btn_list' => false,
-                        'help' => 'Your help text',
+                        'help' => 'image de présentation de l\'hotel',
                             ), array(
                         'link_parameters' => array(
-                            'context' => 'logo_moyen_paiement'
+                            'context' => 'image_partenaire'
                         ))
                     );
            

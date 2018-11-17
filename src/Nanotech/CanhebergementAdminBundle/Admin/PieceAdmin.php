@@ -59,7 +59,7 @@ class PieceAdmin extends AbstractAdmin
             ->add('partenaire')
             ->add('image', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
-                   'context' => 'logo_moyen_paiement',
+                   'context' => 'image_partenaire',
                    'required' => false,
                    'label' => "image",
                ))

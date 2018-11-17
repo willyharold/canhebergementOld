@@ -58,8 +58,8 @@ class MoyenPaiementAdmin extends AbstractAdmin
             ->add('national')
             ->add('logo', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
-                   'context' => 'logo_moyen_paiement',
-                   'required' => false,
+                   'context' => 'image_logo',
+                   'required' => true,
                    'label' => "logo du moyen de paiement",
                ))
         ;

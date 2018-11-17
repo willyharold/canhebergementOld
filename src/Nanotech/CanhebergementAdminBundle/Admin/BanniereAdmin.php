@@ -45,8 +45,8 @@ class BanniereAdmin extends AbstractAdmin
             ->add('position')
             ->add('image', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
-                   'context' => 'logo_moyen_paiement',
-                   'required' => false,
+                   'context' => 'image_banniere',
+                   'required' => true,
                    'label' => "logo de la bannière",
                ))
         ;
