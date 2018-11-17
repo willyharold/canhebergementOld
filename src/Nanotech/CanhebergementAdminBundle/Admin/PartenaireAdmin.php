@@ -110,6 +110,14 @@ class PartenaireAdmin extends AbstractAdmin
                    'required' => false,
                    'label' => "logo du partenaire",
                ))
+             ->add('image', 'sonata_type_model_list', array(
+                        'btn_list' => false,
+                        'help' => 'Your help text',
+                            ), array(
+                        'link_parameters' => array(
+                            'context' => 'logo_moyen_paiement'
+                        ))
+                    );
            
         ;
     }
