@@ -27,7 +27,7 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
 
@@ -41,21 +41,21 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=255)
+     * @ORM\Column(name="sexe", type="string", length=255, nullable=true)
      */
     private $sexe;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateNaissance", type="date")
+     * @ORM\Column(name="dateNaissance", type="date", nullable=true)
      */
     private $dateNaissance;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="telephone", type="integer", nullable=true)
      */
     private $telephone;
 
@@ -72,6 +72,12 @@ class Utilisateur extends BaseUser
 
     protected $username;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->dateEnreg = new \DateTime();
+
+    }
 
     /**
      * Get id

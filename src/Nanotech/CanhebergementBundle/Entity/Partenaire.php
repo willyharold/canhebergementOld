@@ -172,7 +172,12 @@ class Partenaire
      * @ORM\JoinColumn(nullable=true)
      */
     private  $logo;
-    
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", cascade={"all"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private  $utilisateur;
      /**
     * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Proximite")
     * @ORM\JoinColumn(nullable=true) 

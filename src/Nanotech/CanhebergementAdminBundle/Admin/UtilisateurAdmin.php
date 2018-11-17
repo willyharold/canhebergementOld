@@ -18,6 +18,7 @@ class UtilisateurAdmin extends AbstractAdmin
     {
         $datagridMapper 
             ->add('nom')
+            ->add('prenom')
             ->add('username')
             ->add('email')
             ->add('sexe')
@@ -32,6 +33,7 @@ class UtilisateurAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('nom')
+            ->add('prenom')
             ->add('username')
             ->add('email')
             ->add('sexe')
@@ -45,6 +47,7 @@ class UtilisateurAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nom')
+            ->add('prenom')
             ->add('username')
             ->add('email')
             ->add('password', PasswordType::class)
@@ -58,13 +61,15 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('telephone')
                ->add('roles', 'choice', [
                     'choices' => [
-                        'ROLE_ABONE' => 'Abonne',
-                        'ROLE_PRESSE' => 'presse', 
-                         'ROLE_ADMIN' => 'administrateur', 
-                         'ROLE_SUPER_ADMIN' => 'super administrateur', 
+                        'ROLE_INTERNAUTE' => 'Internaute',
+                        'ROLE_RECEPTION' => 'Reception',
+                        'ROLE_SERVICE' => 'Chef service',
+                        'ROLE_PARTENAIRE' => 'Partenaire',
+                        'ROLE_ADMIN' => 'Administrateur',
+                        'ROLE_SUPER_ADMIN' => 'super administrateur',
                     ],
                    'multiple'=> true,
-                   'expanded'=> true,
+                   'expanded'=> false,
                 ])
                 
             
@@ -74,8 +79,8 @@ class UtilisateurAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('avatar')
             ->add('nom')
+            ->add('prenom')
             ->add('username')
             ->add('email')
             ->add('password')
