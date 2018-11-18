@@ -735,6 +735,30 @@ class Partenaire
     {
         return $this->logo;
     }
+
+    /**
+     * Set logo
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Utilisateur
+     */
+    public function setUtilisateur(\Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Nanotech\CanhebergementBundle\Entity\Utilisateur
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
     
     
 

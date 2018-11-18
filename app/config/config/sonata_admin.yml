@@ -30,6 +30,7 @@ sonata_admin:
     templates: 
         layout: NanotechCanhebergementAdminBundle::standard_layout.html.twig
         dashboard: NanotechCanhebergementAdminBundle:Core:dashboard.html.twig
+
     dashboard:
         groups:
             app.admin.group.configuration:
@@ -69,7 +70,7 @@ sonata_admin:
                 items:
                     - nanotech_canhebergement_admin.admin.planning
 
-                roles: [ROLE_SERVICE,ROLE_ADMIN,ROLE_SUPER_ADMIN]
+                roles: [ROLE_PARTENAIRE,ROLE_SERVICE,ROLE_ADMIN,ROLE_SUPER_ADMIN]
 
             app.admin.group.reception:
                 label: "Reception"
@@ -80,11 +81,6 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.reservation_confirme
                     - nanotech_canhebergement_admin.admin.payer
 
-                roles: [ROLE_RECEPTION,ROLE_ADMIN,ROLE_SUPER_ADMIN]
-                     
-    security:
-        handler: sonata.admin.security.handler.role
+                roles: [ROLE_PARTENAIRE,ROLE_RECEPTION,ROLE_ADMIN,ROLE_SUPER_ADMIN]
 
-        role_admin: ROLE_ADMIN
-        role_super_admin: ROLE_SUPER_ADMIN
         

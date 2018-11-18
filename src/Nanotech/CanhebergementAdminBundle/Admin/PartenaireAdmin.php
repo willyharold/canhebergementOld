@@ -62,6 +62,7 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('coordx')
             ->add('coordy')
             ->add('slug')
+            ->add('utilisateur')
             ->add('descriptionFr')
             ->add('descriptionEn')
             ->add('_action', null, [
@@ -104,7 +105,8 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('adrServ')          
             ->add('service')
             ->add('proximite')
-           ->add('logo', 'sonata_media_type', array(
+            ->add('utilisateur')
+            ->add('logo', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'image_logo',
                    'required' => false,
