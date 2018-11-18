@@ -44,17 +44,13 @@ class PartenaireAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('nom')
             ->add('pays')
             ->add('ville')
             ->add('quartier')
             ->add('nbrEtoile')
-            ->add('nom')
             ->add('adrComplete')
             ->add('numTel1')
-            ->add('numTel2')
-            ->add('numTel3')
-            ->add('faxTel')
-            ->add('boitPost')
             ->add('adrEmail')
             ->add('dateEnreg')
             ->add('enable')

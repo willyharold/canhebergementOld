@@ -30,13 +30,14 @@ class CarteBarAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('nomFr')
+            ->add('nomEn')
+            ->add('descriptionFr')
+            ->add('descriptionEn')
             ->add('prix')
             ->add('famille')
+            ->add('partenaire')
             ->add('dateEnreg')
-            ->add('nomEn')
-            ->add('descriptionEn')
-            ->add('nomFr')
-            ->add('descriptionFr')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -70,13 +71,14 @@ class CarteBarAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
+            ->add('nomFr')
+            ->add('nomEn')
+            ->add('descriptionFr')
+            ->add('descriptionEn')
             ->add('prix')
             ->add('famille')
             ->add('dateEnreg')
-            ->add('nomEn')
-            ->add('descriptionEn')
-            ->add('nomFr')
-            ->add('descriptionFr')
+            ->add('partenaire')
         ;
     }
 }

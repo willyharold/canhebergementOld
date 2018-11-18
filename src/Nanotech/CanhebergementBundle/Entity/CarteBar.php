@@ -291,16 +291,20 @@ class CarteBar
     public function __construct()
     {
         $this->partenaire = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateEnreg = new \DateTime();
     }
+    public function __toString() {
+        return $this->nomFr? $this->nomFr." ":" ";
 
+    }
     /**
      * Add partenaire
      *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
      *
      * @return CarteBar
      */
-    public function addPartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
+    public function addPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
     {
         $this->partenaire[] = $partenaire;
 
@@ -310,9 +314,9 @@ class CarteBar
     /**
      * Remove partenaire
      *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
      */
-    public function removePartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
+    public function removePartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
     {
         $this->partenaire->removeElement($partenaire);
     }
@@ -330,11 +334,11 @@ class CarteBar
     /**
      * Set partenaire
      *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
      *
      * @return CarteBar
      */
-    public function setPartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
+    public function setPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
     {
         $this->partenaire = $partenaire;
 

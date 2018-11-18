@@ -40,6 +40,13 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('dateNaissance')
             ->add('telephone')
             ->add('roles')
+            ->add('_action', null, [
+                'actions' => [
+                    'show' => [],
+                    'edit' => [],
+                    'delete' => [],
+                ],
+            ])
         ;
     }
 

@@ -13,15 +13,7 @@ sonata_block:
 
 sonata_admin:
     security:
-        admin_permissions:
-
-            # Defaults:
-            - CREATE
-            - LIST
-            - DELETE
-            - UNDELETE
-            - OPERATOR
-            - MASTER
+        handler: sonata.admin.security.handler.role
 
 
 
