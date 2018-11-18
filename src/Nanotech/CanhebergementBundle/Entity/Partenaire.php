@@ -188,7 +188,7 @@ class Partenaire
     * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Service")
     * @ORM\JoinColumn(nullable=true) 
     */
-    private $service;
+    private $services;
     
     /**
     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CarteBar",mappedBy="partenaire")
@@ -218,13 +218,14 @@ class Partenaire
     {
         $this->dateEnreg = new \DateTime();
         $this->pays = "CAMEROUN";
-         $this->enable = "false";
+         $this->enable = false;
 
     }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -320,7 +321,7 @@ class Partenaire
     /**
      * Get nbrEtoile
      *
-     * @return int
+     * @return integer
      */
     public function getNbrEtoile()
     {
@@ -392,7 +393,7 @@ class Partenaire
     /**
      * Get numTel1
      *
-     * @return int
+     * @return integer
      */
     public function getNumTel1()
     {
@@ -416,7 +417,7 @@ class Partenaire
     /**
      * Get numTel2
      *
-     * @return int
+     * @return integer
      */
     public function getNumTel2()
     {
@@ -440,7 +441,7 @@ class Partenaire
     /**
      * Get numTel3
      *
-     * @return int
+     * @return integer
      */
     public function getNumTel3()
     {
@@ -464,7 +465,7 @@ class Partenaire
     /**
      * Get faxTel
      *
-     * @return int
+     * @return integer
      */
     public function getFaxTel()
     {
@@ -560,7 +561,7 @@ class Partenaire
     /**
      * Get enable
      *
-     * @return bool
+     * @return boolean
      */
     public function getEnable()
     {
@@ -654,30 +655,6 @@ class Partenaire
     }
 
     /**
-     * Get description
-     *
-     * @return text
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    
-     /**
-     * Set description
-     *
-     * @param text $description
-     *
-     * @return Partenaire
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
      * Get slug
      *
      * @return string
@@ -686,81 +663,6 @@ class Partenaire
     {
         return $this->slug;
     }
-    
-    
-    /**
-     * Set image
-     *
-     * @param \Nanotech\MediaBundle\Entity\Gallery $image
-     *
-     * @return MoyenPaiement
-     */
-    public function setImage(\Nanotech\MediaBundle\Entity\Gallery $image= null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \Nanotech\MediaBundle\Entity\Gallery
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-    
-     /**
-     * Set logo
-     *
-     * @param \Nanotech\MediaBundle\Entity\Media $logo
-     *
-     * @return MoyenPaiement
-     */
-    public function setLogo(\Nanotech\MediaBundle\Entity\Media $logo= null)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Get logo
-     *
-     * @return \Nanotech\MediaBundle\Entity\Media
-     */
-    public function getLogo()
-    {
-        return $this->logo;
-    }
-
-    /**
-     * Set logo
-     *
-     * @param \Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur
-     *
-     * @return Utilisateur
-     */
-    public function setUtilisateur(\Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur = null)
-    {
-        $this->utilisateur = $utilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get utilisateur
-     *
-     * @return \Nanotech\CanhebergementBundle\Entity\Utilisateur
-     */
-    public function getUtilisateur()
-    {
-        return $this->utilisateur;
-    }
-    
-    
 
     /**
      * Set descriptionFr
@@ -811,6 +713,78 @@ class Partenaire
     }
 
     /**
+     * Set image
+     *
+     * @param \Nanotech\MediaBundle\Entity\Gallery $image
+     *
+     * @return Partenaire
+     */
+    public function setImage(\Nanotech\MediaBundle\Entity\Gallery $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Nanotech\MediaBundle\Entity\Gallery
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param \Nanotech\MediaBundle\Entity\Media $logo
+     *
+     * @return Partenaire
+     */
+    public function setLogo(\Nanotech\MediaBundle\Entity\Media $logo = null)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return \Nanotech\MediaBundle\Entity\Media
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Partenaire
+     */
+    public function setUtilisateur(\Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Nanotech\CanhebergementBundle\Entity\Utilisateur
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
      * Add proximite
      *
      * @param \Nanotech\CanhebergementBundle\Entity\Proximite $proximite
@@ -853,7 +827,7 @@ class Partenaire
      */
     public function addService(\Nanotech\CanhebergementBundle\Entity\Service $service)
     {
-        $this->service[] = $service;
+        $this->services[] = $service;
 
         return $this;
     }
@@ -865,17 +839,17 @@ class Partenaire
      */
     public function removeService(\Nanotech\CanhebergementBundle\Entity\Service $service)
     {
-        $this->service->removeElement($service);
+        $this->services->removeElement($service);
     }
 
     /**
-     * Get service
+     * Get services
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getService()
+    public function getServices()
     {
-        return $this->service;
+        return $this->services;
     }
 
     /**
@@ -1012,5 +986,10 @@ class Partenaire
     public function getCommandeRestaurant()
     {
         return $this->commandeRestaurant;
+    }
+    
+    public function __toString() {
+        return $this->nom? $this->nom." ":" ";
+        
     }
 }

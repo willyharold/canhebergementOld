@@ -56,7 +56,7 @@ class Service
     }
     
     public function __toString() {
-        return $this->id? $this->id." ":" ";
+        return $this->nomFr? $this->nomFr." ":" ";
         
     }
     

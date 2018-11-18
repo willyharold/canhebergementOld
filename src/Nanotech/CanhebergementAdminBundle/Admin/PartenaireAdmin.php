@@ -94,7 +94,7 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('coordy')
             ->add('pays')
             ->add('ville')
-            ->add('quartier')                
+            ->add('quartier')
             ->add('adrComplete')
             ->add('numTel1')
             ->add('numTel2')
@@ -102,8 +102,8 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('faxTel')
             ->add('boitPost')
             ->add('adrEmail')
-            ->add('adrServ')          
-            ->add('service')
+            ->add('adrServ')
+            ->add('services')
             ->add('proximite')
             ->add('utilisateur')
             ->add('logo', 'sonata_media_type', array(
@@ -146,8 +146,12 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('coordx')
             ->add('coordy')
             ->add('slug')
+            ->add('services')
+            ->add('proximite')
             ->add('descriptionFr')
             ->add('descriptionEn')
+            ->add('logo')
+            ->add('image')
         ;
     }
 }
