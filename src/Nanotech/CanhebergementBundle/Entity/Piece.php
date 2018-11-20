@@ -80,6 +80,12 @@ class Piece
      * @ORM\JoinColumn(nullable=true)
      */
     private  $image;
+
+    public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
     /**
      * Get id
      *
@@ -304,5 +310,10 @@ class Piece
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function __toString() {
+        return $this->nomFr? $this->nomFr." - ".$this->partenaire:" ";
+
     }
 }

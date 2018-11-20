@@ -68,7 +68,6 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('telephone')
                ->add('roles', 'choice', [
                     'choices' => [
-                        'ROLE_INTERNAUTE' => 'Internaute',
                         'ROLE_RECEPTION' => 'Reception',
                         'ROLE_SERVICE' => 'Chef service',
                         'ROLE_PARTENAIRE' => 'Partenaire',
@@ -97,5 +96,19 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('roles')
             ->add('dateEnreg')
         ;
+    }
+
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
     }
 }

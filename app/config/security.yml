@@ -54,6 +54,8 @@ security:
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_LIST
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_VIEW
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_EDIT
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_CREATE
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_DELETE
 
         ROLE_SONATA_CANHEBERGEMENT_BANNIERE:
             - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_BANNIERE_LIST
@@ -141,6 +143,8 @@ security:
             - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_PLANNING_EDIT
             - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_PLANNING_DELETE
             - ROLE_SONATA_CANHEBERGEMENT_COMMENTAIRECLIENT
+            - ROLE_SONATA_CANHEBERGEMENT_COMMANDEBAR
+            - ROLE_SONATA_CANHEBERGEMENT_COMMANDERESTAURANT
 
         ROLE_ADMIN:
             - ROLE_ADMIN
@@ -151,6 +155,12 @@ security:
             - ROLE_SONATA_CANHEBERGEMENT_MOYENPAIEMENT
             - ROLE_SONATA_CANHEBERGEMENT_INTERNAUTE
             - ROLE_SONATA_CANHEBERGEMENT_COMMENTAIRE
+            - ROLE_SONATA_CANHEBERGEMENT_BANNIERE
+            - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_PAYER_DELETE
+            - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_PAYER_EDIT
+            - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_RESERVATION_CONFIRME_DELETE
+            - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_RESERVATION_DELETE
+
 
         ROLE_SUPER_ADMIN:
             - ROLE_ADMIN
@@ -164,7 +174,7 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email        # fos_user.user_provider.username_email does not seem to work (OAuth-spec related ("username + password") ?)
     firewalls:
-        
+
         
         oauth_token:                                   # Everyone can access the access token URL.
             pattern: ^/oauth/v2/token
@@ -204,6 +214,6 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, role: [ROLE_ADMIN,ROLE_PARTENAIRE,ROLE_SERVICE,ROLE_RECEPTION] }
+        - { path: ^/admin, role: [ROLE_PARTENAIRE,] }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         

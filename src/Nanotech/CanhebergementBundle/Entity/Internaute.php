@@ -285,4 +285,9 @@ class Internaute
         $this->dateEnreg = new \DateTime();
 
     }
+
+    public function __toString() {
+        return $this->nom? $this->nom." ":" ";
+
+    }
 }
