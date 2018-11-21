@@ -1,3 +1,7 @@
 nanotech_canhebergement_homepage:
     path:     /
     defaults: { _controller: NanotechCanhebergementBundle:Default:index }
+
+nanotech_canhebergement_hotel:
+    path:     /hotel
+    defaults: { _controller: NanotechCanhebergementBundle:Default:hotel }

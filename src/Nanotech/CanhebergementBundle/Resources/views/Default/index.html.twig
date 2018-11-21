@@ -1,1 +1,232 @@
-Hello World!
+{% extends "::base.html.twig" %}
+
+{% block title %}{{"Accueil"|trans }} {% endblock %}
+    {% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
+       {% block body %}
+    <section>
+	<div class="container">	
+	<div class="row">
+		<div class="col-md-12"><h3 class="cl1 text-center">NOUVEAU HÔTEL</h3></div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/1.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br><span class="text-center srv" title="Sale de sérémonie"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
+				<span class=" text-center srv" title="Coktail"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+				<span class=" text-center srv" title="+ de details"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
+				
+			</p>
+			<a href="hotel.html" class="d-none lien"></a>
+		</div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/2.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br>
+				<span class=" text-center srv" title="restaurant"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+				<span class=" text-center srv" title="Wifi"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
+				<span class=" text-center critaire srv md-20 dpb2 material-icons" title="+ de details">add </span>
+			</p>
+		</div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/3.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
+			</p>
+		</div>
+		<div class="col-md-12 dividers"></div>
+		<div class="col-md-12 text-center mb-sm-3"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">visibility</i>VOIR TOUS LES HÔTELS</a></div>
+	</div>
+	<div class="divider"></div>
+	<div class="row">
+		<div class="col-md-12 mt-sm-5"><h3 class="cl1 text-center">APPARTEMENT</h3></div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/1.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">32.000 XAF/mois</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
+				<span class=" text-center critaire srv md-20 dpb2 material-icons">add </span>
+			</p>
+		</div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/2.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">2.000 XAF/jour</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
+			</p>
+		</div>
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+			<div class="htl" >
+				<div class="htlin" style="background-image: url({{ asset('can/images/3.jpg') }});"></div>
+				<div class="couvr jaune md-18" >
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+					<i class="material-icons">star</i>
+				</div>
+			</div>
+			<p> <h5 class="nhtl">222.000 XAF/mois</h5></p>
+			<p>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
+				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor inci...</span><br>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
+				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
+			</p>
+		</div>
+		<div class="col-md-12 dividers"></div>
+		<div class="col-md-12 text-center mb-sm-3"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">visibility</i>VOIR TOUS LES APPARTEMENTS</a></div>
+	</div>
+	<div class="divider"></div>
+	<div class="row">
+		<div class="col-md-12 mt-sm-5"><h3 class="cl1 text-center">CONTACTEZ NOUS</h3></div>
+		<form class="col-md-12 mt-sm-2">
+			<div class="row">
+				<div class="form-group col-md-6">
+					<input class="md-13 contact" type="text" id="nom" name="nom" placeholder="Votre nom" style="width: 100%">
+				</div>
+				<div class="form-group col-md-6">
+					<input class="md-13 contact" type="text" id="tel" name="tel" placeholder="Numéro de téléphone" style="width: 100%">
+				</div>
+				<div class="form-group col-md-12">
+					<textarea  class="contact" rows="5" id="msg" name="msg" placeholder="Votre message" style="width: 100%">
+					</textarea>
+				</div>
+				<div class="col-md-12 text-center"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">send</i>ENVOYEZ</a></div>
+		</form>
+	</div>
+	</div>
+	<div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+	<div class="logn bcl1">
+		
+		<div class="clsl point"><i class="material-icons">close</i></div>
+		
+		<div class="col-md-4 offset-md-4 lognc" style="color:#fff">
+			<div class="mt-4">
+				<div>
+					<h2 class="h1-r jaune">LOGIN RESERVATION</h2>
+					<p>Pour voir vos précédentes réservations, veuillez entrez
+						les informations qui vous ont été envoyées par mail.
+					</p>
+					<p class="md-12 cl3 error">Les informations que vous avez entrer ne sont pas correct.</p>
+				</div>
+				<div>
+					<form>
+						<div class="heiI inp mt-4">
+							<span class="material-icons cl12 labrech">place</span>
+							<input class="md-13 inrech" type="text" id="login" name="login" placeholder="Identifiant">
+						</div>
+						<div class="heiI inp mt-4">
+							<span class="material-icons cl12 labrech">lock</span>
+							<input class="md-13 inrech" type="text" id="login" name="login" placeholder="Mot de passe">
+						</div>
+						<button class="btn btn-outline-warning mt-4 md-12">Se connecter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container-fluid ">
+		<div class="divider"></div>
+		<div class="row bcl5">
+			<div class="col-md-12 mt-sm-5"><h3 class="cl1 text-center">NOS PARTENAIRES</h3></div>
+			<div class="container mt-3 pb-4">
+				<div class="row">
+					<div class="col-md-3 col-12 col-sm-6">
+						<div style="background-image: url({{ asset('can/images/p1.jpg') }})" class="hepart"></div>
+						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE1 <br> <span class="cl8">Fonction du partenaire</span></div>
+						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod
+						</div>
+					</div>
+					<div class="col-md-3 col-12 col-sm-6">
+						<div style="background-image: url({{ asset('can/images/p2.jpg') }})" class="hepart"></div>
+						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE2 <br> <span class="cl8">Fonction du partenaire</span></div>
+						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur dipisicin adipisicing elit, sdo doeiueiued do eiusm do eiuod
+						</div>
+					</div>
+					<div class="col-md-3 col-12 col-sm-6">
+						<div style="background-image: url({{ asset('can/images/p3.jpg') }})" class="hepart"></div>
+						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE3 <br> <span class="cl8">Fonction du partenaire</span></div>
+						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit
+						</div>
+					</div>
+					<div class="col-md-3 col-12 col-sm-6">
+						<div style="background-image: url({{ asset('can/images/p4.jpg') }})" class="hepart"></div>
+						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE4 <br> <span class="cl8">Fonction du partenaire</span></div>
+						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+						</div>
+					</div>
+				</div>
+				<div class="divider"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+    
+
+
+{% endblock %}

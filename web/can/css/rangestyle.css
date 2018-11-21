@@ -1,0 +1,75 @@
+.price-range-block {
+    margin:60px;
+}
+
+.sliderText{
+    width:40%;
+    margin-bottom:30px;
+    border-bottom: 2px solid red;
+    padding: 10px 0 10px 0px;
+    font-weight:bold;
+}
+
+
+.ui-slider-horizontal {
+    height: .2em;
+    margin-bottom: 0px;
+    width:100%;
+    cursor: pointer;
+}
+.ui-widget-header {
+    background: #3FE331;
+}
+
+.price-range-search {
+    width:40.5%; 
+    background-color: #f9f9f9; 
+    border: 1px solid #6e6666;
+    min-width: 40%;
+    display: inline-block;
+    height: 32px;
+    border-radius: 5px;
+    float: left;
+    margin-bottom:20px;
+    font-size:16px;
+}
+.price-range-field{
+    width:20%; 
+    min-width: 16%;
+    background-color:#f9f9f9; 
+    border: 1px solid #6e6666; 
+    color: black; 
+    font-family: myFont; 
+    font: normal 14px Arial, Helvetica, sans-serif; 
+    border-radius: 5px; 
+    height:26px; 
+    padding:5px;
+}
+.search-results-block{
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+/*my nir*/
+.ui-slider .ui-slider-handle{
+    border-radius:  50%;
+    top:-6px;
+    cursor: pointer;
+    width: 1.1em;
+    height: 1.1em;
+    /*border: 1px solid #00c1ea;
+    background: #00f1f9;*/
+}
+.ui-widget-header{
+    background-color: yellow;
+    border: 1px solid yellow !important;
+}
+.filtre .ui-widget-header{
+    background-color: rgba(228,22,59,1);
+    border: 1px solid rgba(228,22,59,1) !important;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #e0e0e0;
+    background-color: #e0e0e0;
+}

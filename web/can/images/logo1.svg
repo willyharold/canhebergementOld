@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 254.291 254.292" xml:space="preserve">
+<font horiz-adv-x="2048">
+<!-- Rockwell(R) is a trademark of The Monotype Corporation which may be registered in certain jurisdictions. -->
+<!-- Copyright: Copyright 2018 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="Rockwell" units-per-em="2048" underline-position="-160" underline-thickness="102"/>
+<missing-glyph horiz-adv-x="1536" d="M256,0l0,1280l1024,0l0,-1280M288,32l960,0l0,1216l-960,0z"/>
+<glyph unicode="A" horiz-adv-x="1430" d="M970,489l-500,0l-107,-315l169,0l0,-174l-548,0l0,174l168,0l380,1060l-169,0l0,157l711,0l0,-157l-173,0l389,-1060l156,0l0,-174l-545,0l0,174l173,0M918,652l-185,582l-19,0l-192,-582z"/>
+<glyph unicode="C" horiz-adv-x="1556" d="M1277,566l181,-101C1417,310 1335,191 1212,106C1088,21 946,-22 785,-22C574,-22 405,46 278,183C151,320 87,489 87,690C87,911 151,1086 279,1217C407,1348 574,1413 780,1413C962,1413 1115,1363 1239,1264l0,127l180,0l0,-447l-180,0C1199,1035 1137,1105 1054,1155C971,1204 883,1229 791,1229C652,1229 539,1179 450,1079C361,979 316,853 316,700C316,543 364,415 459,316C554,217 667,167 798,167C905,167 1003,202 1091,271C1179,340 1241,438 1277,566z"/>
+<glyph unicode="H" horiz-adv-x="1450" d="M213,174l0,1043l-158,0l0,174l532,0l0,-174l-164,0l0,-398l605,0l0,398l-163,0l0,174l532,0l0,-174l-159,0l0,-1043l159,0l0,-174l-532,0l0,174l163,0l0,471l-605,0l0,-471l164,0l0,-174l-532,0l0,174z"/>
+<glyph unicode="N" horiz-adv-x="1473" d="M209,174l0,1043l-199,0l0,174l475,0l610,-1081l0,907l-197,0l0,174l571,0l0,-174l-205,0l0,-1231l-216,0l-667,1187l0,-999l199,0l0,-174l-570,0l0,174z"/>
+<glyph unicode="e" horiz-adv-x="1174" d="M1098,436l-814,0C296,347 331,274 390,219C449,164 524,136 615,136C748,136 853,189 930,296l168,-74C1043,137 972,75 885,34C798,-7 706,-28 611,-28C463,-28 337,18 232,111C127,203 74,327 74,484C74,633 125,755 228,851C330,947 447,995 580,995C710,995 828,948 934,855C1039,761 1094,621 1098,436M902,574C889,642 853,704 796,759C739,814 668,841 585,841C509,841 444,816 390,767C336,717 303,653 291,574z"/>
+<glyph unicode="l" horiz-adv-x="598" d="M213,169l0,1053l-172,0l0,169l362,0l0,-1222l148,0l0,-169l-510,0l0,169z"/>
+<glyph unicode="o" horiz-adv-x="1174" d="M78,484C78,633 127,756 226,852C325,947 445,995 587,995C726,995 846,948 946,854C1046,759 1096,636 1096,484C1096,332 1046,209 947,114C847,19 727,-28 587,-28C443,-28 322,20 225,116C127,212 78,335 78,484M279,484C279,389 309,311 369,250C428,189 501,158 587,158C674,158 748,189 807,251C866,312 895,390 895,484C895,579 865,657 805,718C745,779 672,810 587,810C498,810 424,779 366,716C308,653 279,576 279,484z"/>
+<glyph unicode="t" horiz-adv-x="618" d="M62,799l0,169l126,0l0,149l190,174l0,-323l179,0l0,-169l-179,0l0,-470C378,254 382,207 391,190C399,172 420,163 453,163C488,163 523,170 557,183l0,-173C508,-7 460,-16 411,-16C353,-16 306,-3 270,23C234,48 211,80 202,119C193,158 188,224 188,319l0,480z"/>
+</font>
+
+	<g id="Layer_1">
+	<rect x="-125.538" y="304.485" fill="#FFB922" width="520.474" height="614.969"/>
+</g>
+<g id="Layer_2">
+	<image width="72" height="49" xlink:href="172A586A.png"  transform="matrix(0.24 0 0 0.24 -12.109 807.2676)">
+	</image>
+	<circle fill="#FFFFFF" stroke="#2B292A" stroke-width="0.9758" stroke-miterlimit="10" cx="43.527" cy="727.02" r="18.625"/>
+	<text transform="matrix(1 0 0 1 -3.5637 835.3735)" fill="#2B292A" font-family="'Roboto-Black'" font-size="16">C</text>
+	<text transform="matrix(1 0 0 1 8.5359 835.3735)" fill="#2B292A" font-family="'Roboto-Black'" font-size="16">A</text>
+	<text transform="matrix(1 0 0 1 21.035 835.3735)" fill="#2B292A" font-family="'Roboto-Black'" font-size="16">N</text>
+	<text transform="matrix(1 0 0 1 33.869 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16"> </text>
+	<text transform="matrix(1 0 0 1 39.4295 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16"> </text>
+	<text transform="matrix(1 0 0 1 44.991 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16">H</text>
+	<text transform="matrix(1 0 0 1 57.9969 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16">O</text>
+	<text transform="matrix(1 0 0 1 70.3865 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16">T</text>
+	<text transform="matrix(1 0 0 1 81.533 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16">E</text>
+	<text transform="matrix(1 0 0 1 92.2264 835.3735)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="16">L</text>
+	<path fill="#FFFFFF" stroke="#2B292A" stroke-width="0.7074" stroke-miterlimit="10" d="M44.711,708.907
+		c-0.233,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.309-2.925-2.925-2.925
+		c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913
+		c-2.04,0-3.693,1.654-3.693,3.693c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819
+		C47.53,710.169,46.268,708.907,44.711,708.907z"/>
+	<path fill="#FFFFFF" stroke="#2B292A" stroke-width="0.9758" stroke-miterlimit="10" d="M21.013,733.372
+		c-0.322,0-0.635,0.04-0.934,0.114c0.067-0.291,0.103-0.594,0.103-0.905c0-2.228-1.806-4.035-4.035-4.035
+		c-0.846,0-1.63,0.261-2.278,0.705c-0.757-2.916-3.407-5.069-6.559-5.069c-3.743,0-6.776,3.034-6.776,6.776
+		c-2.814,0-5.095,2.281-5.095,5.095s2.281,5.095,5.095,5.095h20.48c2.147,0,3.888-1.741,3.888-3.888
+		C24.901,735.113,23.161,733.372,21.013,733.372z"/>
+	<polygon fill="#2B292A" points="89.198,818.899 89.198,728.232 53.425,693.693 53.425,818.899 	"/>
+	<polyline fill="#FFFFFF" stroke="#2B292A" stroke-width="3" stroke-miterlimit="10" points="46.803,818.899 46.803,734.999 
+		-0.663,758.899 -0.663,818.899 	"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="734.999" x2="83.996" y2="734.999"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="743.002" x2="83.996" y2="743.002"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="751.005" x2="83.996" y2="751.005"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="759.009" x2="83.996" y2="759.009"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="767.012" x2="83.996" y2="767.012"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="775.015" x2="83.996" y2="775.015"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="783.019" x2="83.996" y2="783.019"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="791.022" x2="83.996" y2="791.022"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="799.025" x2="83.996" y2="799.025"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.7423" stroke-miterlimit="10" x1="71.312" y1="807.029" x2="83.996" y2="807.029"/>
+	
+		<line fill="none" stroke="#2B292A" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="0.954" y1="769.008" x2="26.171" y2="758.292"/>
+	
+		<line fill="none" stroke="#2B292A" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="0.954" y1="777.728" x2="26.171" y2="767.012"/>
+	
+		<line fill="none" stroke="#2B292A" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="0.954" y1="786.448" x2="26.171" y2="775.732"/>
+	
+		<line fill="#FFFFFF" stroke="#2B292A" stroke-width="0.9758" stroke-miterlimit="10" x1="-19.193" y1="818.899" x2="111.757" y2="818.899"/>
+	<image width="72" height="49" xlink:href="172A5869.png"  transform="matrix(0.24 0 0 0.24 83.8411 807.2676)">
+	</image>
+	<g>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="92.7219" y1="799.2277" x2="112.0078" y2="799.2277">
+			<stop  offset="0" style="stop-color:#9EB644"/>
+			<stop  offset="1" style="stop-color:#73861C"/>
+		</linearGradient>
+		<circle fill="url(#SVGID_1_)" cx="102.365" cy="799.228" r="9.643"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="1.077" stroke-linecap="round" stroke-miterlimit="10" x1="102.486" y1="794.171" x2="102.486" y2="818.221"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="1.077" stroke-linecap="round" stroke-miterlimit="10" x1="102.486" y1="805.828" x2="106.454" y2="801.566"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="1.077" stroke-linecap="round" stroke-miterlimit="10" x1="102.486" y1="801.837" x2="98.517" y2="797.575"/>
+	</g>
+	
+		<line fill="none" stroke="#2B292A" stroke-linecap="round" stroke-miterlimit="10" x1="9.475" y1="748.463" x2="16.624" y2="744.99"/>
+	<polyline fill="none" stroke="#2B292A" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="6.005,754.3 
+		6.005,745.986 21.013,739.153 21.013,746.727 	"/>
+	
+		<line fill="none" stroke="#2B292A" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="33.853" y1="748.937" x2="33.853" y2="813.104"/>
+	<g>
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="28.859" y1="802.0672" x2="45.478" y2="802.0672">
+			<stop  offset="0" style="stop-color:#9EB644"/>
+			<stop  offset="1" style="stop-color:#73861C"/>
+		</linearGradient>
+		<circle fill="url(#SVGID_2_)" cx="37.169" cy="802.067" r="8.31"/>
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="29.5218" y1="795.1725" x2="41.6037" y2="795.1725">
+			<stop  offset="0" style="stop-color:#9EB644"/>
+			<stop  offset="1" style="stop-color:#73861C"/>
+		</linearGradient>
+		<circle fill="url(#SVGID_3_)" cx="35.563" cy="795.173" r="6.041"/>
+		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="37.2911" y1="802.0672" x2="49.373" y2="802.0672">
+			<stop  offset="0" style="stop-color:#9EB644"/>
+			<stop  offset="1" style="stop-color:#73861C"/>
+		</linearGradient>
+		<circle fill="url(#SVGID_4_)" cx="43.332" cy="802.067" r="6.041"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="0.9281" stroke-linecap="round" stroke-miterlimit="10" x1="37.273" y1="797.71" x2="37.273" y2="818.434"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="0.9281" stroke-linecap="round" stroke-miterlimit="10" x1="37.273" y1="806.035" x2="40.693" y2="802.362"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="0.9281" stroke-linecap="round" stroke-miterlimit="10" x1="37.166" y1="803.05" x2="40.586" y2="799.377"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="0.9281" stroke-linecap="round" stroke-miterlimit="10" x1="37.273" y1="806.035" x2="33.853" y2="802.362"/>
+	</g>
+	<polyline fill="none" stroke="#2B292A" stroke-linecap="round" stroke-miterlimit="10" points="-180.691,674.263 -180.691,666.654 
+		-193.591,670.002 -193.591,677.846 	"/>
+	
+		<line fill="none" stroke="#2B292A" stroke-linecap="round" stroke-miterlimit="10" x1="-187.141" y1="671" x2="-187.141" y2="677.526"/>
+	<path fill="none" stroke="#2B292A" stroke-linecap="round" stroke-miterlimit="10" d="M13.05,818.725v-9.536c0,0,1.7-6.264,7.964,0
+		"/>
+	<ellipse fill="#4D4D4D" cx="38.468" cy="830.285" rx="2.923" ry="1.667"/>
+</g>
+<g id="Layer_3">
+	<polygon fill="none" stroke="#2B292A" stroke-miterlimit="10" points="67.82,425.045 68.872,427.176 71.223,427.518 
+		69.521,429.176 69.923,431.518 67.82,430.412 65.717,431.518 66.119,429.176 64.417,427.518 66.768,427.176 	"/>
+	<polygon fill="none" stroke="#2B292A" stroke-miterlimit="10" points="15.973,425.045 17.024,427.176 19.376,427.518 
+		17.674,429.176 18.076,431.518 15.973,430.412 13.87,431.518 14.271,429.176 12.57,427.518 14.921,427.176 	"/>
+	<text transform="matrix(1 0 0 1 15.4887 421.885)" fill="#2B292A" font-family="'Teko-Regular'" font-size="36.9089">C</text>
+	<text transform="matrix(1 0 0 1 33.0941 421.885)" fill="#2B292A" font-family="'Teko-Regular'" font-size="36.9089">A</text>
+	<text transform="matrix(1 0 0 1 50.9945 421.885)" fill="#2B292A" font-family="'Teko-Regular'" font-size="36.9089">N</text>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M180.959,529.927"/>
+	<path fill="#2B292A" d="M153.194,485.974c0,1.104,0,2.209,0,3.313c9.193,3.777,18.386-3.777,27.579,0c0-1.104,0-2.209,0-3.313
+		C171.58,482.197,162.387,489.751,153.194,485.974z"/>
+	<path fill="#2B292A" d="M166.811,495.834v3.313c4.654-0.956,9.308-1.947,13.962-0.035v-3.313
+		C176.119,493.886,171.465,494.878,166.811,495.834z"/>
+	<path fill="#2B292A" d="M223.48,485.974c0,1.104,0,2.209,0,3.313c9.193-3.777,18.386,3.777,27.579,0c0-1.104,0-2.209,0-3.313
+		C241.866,489.751,232.673,482.197,223.48,485.974z"/>
+	<path fill="#2B292A" d="M223.48,495.798v3.313c4.654-1.912,9.308-0.92,13.962,0.035v-3.313
+		C232.788,494.878,228.134,493.886,223.48,495.798z"/>
+	<polygon fill="#2B292A" points="12.448,408.022 12.448,405.939 -2.881,405.939 -2.881,408.022 -2.881,410.105 12.448,410.105 	"/>
+	<polygon fill="#2B292A" points="12.448,418.562 12.448,416.479 -14.977,416.479 -14.977,420.645 12.448,420.645 	"/>
+	<polygon fill="#2B292A" points="84.565,408.022 84.565,405.939 69.235,405.939 69.235,408.022 69.235,410.105 84.565,410.105 	"/>
+	<polygon fill="#2B292A" points="96.66,418.562 96.66,416.479 69.235,416.479 69.235,418.562 69.235,420.645 96.66,420.645 	"/>
+	<text transform="matrix(1 0 0 1 183.3882 500.1447)" fill="#2B292A" font-family="'Teko-Regular'" font-size="26.8309">C</text>
+	<text transform="matrix(1 0 0 1 196.1866 500.1447)" fill="#2B292A" font-family="'Teko-Regular'" font-size="26.8309">A</text>
+	<text transform="matrix(1 0 0 1 209.1993 500.1447)" fill="#2B292A" font-family="'Teko-Regular'" font-size="26.8309">N</text>
+	<path fill="#2B292A" d="M145.648,404.355c0,1.306,0,2.611,0,3.917c10.869,4.465,21.737-4.465,32.606,0c0-1.306,0-2.611,0-3.917
+		C167.385,399.889,156.516,408.82,145.648,404.355z"/>
+	<path fill="#2B292A" d="M161.747,416.012v3.917c5.502-1.13,11.004-2.302,16.507-0.042v-3.917
+		C172.751,413.71,167.249,414.883,161.747,416.012z"/>
+	<path fill="#2B292A" d="M228.745,404.355c0,1.306,0,2.611,0,3.917c10.869-4.465,21.737,4.465,32.606,0c0-1.306,0-2.611,0-3.917
+		C250.482,408.82,239.614,399.889,228.745,404.355z"/>
+	<path fill="#2B292A" d="M228.745,415.971v3.917c5.502-2.26,11.004-1.088,16.507,0.042v-3.917
+		C239.749,414.883,234.247,413.71,228.745,415.971z"/>
+	<text transform="matrix(1 0 0 1 181.3447 420.9268)" fill="#2B292A" font-family="'Teko-Regular'" font-size="31.7215">C</text>
+	<text transform="matrix(1 0 0 1 196.4755 420.9268)" fill="#2B292A" font-family="'Teko-Regular'" font-size="31.7215">A</text>
+	<text transform="matrix(1 0 0 1 211.8613 420.9268)" fill="#2B292A" font-family="'Teko-Regular'" font-size="31.7215">N</text>
+	<text transform="matrix(1 0 0 1 21.976 433.9196)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12.0145">H</text>
+	<text transform="matrix(1 0 0 1 31.7426 433.9196)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12.0145">O</text>
+	<text transform="matrix(1 0 0 1 41.0453 433.9196)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12.0145">T</text>
+	<text transform="matrix(1 0 0 1 49.4159 433.9196)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12.0145">E</text>
+	<text transform="matrix(1 0 0 1 57.4457 433.9196)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12.0145">L</text>
+	<polygon fill="none" stroke="#2B292A" stroke-width="1.1823" stroke-miterlimit="10" points="235.358,424.576 236.602,427.095 
+		239.381,427.499 237.37,429.46 237.845,432.229 235.358,430.921 232.872,432.229 233.347,429.46 231.335,427.499 234.115,427.095 	
+		"/>
+	<polygon fill="none" stroke="#2B292A" stroke-width="1.1823" stroke-miterlimit="10" points="174.061,424.576 175.304,427.095 
+		178.084,427.499 176.072,429.46 176.547,432.229 174.061,430.921 171.574,432.229 172.049,429.46 170.038,427.499 172.818,427.095 
+			"/>
+	<text transform="matrix(1 0 0 1 181.1578 435.0682)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="14.2045">H</text>
+	<text transform="matrix(1 0 0 1 192.7047 435.0682)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="14.2045">O</text>
+	<text transform="matrix(1 0 0 1 203.7032 435.0682)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="14.2045">T</text>
+	<text transform="matrix(1 0 0 1 213.5997 435.0682)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="14.2045">E</text>
+	<text transform="matrix(1 0 0 1 223.0928 435.0682)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="14.2045">L</text>
+	<polygon fill="#FFFFFF" stroke="#2B292A" stroke-width="1.6103" stroke-miterlimit="10" points="157.405,504.483 158.25,504.483 
+		160.938,504.483 161.772,504.483 162.61,504.483 164.195,504.483 165.17,504.483 240.169,504.483 241.144,504.483 242.729,504.483 
+		243.566,504.483 244.402,504.483 247.09,504.483 247.934,504.483 248.758,504.483 249.391,504.483 247.775,512.045 246.443,518.28 
+		246.589,518.92 249.372,531.117 243.688,531.117 242.806,531.117 241.927,531.117 239.089,531.117 238.207,531.117 
+		237.323,531.117 235.642,531.117 234.6,531.117 170.739,531.117 169.698,531.117 168.017,531.117 167.132,531.117 166.25,531.117 
+		163.412,531.117 162.533,531.117 161.651,531.117 154.794,531.117 157.184,518.643 154.768,504.483 156.581,504.483 	"/>
+	<text transform="matrix(1 0 0 1 174.412 523.6307)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">H</text>
+	<text transform="matrix(1 0 0 1 187.0136 523.6307)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">O</text>
+	<text transform="matrix(1 0 0 1 199.0175 523.6307)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">T</text>
+	<text transform="matrix(1 0 0 1 209.8173 523.6307)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">E</text>
+	<text transform="matrix(1 0 0 1 220.1786 523.6307)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">L</text>
+	<image width="406" height="143" xlink:href="172A5876.png"  transform="matrix(0.24 0 0 0.24 152.8165 500.7044)">
+	</image>
+	<polygon fill="#2B292A" points="168.203,514.355 169.215,516.406 171.479,516.735 169.841,518.332 170.227,520.587 
+		168.203,519.522 166.178,520.587 166.564,518.332 164.926,516.735 167.19,516.406 	"/>
+	<polygon fill="#2B292A" points="233.157,514.355 234.169,516.406 236.433,516.735 234.795,518.332 235.182,520.587 
+		233.157,519.522 231.132,520.587 231.519,518.332 229.88,516.735 232.144,516.406 	"/>
+</g>
+<g id="Layer_4">
+	<g>
+		<text transform="matrix(1.2178 0 0 1 159.5784 819.9139)" fill="#2B292A" font-family="'Teko-Regular'" font-size="49.46">C</text>
+		<text transform="matrix(1.2178 0 0 1 188.3098 819.9139)" fill="#2B292A" font-family="'Teko-Regular'" font-size="49.46">A</text>
+		<text transform="matrix(1.2178 0 0 1 217.5227 819.9139)" fill="#2B292A" font-family="'Teko-Regular'" font-size="49.46">N</text>
+		<polyline fill="none" stroke="#2B292A" stroke-width="5.1628" stroke-miterlimit="10" points="236.598,795.201 236.598,755.734 
+			218.241,735.542 218.241,784.167 		"/>
+		<polyline fill="none" stroke="#2B292A" stroke-width="5.1628" stroke-miterlimit="10" points="218.241,751.319 197.59,759.923 
+			197.59,784.016 		"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="2.2946" stroke-miterlimit="10" x1="204.091" y1="765.372" x2="204.091" y2="784.016"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="236.598" y1="765.372" x2="225.89" y2="754.187"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="236.598" y1="773.26" x2="225.89" y2="762.075"/>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="236.598" y1="781.148" x2="225.89" y2="769.964"/>
+		<text transform="matrix(1 0 0 1 161.8675 784.0155)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="9.1783">H</text>
+		<text transform="matrix(1 0 0 1 169.3284 784.0155)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="9.1783">O</text>
+		<text transform="matrix(1 0 0 1 176.4348 784.0155)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="9.1783">T</text>
+		<text transform="matrix(1 0 0 1 182.8294 784.0155)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="9.1783">E</text>
+		<text transform="matrix(1 0 0 1 188.9641 784.0155)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="9.1783">L</text>
+		
+			<line fill="none" stroke="#2B292A" stroke-width="1.1473" stroke-miterlimit="10" x1="170.438" y1="775.549" x2="173.879" y2="775.549"/>
+		<path fill="#FFFFFF" stroke="#2B292A" stroke-width="0.7074" stroke-miterlimit="10" d="M196.144,766.016
+			c-0.233,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.309-2.925-2.925-2.925
+			c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913
+			c-2.04,0-3.693,1.654-3.693,3.693c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819
+			C198.962,767.278,197.7,766.016,196.144,766.016z"/>
+	</g>
+	<g>
+		<path fill="none" stroke="#2B2829" stroke-width="1.3237" stroke-linecap="round" stroke-miterlimit="10" d="M92.051,501.168
+			H61.487c0-10.43-8.455-18.885-18.885-18.885s-18.885,8.455-18.885,18.885H-6.848"/>
+		<text transform="matrix(1 0 0 1 3.5717 521.9578)" fill="#2B2829" font-family="'Roboto-Thin'" font-size="22.0624">H</text>
+		<text transform="matrix(1 0 0 1 21.2689 521.9578)" fill="#2B2829" font-family="'Roboto-Thin'" font-size="22.0624">O</text>
+		<text transform="matrix(1 0 0 1 37.8783 521.9578)" fill="#2B2829" font-family="'Roboto-Thin'" font-size="22.0624">T</text>
+		<text transform="matrix(1 0 0 1 53.2699 521.9578)" fill="#2B2829" font-family="'Roboto-Thin'" font-size="22.0624">E</text>
+		<text transform="matrix(1 0 0 1 68.0375 521.9578)" fill="#2B2829" font-family="'Roboto-Thin'" font-size="22.0624">L</text>
+		<polygon fill="none" stroke="#2B2829" stroke-miterlimit="10" points="42.601,472.844 43.595,474.858 45.818,475.181 
+			44.21,476.748 44.589,478.962 42.601,477.917 40.614,478.962 40.993,476.748 39.385,475.181 41.608,474.858 		"/>
+		<polygon fill="none" stroke="#2B2829" stroke-width="0.9482" stroke-miterlimit="10" points="55.053,476.255 55.122,478.384 
+			56.915,479.533 54.912,480.257 54.372,482.316 53.066,480.635 50.94,480.759 52.135,478.996 51.361,477.013 53.406,477.605 		"/>
+		<polygon fill="none" stroke="#2B2829" stroke-width="0.9482" stroke-miterlimit="10" points="29.756,476.301 31.452,477.589 
+			33.474,476.923 32.773,478.934 34.031,480.651 31.902,480.605 30.658,482.333 30.044,480.294 28.016,479.644 29.765,478.43 		"/>
+		<text transform="matrix(1 0 0 1 28.7716 501.1682)" fill="#2B2829" font-family="'Roboto-Medium'" font-size="12">C</text>
+		<text transform="matrix(1 0 0 1 37.8058 501.1682)" fill="#2B2829" font-family="'Roboto-Medium'" font-size="12">A</text>
+		<text transform="matrix(1 0 0 1 46.9918 501.1682)" fill="#2B2829" font-family="'Roboto-Medium'" font-size="12">N</text>
+		
+			<line fill="none" stroke="#2B2829" stroke-width="0.9217" stroke-linecap="round" stroke-miterlimit="10" x1="5.855" y1="526.683" x2="78.979" y2="526.683"/>
+	</g>
+</g>
+<g id="Layer_5">
+	<path fill="none" stroke="#2B292A" stroke-width="1.9955" stroke-miterlimit="10" d="M48.329,624.618
+		c-12.136,9.396-5.625,18.042-1.335,21.956c1.355,1.237,3.512,0.858,4.377-0.76l13.371-25.035c1.002-1.876-0.357-4.142-2.484-4.142
+		H21.63c-2.126,0-3.485,2.267-2.484,4.142l22.797,42.685l0,0c0.55,1.068,1.693,1.705,2.889,1.599
+		c19.034-1.69,33.544-18.341,32.164-37.816c-1.298-18.324-16.738-32.784-35.108-32.879c-20.204-0.105-36.274,16.571-35.618,36.579
+		c0.492,15.016,10.263,27.542,23.627,32.254"/>
+	<path fill="#2B292A" d="M47.766,602.383c-0.418,0-0.756,0.339-0.756,0.756c0,0.128,0.032,0.248,0.088,0.354l-2.405,2.524
+		l-0.021-1.99c0.247-0.089,0.423-0.325,0.423-0.602c0-0.353-0.286-0.64-0.64-0.64c-0.353,0-0.64,0.286-0.64,0.64
+		c0,0.133,0.041,0.257,0.11,0.359l-1.013,1.696l-0.708-2.871c0.326-0.184,0.546-0.533,0.546-0.934c0-0.592-0.48-1.073-1.073-1.073
+		c-0.592,0-1.073,0.48-1.073,1.073c0,0.395,0.213,0.739,0.531,0.926l-0.71,2.879l-1.013-1.696c0.07-0.102,0.11-0.226,0.11-0.359
+		c0-0.353-0.286-0.64-0.64-0.64s-0.64,0.286-0.64,0.64c0,0.277,0.176,0.513,0.423,0.602l-0.021,1.99l-2.405-2.524
+		c0.056-0.106,0.088-0.226,0.088-0.354c0-0.418-0.339-0.756-0.756-0.756c-0.418,0-0.756,0.339-0.756,0.756
+		c0,0.403,0.315,0.732,0.712,0.755l1.359,5.855h4.295h0.976h4.295l1.359-5.855c0.397-0.023,0.712-0.352,0.712-0.755
+		C48.522,602.721,48.184,602.383,47.766,602.383z"/>
+	<polygon fill="#2B292A" points="36.646,612.018 46.598,612.018 47.037,610.335 36.171,610.335 	"/>
+	<path fill="#2B292A" d="M25.861,607.245c0,0.294,0,0.588,0,0.882c2.446,1.005,4.892-1.005,7.338,0c0-0.294,0-0.588,0-0.882
+		C30.753,606.24,28.307,608.25,25.861,607.245z"/>
+	<path fill="#2B292A" d="M29.485,609.869v0.882c1.238-0.254,2.477-0.518,3.715-0.009v-0.882
+		C31.961,609.351,30.723,609.615,29.485,609.869z"/>
+	<path fill="#2B292A" d="M50.137,607.245c0,0.294,0,0.588,0,0.882c2.446-1.005,4.892,1.005,7.338,0c0-0.294,0-0.588,0-0.882
+		C55.029,608.25,52.583,606.24,50.137,607.245z"/>
+	<path fill="#2B292A" d="M50.137,609.859v0.882c1.238-0.509,2.477-0.245,3.715,0.009v-0.882
+		C52.614,609.615,51.376,609.351,50.137,609.859z"/>
+	<g>
+		<path fill="none" stroke="#2B292A" stroke-width="1.9955" stroke-miterlimit="10" d="M208.664,615.492
+			c-12.136,9.396-5.625,18.042-1.335,21.956c1.355,1.237,3.512,0.858,4.377-0.76l13.371-25.035c1.002-1.876-0.357-4.142-2.484-4.142
+			h-40.627c-2.126,0-3.485,2.267-2.484,4.142l22.797,42.685l0,0c0.55,1.068,1.693,1.705,2.889,1.599
+			c19.034-1.69,33.544-18.341,32.164-37.816c-1.298-18.324-16.738-32.784-35.108-32.879c-20.204-0.105-36.274,16.571-35.618,36.579
+			c0.492,15.016,10.263,27.542,23.627,32.254"/>
+		<ellipse fill="#FFFFFF" stroke="#2B292A" stroke-miterlimit="10" cx="203.001" cy="665.958" rx="9.026" ry="8.242"/>
+		<polygon fill="#FFFFFF" stroke="#2B292A" stroke-width="1.6103" stroke-miterlimit="10" points="158.327,644.639 159.172,644.639 
+			161.859,644.639 162.694,644.639 163.532,644.639 165.117,644.639 166.092,644.639 241.091,644.639 242.066,644.639 
+			243.651,644.639 244.488,644.639 245.323,644.639 248.012,644.639 248.855,644.639 249.68,644.639 250.313,644.639 
+			248.697,652.202 247.365,658.436 247.511,659.077 250.294,671.274 244.61,671.274 243.728,671.274 242.849,671.274 
+			240.011,671.274 239.129,671.274 238.244,671.274 236.564,671.274 235.522,671.274 171.661,671.274 170.62,671.274 
+			168.939,671.274 168.054,671.274 167.172,671.274 164.334,671.274 163.455,671.274 162.573,671.274 155.716,671.274 
+			158.106,658.799 155.69,644.639 157.502,644.639 		"/>
+		<text transform="matrix(1 0 0 1 192.2145 602.2543)" fill="#2B292A" font-family="'Teko-Regular'" font-size="14.8843">C</text>
+		<text transform="matrix(1 0 0 1 199.3141 602.2543)" fill="#2B292A" font-family="'Teko-Regular'" font-size="14.8843">A</text>
+		<text transform="matrix(1 0 0 1 206.5334 602.2543)" fill="#2B292A" font-family="'Teko-Regular'" font-size="14.8843">N</text>
+		<polygon fill="#2B292A" points="190.083,596.663 190.083,595.823 183.9,595.823 183.9,596.663 183.9,597.503 190.083,597.503 		
+			"/>
+		<polygon fill="#2B292A" points="190.083,600.913 190.083,600.073 179.023,600.073 179.023,601.753 190.083,601.753 		"/>
+		<polygon fill="#2B292A" points="220.978,596.663 220.978,595.823 214.796,595.823 214.796,596.663 214.796,597.503 
+			220.978,597.503 		"/>
+		<polygon fill="#2B292A" points="225.856,600.913 225.856,600.073 214.796,600.073 214.796,600.913 214.796,601.753 
+			225.856,601.753 		"/>
+		<text transform="matrix(1 0 0 1 175.3339 663.7871)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">H</text>
+		<text transform="matrix(1 0 0 1 187.9355 663.7871)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">O</text>
+		<text transform="matrix(1 0 0 1 199.9394 663.7871)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">T</text>
+		<text transform="matrix(1 0 0 1 210.7392 663.7871)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">E</text>
+		<text transform="matrix(1 0 0 1 221.1005 663.7871)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="15.502">L</text>
+		<image width="396" height="131" xlink:href="172A5879.png"  transform="matrix(0.24 0 0 0.24 154.8685 642.2684)">
+		</image>
+		<polygon fill="#2B292A" points="169.125,654.512 170.137,656.563 172.401,656.892 170.763,658.489 171.149,660.743 
+			169.125,659.679 167.1,660.743 167.486,658.489 165.848,656.892 168.112,656.563 		"/>
+		<polygon fill="#2B292A" points="234.079,654.512 235.091,656.563 237.355,656.892 235.717,658.489 236.104,660.743 
+			234.079,659.679 232.054,660.743 232.441,658.489 230.802,656.892 233.066,656.563 		"/>
+	</g>
+	<path fill="none" d="M-1.306,631.62c0-23.698,19.211-42.909,42.909-42.909s42.909,19.211,42.909,42.909"/>
+	
+		<text transform="matrix(0.7335 -0.6797 0.6797 0.7335 9.5802 602.7951)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">C</text>
+	
+		<text transform="matrix(0.8542 -0.5199 0.5199 0.8542 15.9816 596.9748)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">A</text>
+	
+		<text transform="matrix(0.9437 -0.3308 0.3308 0.9437 23.3702 592.5295)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">N</text>
+	
+		<text transform="matrix(0.9844 -0.1762 0.1762 0.9844 32.3624 589.6755)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">-</text>
+	
+		<text transform="matrix(0.9998 -0.019 0.019 0.9998 36.4962 588.7995)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">H</text>
+	
+		<text transform="matrix(0.9814 0.192 -0.192 0.9814 45.8429 588.7184)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">O</text>
+	
+		<text transform="matrix(0.9251 0.3797 -0.3797 0.9251 54.5724 590.5471)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">T</text>
+	
+		<text transform="matrix(0.8406 0.5416 -0.5416 0.8406 61.9454 593.676)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">E</text>
+	
+		<text transform="matrix(0.7345 0.6786 -0.6786 0.7345 68.3449 597.9059)" fill="#2B292A" font-family="'Roboto-Regular'" font-size="12">L</text>
+</g>
+<g id="Layer_6">
+	<rect x="681.36" y="438.549" fill="#FFB922" width="267.319" height="159.711"/>
+	<path fill="#5A082F" stroke="#5A082F" stroke-miterlimit="10" d="M859.538,514.355c0,13.57-6.26,25.68-16.06,33.59
+		c-7.41,5.98-16.83,9.56-27.09,9.56c-15.88,0-29.75-8.58-37.24-21.35c-3.76-6.4-5.91-13.85-5.91-21.8
+		c0-23.83,19.32-43.15,43.15-43.15C840.218,471.205,859.538,490.525,859.538,514.355z"/>
+	<path fill="#FFFFFF" d="M808.097,497.988c-0.233,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656
+		c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675
+		c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693c0,2.04,1.654,3.693,3.693,3.693h14.847
+		c1.557,0,2.819-1.262,2.819-2.819C810.916,499.25,809.654,497.988,808.097,497.988z"/>
+	
+		<line fill="#DF0155" stroke="#FFB922" stroke-width="2.295" stroke-linecap="round" stroke-miterlimit="10" x1="803.067" y1="512.814" x2="803.067" y2="531.459"/>
+	<g>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="835.574,549.628 835.574,504.175 
+			817.217,483.983 817.217,532.607 		"/>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="817.217,499.759 796.566,508.364 
+			796.566,532.457 		"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="835.574" y1="513.812" x2="824.866" y2="502.627"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="835.574" y1="521.7" x2="824.866" y2="510.516"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="835.574" y1="529.589" x2="824.866" y2="518.404"/>
+	</g>
+	<path fill="none" stroke="#333333" stroke-miterlimit="10" d="M704.084,310.44c-0.234,0-0.46,0.029-0.677,0.082
+		c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511
+		c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693
+		c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819C706.903,311.702,705.641,310.44,704.084,310.44z"/>
+	<text transform="matrix(1.2178 0 0 1 615.8104 353.283)" fill="#333333" font-family="'Teko-Regular'" font-size="49.46">C</text>
+	<text transform="matrix(1.2178 0 0 1 644.5418 353.283)" fill="#333333" font-family="'Teko-Regular'" font-size="49.46">A</text>
+	<text transform="matrix(1.2178 0 0 1 673.7547 353.283)" fill="#333333" font-family="'Teko-Regular'" font-size="49.46">N</text>
+	
+		<line fill="#DF0155" stroke="#333333" stroke-width="2.295" stroke-linecap="round" stroke-miterlimit="10" x1="699.054" y1="325.266" x2="699.054" y2="343.911"/>
+	<g>
+		<polyline fill="none" stroke="#333333" stroke-width="5.1628" stroke-miterlimit="10" points="731.561,376.049 731.561,316.627 
+			713.204,296.435 713.204,345.059 		"/>
+		<polyline fill="none" stroke="#333333" stroke-width="5.1628" stroke-miterlimit="10" points="713.204,312.211 692.553,320.816 
+			692.553,344.909 		"/>
+		
+			<line fill="none" stroke="#333333" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="731.561" y1="326.264" x2="720.853" y2="315.079"/>
+		
+			<line fill="none" stroke="#333333" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="731.561" y1="334.152" x2="720.853" y2="322.968"/>
+		
+			<line fill="none" stroke="#333333" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="731.561" y1="342.041" x2="720.853" y2="330.856"/>
+	</g>
+	<g>
+		<text transform="matrix(0.9662 0 0 1 657.5202 376.269)" fill="#333333" font-family="'Roboto-Regular'" font-size="19.6003">H</text>
+		<text transform="matrix(0.9662 0 0 1 672.9157 376.269)" fill="#333333" font-family="'Roboto-Regular'" font-size="19.6003">O</text>
+		<text transform="matrix(0.9662 0 0 1 687.5798 376.269)" fill="#333333" font-family="'Roboto-Regular'" font-size="19.6003">T</text>
+		<text transform="matrix(0.9662 0 0 1 700.7741 376.269)" fill="#333333" font-family="'Roboto-Regular'" font-size="19.6003">E</text>
+		<text transform="matrix(0.9662 0 0 1 713.4323 376.269)" fill="#333333" font-family="'Roboto-Regular'" font-size="19.6003">L</text>
+		
+			<line fill="#333333" stroke="#DF0155" stroke-width="1.6267" stroke-linecap="round" stroke-miterlimit="10" x1="677.586" y1="359.188" x2="680.825" y2="359.188"/>
+	</g>
+	<rect x="412.861" y="438.298" fill="#5A082F" width="267.319" height="159.711"/>
+	<path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M568.258,490.895c-0.233,0-0.46,0.029-0.677,0.082
+		c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.309-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511
+		c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693
+		c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819S569.815,490.895,568.258,490.895z"/>
+	<text transform="matrix(1.2178 0 0 1 479.9844 533.7378)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">C</text>
+	<text transform="matrix(1.2178 0 0 1 508.7159 533.7378)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">A</text>
+	<text transform="matrix(1.2178 0 0 1 537.9287 533.7378)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">N</text>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="563.228" y1="505.721" x2="563.228" y2="524.366"/>
+	<g>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="5.1628" stroke-miterlimit="10" points="595.735,556.504 595.735,497.082 
+			577.378,476.889 577.378,525.514 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="5.1628" stroke-miterlimit="10" points="577.378,492.666 556.727,501.271 
+			556.727,525.364 		"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="506.719" x2="585.027" y2="495.534"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="514.607" x2="585.027" y2="503.423"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="522.495" x2="585.027" y2="511.311"/>
+	</g>
+	<g>
+		<text transform="matrix(0.9662 0 0 1 521.6942 556.7238)" fill="#FFB922" font-family="'Roboto-Regular'" font-size="19.6003">H</text>
+		<text transform="matrix(0.9662 0 0 1 537.0897 556.7238)" fill="#FFB922" font-family="'Roboto-Regular'" font-size="19.6003">O</text>
+		<text transform="matrix(0.9662 0 0 1 551.7537 556.7238)" fill="#FFB922" font-family="'Roboto-Regular'" font-size="19.6003">T</text>
+		<text transform="matrix(0.9662 0 0 1 564.9481 556.7238)" fill="#FFB922" font-family="'Roboto-Regular'" font-size="19.6003">E</text>
+		<text transform="matrix(0.9662 0 0 1 577.6063 556.7238)" fill="#FFB922" font-family="'Roboto-Regular'" font-size="19.6003">L</text>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="1.6267" stroke-linecap="round" stroke-miterlimit="10" x1="541.76" y1="539.642" x2="544.999" y2="539.642"/>
+	</g>
+	<rect x="482.151" y="555.404" fill="#FFB922" width="42.84" height="1.32"/>
+	<rect x="412.694" y="759.743" fill="#F70147" width="267.319" height="159.711"/>
+	<rect x="681.36" y="759.743" fill="#5A082F" width="267.319" height="159.711"/>
+	<path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M568.258,810.345c-0.233,0-0.46,0.029-0.677,0.082
+		c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.309-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511
+		c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693s1.654,3.693,3.693,3.693
+		h14.847c1.557,0,2.819-1.262,2.819-2.819S569.815,810.345,568.258,810.345z"/>
+	<text transform="matrix(1.2178 0 0 1 479.9844 853.1876)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">C</text>
+	<text transform="matrix(1.2178 0 0 1 508.7159 853.1876)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">A</text>
+	<text transform="matrix(1.2178 0 0 1 537.9287 853.1876)" fill="#FFFFFF" font-family="'Teko-Regular'" font-size="49.46">N</text>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="563.228" y1="825.171" x2="563.228" y2="843.816"/>
+	<g>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="5.1628" stroke-miterlimit="10" points="595.735,875.954 595.735,816.531 
+			577.378,796.339 577.378,844.964 		"/>
+		<polyline fill="none" stroke="#FFFFFF" stroke-width="5.1628" stroke-miterlimit="10" points="577.378,812.116 556.727,820.72 
+			556.727,844.813 		"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="826.169" x2="585.027" y2="814.984"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="834.057" x2="585.027" y2="822.872"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="595.735" y1="841.945" x2="585.027" y2="830.76"/>
+	</g>
+	<g>
+		<text transform="matrix(0.9662 0 0 1 521.6942 876.1735)" fill="#5A082F" font-family="'Roboto-Regular'" font-size="19.6003">H</text>
+		<text transform="matrix(0.9662 0 0 1 537.0897 876.1735)" fill="#5A082F" font-family="'Roboto-Regular'" font-size="19.6003">O</text>
+		<text transform="matrix(0.9662 0 0 1 551.7537 876.1735)" fill="#5A082F" font-family="'Roboto-Regular'" font-size="19.6003">T</text>
+		<text transform="matrix(0.9662 0 0 1 564.9481 876.1735)" fill="#5A082F" font-family="'Roboto-Regular'" font-size="19.6003">E</text>
+		<text transform="matrix(0.9662 0 0 1 577.6063 876.1735)" fill="#5A082F" font-family="'Roboto-Regular'" font-size="19.6003">L</text>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="1.6267" stroke-linecap="round" stroke-miterlimit="10" x1="541.76" y1="859.092" x2="544.999" y2="859.092"/>
+	</g>
+	<rect x="482.151" y="874.853" fill="#5A082F" width="42.84" height="1.32"/>
+	<rect x="681.36" y="920.452" fill="#0B0F1F" stroke="#272E40" stroke-miterlimit="10" width="267.319" height="159.711"/>
+	<rect x="412.694" y="920.452" fill="#FFB922" width="267.319" height="159.711"/>
+	<path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M834.928,970.055c-0.233,0-0.46,0.029-0.677,0.082
+		c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511
+		c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693
+		c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819S836.484,970.055,834.928,970.055z"/>
+	<text transform="matrix(1.2178 0 0 1 746.6541 1012.8983)" fill="#FFB922" font-family="'Teko-Regular'" font-size="49.46">C</text>
+	<text transform="matrix(1.2178 0 0 1 775.3856 1012.8983)" fill="#FFB922" font-family="'Teko-Regular'" font-size="49.46">A</text>
+	<text transform="matrix(1.2178 0 0 1 804.5984 1012.8983)" fill="#FFB922" font-family="'Teko-Regular'" font-size="49.46">N</text>
+	
+		<line fill="none" stroke="#FFB922" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="829.898" y1="984.881" x2="829.898" y2="1003.526"/>
+	<g>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="862.404,1035.665 862.404,976.242 
+			844.048,956.05 844.048,1004.674 		"/>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="844.048,971.826 823.397,980.431 
+			823.397,1004.524 		"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="985.879" x2="851.696" y2="974.695"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="993.767" x2="851.696" y2="982.583"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="1001.656" x2="851.696" y2="990.471"/>
+	</g>
+	<g>
+		<text transform="matrix(0.9662 0 0 1 788.3639 1035.8842)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="19.6003">H</text>
+		<text transform="matrix(0.9662 0 0 1 803.7594 1035.8842)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="19.6003">O</text>
+		<text transform="matrix(0.9662 0 0 1 818.4235 1035.8842)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="19.6003">T</text>
+		<text transform="matrix(0.9662 0 0 1 831.6178 1035.8842)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="19.6003">E</text>
+		<text transform="matrix(0.9662 0 0 1 844.276 1035.8842)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="19.6003">L</text>
+		
+			<line fill="#FFFFFF" stroke="#81BF1A" stroke-width="1.6267" stroke-linecap="round" stroke-miterlimit="10" x1="808.43" y1="1018.803" x2="811.669" y2="1018.803"/>
+	</g>
+	<rect x="748.821" y="1034.564" fill="#FFFFFF" width="42.84" height="1.32"/>
+	<rect x="681.36" y="598.943" fill="#FFB922" width="267.319" height="159.711"/>
+	<rect x="413.191" y="598.943" fill="#5A082F" width="267.319" height="159.711"/>
+	<path fill="none" stroke="#5A082F" stroke-miterlimit="10" d="M834.928,650.542c-0.233,0-0.46,0.029-0.677,0.082
+		c0.048-0.211,0.075-0.431,0.075-0.656c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511
+		c-0.549-2.114-2.47-3.675-4.755-3.675c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693
+		c0,2.04,1.654,3.693,3.693,3.693h14.847c1.557,0,2.819-1.262,2.819-2.819C837.746,651.804,836.484,650.542,834.928,650.542z"/>
+	<text transform="matrix(1.2178 0 0 1 746.6541 693.385)" fill="#5A082F" font-family="'Teko-Regular'" font-size="49.46">C</text>
+	<text transform="matrix(1.2178 0 0 1 775.3856 693.385)" fill="#5A082F" font-family="'Teko-Regular'" font-size="49.46">A</text>
+	<text transform="matrix(1.2178 0 0 1 804.5984 693.385)" fill="#5A082F" font-family="'Teko-Regular'" font-size="49.46">N</text>
+	
+		<line fill="none" stroke="#5A082F" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="829.898" y1="665.368" x2="829.898" y2="684.013"/>
+	<g>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="862.404,716.151 862.404,656.729 
+			844.048,636.537 844.048,685.161 		"/>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="844.048,652.313 823.397,660.918 
+			823.397,685.011 		"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="666.366" x2="851.696" y2="655.181"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="674.254" x2="851.696" y2="663.07"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="862.404" y1="682.143" x2="851.696" y2="670.958"/>
+	</g>
+	<g>
+		<text transform="matrix(0.9662 0 0 1 788.3639 716.371)" fill="#F70147" font-family="'Roboto-Regular'" font-size="19.6003">H</text>
+		<text transform="matrix(0.9662 0 0 1 803.7594 716.371)" fill="#F70147" font-family="'Roboto-Regular'" font-size="19.6003">O</text>
+		<text transform="matrix(0.9662 0 0 1 818.4235 716.371)" fill="#F70147" font-family="'Roboto-Regular'" font-size="19.6003">T</text>
+		<text transform="matrix(0.9662 0 0 1 831.6178 716.371)" fill="#F70147" font-family="'Roboto-Regular'" font-size="19.6003">E</text>
+		<text transform="matrix(0.9662 0 0 1 844.276 716.371)" fill="#F70147" font-family="'Roboto-Regular'" font-size="19.6003">L</text>
+		
+			<line fill="none" stroke="#F70147" stroke-width="1.6267" stroke-linecap="round" stroke-miterlimit="10" x1="808.43" y1="699.29" x2="811.669" y2="699.29"/>
+	</g>
+	<rect x="748.821" y="715.051" fill="#F70147" width="42.84" height="1.32"/>
+	<path fill="#FFB922" stroke="#5A082F" stroke-miterlimit="10" d="M843.478,547.945c-7.41,5.98-16.83,9.56-27.09,9.56
+		c-15.88,0-29.75-8.58-37.24-21.35c7.41-5.98,16.83-9.56,27.09-9.56C822.118,526.595,835.998,535.175,843.478,547.945z"/>
+	<circle display="none" fill="#FFFFFF" stroke="#82027E" stroke-miterlimit="10" cx="580.232" cy="701.758" r="43.151"/>
+	
+		<circle display="none" fill="none" stroke="#DF0155" stroke-width="0.7074" stroke-miterlimit="10" cx="590.381" cy="646.365" r="43.151"/>
+	<text transform="matrix(1 0 0 1 801.0444 547.8607)" fill="#5A082F" font-family="'Rockwell'" font-size="14">C</text>
+	<text transform="matrix(1 0 0 1 811.1206 547.8607)" fill="#5A082F" font-family="'Rockwell'" font-size="14">.</text>
+	<text transform="matrix(1 0 0 1 815.2085 547.8607)" fill="#5A082F" font-family="'Rockwell'" font-size="14">H</text>
+	<path fill="#F70147" stroke="#F70147" stroke-miterlimit="10" d="M851.58,843.816c0,13.57-6.26,25.68-16.06,33.59
+		c-7.41,5.98-16.83,9.56-27.09,9.56c-15.88,0-29.75-8.58-37.24-21.35c-3.76-6.4-5.91-13.85-5.91-21.8
+		c0-23.83,19.32-43.15,43.15-43.15C832.26,800.666,851.58,819.986,851.58,843.816z"/>
+	<path fill="#FFFFFF" d="M800.139,827.449c-0.234,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656
+		c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675
+		c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693s1.654,3.693,3.693,3.693h14.847
+		c1.557,0,2.819-1.262,2.819-2.819C802.958,828.71,801.696,827.449,800.139,827.449z"/>
+	
+		<line fill="#DF0155" stroke="#5A082F" stroke-width="2.295" stroke-linecap="round" stroke-miterlimit="10" x1="795.109" y1="842.275" x2="795.109" y2="860.919"/>
+	<g>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="827.616,879.089 827.616,833.635 
+			809.259,813.443 809.259,862.068 		"/>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="809.259,829.22 788.608,837.824 
+			788.608,861.917 		"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="827.616" y1="843.272" x2="816.908" y2="832.088"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="827.616" y1="851.161" x2="816.908" y2="839.976"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="827.616" y1="859.049" x2="816.908" y2="847.864"/>
+	</g>
+	<path fill="#5A082F" stroke="#F70147" stroke-miterlimit="10" d="M835.52,877.406c-7.41,5.98-16.83,9.56-27.09,9.56
+		c-15.88,0-29.75-8.58-37.24-21.35c7.41-5.98,16.83-9.56,27.09-9.56C814.16,856.056,828.04,864.636,835.52,877.406z"/>
+	<text transform="matrix(1 0 0 1 793.0865 877.3212)" fill="#F70147" font-family="'Rockwell'" font-size="14">C</text>
+	<text transform="matrix(1 0 0 1 803.1627 877.3212)" fill="#F70147" font-family="'Rockwell'" font-size="14">.</text>
+	<text transform="matrix(1 0 0 1 807.2505 877.3212)" fill="#F70147" font-family="'Rockwell'" font-size="14">H</text>
+	<path fill="#0B0F1F" stroke="#0B0F1F" stroke-miterlimit="10" d="M588.149,1004.524c0,13.57-6.26,25.68-16.06,33.59
+		c-7.41,5.98-16.83,9.56-27.09,9.56c-15.88,0-29.75-8.58-37.24-21.35c-3.76-6.4-5.91-13.85-5.91-21.8
+		c0-23.83,19.32-43.15,43.15-43.15C568.829,961.374,588.149,980.694,588.149,1004.524z"/>
+	<path fill="#FFFFFF" d="M536.708,988.157c-0.233,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656
+		c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675
+		c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693s1.654,3.693,3.693,3.693h14.847
+		c1.557,0,2.819-1.262,2.819-2.819S538.265,988.157,536.708,988.157z"/>
+	
+		<line fill="#5A082F" stroke="#FFB922" stroke-width="2.295" stroke-linecap="round" stroke-miterlimit="10" x1="531.678" y1="1002.983" x2="531.678" y2="1021.628"/>
+	<g>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="564.185,1039.797 564.185,994.344 
+			545.828,974.151 545.828,1022.776 		"/>
+		<polyline fill="none" stroke="#FFB922" stroke-width="5.1628" stroke-miterlimit="10" points="545.828,989.928 525.177,998.533 
+			525.177,1022.626 		"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="564.185" y1="1003.981" x2="553.477" y2="992.796"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="564.185" y1="1011.869" x2="553.477" y2="1000.685"/>
+		
+			<line fill="none" stroke="#FFB922" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="564.185" y1="1019.758" x2="553.477" y2="1008.573"/>
+	</g>
+	<path fill="#FFB922" stroke="#0B0F1F" stroke-miterlimit="10" d="M572.089,1038.114c-7.41,5.98-16.83,9.56-27.09,9.56
+		c-15.88,0-29.75-8.58-37.24-21.35c7.41-5.98,16.83-9.56,27.09-9.56C550.729,1016.764,564.609,1025.344,572.089,1038.114z"/>
+	<text transform="matrix(1 0 0 1 529.6555 1038.0297)" fill="#0B0F1F" font-family="'Rockwell'" font-size="14">C</text>
+	<text transform="matrix(1 0 0 1 539.7317 1038.0297)" fill="#0B0F1F" font-family="'Rockwell'" font-size="14">.</text>
+	<text transform="matrix(1 0 0 1 543.8196 1038.0297)" fill="#0B0F1F" font-family="'Rockwell'" font-size="14">H</text>
+	<path fill="#FFB922" stroke="#FFB922" stroke-miterlimit="10" d="M582.52,682.143c0,13.57-6.26,25.68-16.06,33.59
+		c-7.41,5.98-16.83,9.56-27.09,9.56c-15.88,0-29.75-8.58-37.24-21.35c-3.76-6.4-5.91-13.85-5.91-21.8
+		c0-23.83,19.32-43.15,43.15-43.15C563.2,638.993,582.52,658.313,582.52,682.143z"/>
+	<path fill="#FFFFFF" d="M531.08,665.776c-0.233,0-0.46,0.029-0.677,0.082c0.048-0.211,0.075-0.431,0.075-0.656
+		c0-1.615-1.31-2.925-2.925-2.925c-0.613,0-1.182,0.189-1.652,0.511c-0.549-2.114-2.47-3.675-4.755-3.675
+		c-2.713,0-4.913,2.199-4.913,4.913c-2.04,0-3.693,1.654-3.693,3.693c0,2.04,1.654,3.693,3.693,3.693h14.847
+		c1.557,0,2.819-1.262,2.819-2.819C533.898,667.038,532.636,665.776,531.08,665.776z"/>
+	
+		<line fill="#DF0155" stroke="#5A082F" stroke-width="2.295" stroke-linecap="round" stroke-miterlimit="10" x1="526.05" y1="680.602" x2="526.05" y2="699.247"/>
+	<g>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="558.556,717.416 558.556,671.962 
+			540.2,651.77 540.2,700.395 		"/>
+		<polyline fill="none" stroke="#5A082F" stroke-width="5.1628" stroke-miterlimit="10" points="540.2,667.547 519.549,676.151 
+			519.549,700.244 		"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="558.556" y1="681.6" x2="547.848" y2="670.415"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="558.556" y1="689.488" x2="547.848" y2="678.303"/>
+		
+			<line fill="none" stroke="#5A082F" stroke-width="2.2946" stroke-linecap="round" stroke-miterlimit="10" x1="558.556" y1="697.376" x2="547.848" y2="686.192"/>
+	</g>
+	<path fill="#5A082F" stroke="#FFB922" stroke-miterlimit="10" d="M566.46,715.733c-7.41,5.98-16.83,9.56-27.09,9.56
+		c-15.88,0-29.75-8.58-37.24-21.35c7.41-5.98,16.83-9.56,27.09-9.56C545.1,694.383,558.98,702.963,566.46,715.733z"/>
+	<text transform="matrix(1 0 0 1 525.0523 715.42)" fill="#FFB922" font-family="'Rockwell'" font-size="14">C</text>
+	<text transform="matrix(1 0 0 1 535.1285 715.42)" fill="#FFB922" font-family="'Rockwell'" font-size="14">.</text>
+	<text transform="matrix(1 0 0 1 539.2164 715.42)" fill="#FFB922" font-family="'Rockwell'" font-size="14">H</text>
+	
+		<image width="1259" height="259" xlink:href="maquette/Screenshot_2018-10-24 Copy of Copy of Sunset Th&#xE8;me de couleurs par mohamadou mounirou - Adobe Color CC.png"  transform="matrix(0.3863 0 0 0.3863 -639.8029 83.9958)">
+	</image>
+</g>
+<g id="Layer_7">
+	<path fill="#F7CB4E" d="M254.291,127.146c0,39.985-18.446,75.669-47.322,98.976c-21.834,17.621-49.591,28.17-79.823,28.17
+		c-46.792,0-87.661-25.282-109.731-62.91C6.335,172.524,0,150.571,0,127.146C0,56.928,56.928,0,127.146,0
+		C197.363,0,254.291,56.928,254.291,127.146z"/>
+	<path fill="#FFFFFF" d="M102.717,78.919c-0.688,0-1.356,0.085-1.995,0.243c0.143-0.622,0.221-1.269,0.221-1.934
+		c0-4.76-3.859-8.618-8.618-8.618c-1.806,0-3.482,0.557-4.867,1.506c-1.617-6.229-7.277-10.828-14.012-10.828
+		c-7.994,0-14.475,6.481-14.475,14.475c-6.011,0-10.883,4.872-10.883,10.883c0,6.011,4.873,10.883,10.883,10.883h43.747
+		c4.587,0,8.305-3.718,8.305-8.305C111.022,82.637,107.303,78.919,102.717,78.919z"/>
+	
+		<line fill="#DF0155" stroke="#221041" stroke-width="6.7624" stroke-linecap="round" stroke-miterlimit="10" x1="87.896" y1="122.605" x2="87.896" y2="177.544"/>
+	<g>
+		<polyline fill="none" stroke="#221041" stroke-width="15.2127" stroke-miterlimit="10" points="183.679,231.082 183.679,97.149 
+			129.59,37.65 129.59,180.928 		"/>
+		<polyline fill="none" stroke="#221041" stroke-width="15.2127" stroke-miterlimit="10" points="129.59,84.137 68.739,109.492 
+			68.739,180.484 		"/>
+		
+			<line fill="none" stroke="#221041" stroke-width="6.7612" stroke-linecap="round" stroke-miterlimit="10" x1="183.679" y1="125.546" x2="152.127" y2="92.589"/>
+		
+			<line fill="none" stroke="#221041" stroke-width="6.7612" stroke-linecap="round" stroke-miterlimit="10" x1="183.679" y1="148.789" x2="152.127" y2="115.833"/>
+		
+			<line fill="none" stroke="#221041" stroke-width="6.7612" stroke-linecap="round" stroke-miterlimit="10" x1="183.679" y1="172.033" x2="152.127" y2="139.076"/>
+	</g>
+	<path fill="#221041" d="M206.969,226.122c-21.834,17.621-49.591,28.17-79.823,28.17c-46.792,0-87.661-25.282-109.731-62.91
+		c21.834-17.621,49.591-28.169,79.823-28.169C144.03,163.212,184.929,188.494,206.969,226.122z"/>
+	<text transform="matrix(1 0 0 1 74.979 238.1721)" fill="#FFB922" font-family="'Rockwell'" font-size="41.2524">Hotel</text>
+	
+		<image width="1259" height="259" xlink:href="maquette/Screenshot_2018-10-24 F0671BB3-7E34-460D-801C-477A16225559 Th&#xE8;me de couleurs par mohamadou mounirou - Adobe Color CC.png"  transform="matrix(0.4403 0 0 0.4403 -707.7639 206.6292)">
+	</image>
+	<text transform="matrix(1 0 0 1 106.1491 206.3913)" fill="#FFB922" font-family="'Rockwell'" font-size="25.0797">C</text>
+	<text transform="matrix(1 0 0 1 124.5793 206.3913)" fill="#FFB922" font-family="'Rockwell'" font-size="25.0797">A</text>
+	<text transform="matrix(1 0 0 1 142.091 206.3913)" fill="#FFB922" font-family="'Rockwell'" font-size="25.0797">N</text>
+</g>
+</svg>
