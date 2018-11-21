@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('NanotechCanhebergementBundle:Default:hotel.html.twig');
     }
+    
+      public function reservationAction()
+    {
+        return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig');
+    }
 }

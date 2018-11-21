@@ -45,55 +45,89 @@
 <script type="text/javascript" src="{{ asset('can/js/rangescriptet.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/custom.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/fotorama.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.min.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.fr.min.js') }}" ></script>
+
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0V1K6eya1M35KgHRT6q2XOP-1uV9Czo&callback=initMap"
     async defer></script>
 <script type="text/javascript">
-
-	var nomEta="NomEtablissement";
-	var pos = {lat: 3.885532, lng: 11.540810};
-
-	function initMap() {
-	    var map = new google.maps.Map(document.getElementById('loc'), {
-	        center: pos,
-	        zoom: 10,
-	    });
-		var contentString='<div id="content">'+
-	            '<div id="siteNotice">'+
-	            '</div>'+
-	            '<h5 id="firstHeading" class="firstHeading">'+nomEta+'</h5>'+
-	            '</div>';
-
-	    var infowindow = new google.maps.InfoWindow({
-	        content: contentString,
-	        maxWidth: 500
-	        });
-		var marker = new google.maps.Marker({
-		    map: map,
-		    position: pos,
-		    draggable: false, //tu met cette valeur à false dans la page qui affiche la map
-		    title: 'Nom position',
-		    animation: google.maps.Animation.DROP
-		});
-	    infowindow.open(map, marker);
-	}
-
 	$(function(){ 
-
-		$('.btn-vpcd').click(function(e){
-			e.preventDefault();
-			$('#list-cmbd').append('<div class="spin pt-4 spin-cmb"></div>');
-			$('#cnt-lst-cmb').find('.aff-vpcd').remove();
+		$('.js-datepicker').datepicker({
+			weekStart: 1,
+			format:'dd/mm/yy',
+			autoclose: true,
+			todayHighlight: true,
+			language:'fr'
 		});
-		$('.btn-apdc').click(function(e){
+		$('#btn-clt').click(function(e){
 			e.preventDefault();
-			$('#list-cmt').append('<div class="spin pt-4 spin-cmt"></div>');
-			$('#cnt-lst-cmt').find('.aff-apdc').remove();
+		});
+		$(".drl-inp").focus(function(e){
+			// remplir_select_pays($(this).parent(),$(this));
+			$(this).next('.drl').velocity({opacity:[1,0]},{display:'block',duration: 100,easing: "ease-out"});
+		}).focusout(function(e){
+			$(this).next('.drl').velocity({opacity:[0,1]},{duration: 100,easing: "ease-in",
+				complete:function()
+				{
+					var val = $(this).find('.drl-item:focus').text();
+					if( val != "")
+						{
+							$(this).parent().find('input').val(val);
+						};
+				},
+				display:'none',});
+		});
+		
+		$('.drl-inp').keyup(function(){
+			remplir_select_pays($(this).parent(),$(this));
 		});
 
+		$('#nbc').keyup(function(){
+			verif_nbr($(this).parent(),$(this));
+		}).focusout(function(){
+			verif_nbr($(this).parent(),$(this));
+		});
+		
 	});
-	
-
+	function recup_pays(recherche,inp,content){
+		//methode ajax
+		$.ajax({
+		url:'https://restcountries.eu/rest/v2/name/'+recherche+'?fields=name',
+		method:'GET',
+		async: true,
+		dataType:'json',
+		success: function(data){	
+			alert(data.length)
+			fillIt(data,inp,content);
+		}
+		});
+	}
+	function fillIt(data,inp,content){
+		var drl = content.find('.drl');//recup du conteneur du selecteur
+		drl.empty();//on vide le contenu actuel
+		drl.prepend( '<div class="cl8 rst pt-2 pb-1">Resultat: <span>'+data.length+'</span></div>');// on affiche les resultats
+		if(data.length > 0){
+			$.map(data, function(item){
+				drl.append('<a href="" class="drl-item point d-inline-block">'+ item.name +'</a>');
+			});
+			$('.drl-item').click(function(e){
+				e.preventDefault();	
+			});
+		}
+	}
+	function remplir_select_pays(contAll,inp){
+		recup_pays(inp.val(),inp,contAll);//on recherche la saisie
+	}
+	function verif_nbr(drlc, elm){
+		drlc.find('.rsv-error').remove('.rsv-error');
+		if(elm.val() == 1){
+			elm.removeClass('brd-error');
+			return ;
+		}
+		elm.addClass('brd-error');
+		drlc.append('<div class="md-11 cl3 position-absolute font-weight-bold rsv-error">Entrez un nombre (max 3) </div>');
+	}
 </script>
     
 </body>
