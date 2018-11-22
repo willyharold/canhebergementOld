@@ -28,4 +28,7 @@ class UtilisateurAdminController extends CRUDController
             'csrf_token' => $this->getCsrfToken('sonata.batch'),
         ));
     }
+
+
 }
+

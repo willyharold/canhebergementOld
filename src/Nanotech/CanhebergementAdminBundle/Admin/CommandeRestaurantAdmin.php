@@ -21,6 +21,7 @@ class CommandeRestaurantAdmin extends AbstractAdmin
             ->add('dateCom')
             ->add('prix')
             ->add('quantite')
+            ->add('partenaire')
             ->add('dateEnreg')
         ;
     }
@@ -69,5 +70,31 @@ class CommandeRestaurantAdmin extends AbstractAdmin
             ->add('quantite')
             ->add('dateEnreg')
         ;
+    }
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
     }
 }

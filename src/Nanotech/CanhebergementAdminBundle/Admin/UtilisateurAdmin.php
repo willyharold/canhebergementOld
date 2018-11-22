@@ -25,6 +25,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('dateNaissance')
             ->add('telephone')
             ->add('roles')
+            ->add('partenaire')
             ->add('dateEnreg')
         ;
     }
@@ -40,6 +41,8 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('dateNaissance')
             ->add('telephone')
             ->add('roles')
+            ->add('partenaire')
+            ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -66,6 +69,7 @@ class UtilisateurAdmin extends AbstractAdmin
                 ])
             ->add('dateNaissance')
             ->add('telephone')
+            ->add('partenaire')
                ->add('roles', 'choice', [
                     'choices' => [
                         'ROLE_RECEPTION' => 'Reception',
@@ -94,6 +98,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('dateNaissance')
             ->add('telephone')
             ->add('roles')
+            ->add('partenaire')
             ->add('dateEnreg')
         ;
     }
@@ -110,5 +115,38 @@ class UtilisateurAdmin extends AbstractAdmin
             ->getUser();
 
         return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()){
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
+    }
+
+    public function updateUser(\Nanotech\CanhebergementBundle\Entity\Utilisateur $u) {
+        if ($u->getPassword()) {
+            $u->setPlainPassword($u->getPassword());
+        }
+
+        $um = $this->getConfigurationPool()->getContainer()->get('fos_user.user_manager');
+        $um->updateUser($u, false);
+    }
+
+    public function prePersist($object) {
+        parent::prePersist($object);
+        $this->updateUser($object);
+    }
+
+    public function preUpdate($object) {
+        parent::preUpdate($object);
+        $this->updateUser($object);
     }
 }

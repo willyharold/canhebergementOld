@@ -73,51 +73,68 @@ class PartenaireAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper    
-            ->add('nom')
-            ->add('descriptionFr', CKEditorType::class, array(
-                    'config' => array(
-                        'uiColor' => '#ffffff',
-                    ),
-                ))
-            ->add('descriptionEn', CKEditorType::class, array(
-                    'config' => array(
-                        'uiColor' => '#ffffff',
-                    ),
-                ))
-             ->add('nbrEtoile')  
-             ->add('coordx')
-            ->add('coordy')
-            ->add('pays')
-            ->add('ville')
-            ->add('quartier')
-            ->add('adrComplete')
-            ->add('numTel1')
-            ->add('numTel2')
-            ->add('numTel3')
-            ->add('faxTel')
-            ->add('boitPost')
-            ->add('adrEmail')
-            ->add('adrServ')
-            ->add('services')
-            ->add('proximite')
-            ->add('utilisateur')
-            ->add('logo', 'sonata_media_type', array(
-                   'provider' => 'sonata.media.provider.image',
-                   'context' => 'image_logo',
-                   'required' => false,
-                   'label' => "logo du partenaire",
-               ))
-             ->add('image', 'sonata_type_model_list', array(
+        $formMapper
+            ->tab('Général')
+                ->with('Partenaire')
+                    ->add('nom')
+                    ->add('descriptionFr', CKEditorType::class, array(
+                            'config' => array(
+                                'uiColor' => '#ffffff',
+                            ),
+                        ))
+                    ->add('descriptionEn', CKEditorType::class, array(
+                            'config' => array(
+                                'uiColor' => '#ffffff',
+                            ),
+                        ))
+                    ->add('nbrEtoile')
+                    ->add('adrServ')
+                ->end()
+            ->end()
+            ->tab('Adresse')
+                ->with('Partenaire')
+                    ->add('pays')
+                    ->add('ville')
+                    ->add('quartier')
+                    ->add('coordx',null,['label' => 'Latitude'])
+                    ->add('coordy',null,['label' => 'Longitude'])
+                    ->add('adrComplete')
+                    ->add('numTel1')
+                    ->add('numTel2')
+                    ->add('numTel3')
+                    ->add('faxTel')
+                    ->add('boitPost')
+                    ->add('adrEmail')
+                ->end()
+            ->end()
+            ->tab('Image')
+                ->with('Partenaire')
+                    ->add('logo', 'sonata_media_type', array(
+                        'provider' => 'sonata.media.provider.image',
+                        'context' => 'image_logo',
+                        'required' => false,
+                        'label' => "logo du partenaire",
+                    ))
+                    ->add('image', 'sonata_type_model_list', array(
                         'btn_list' => false,
                         'help' => 'image de présentation de l\'hotel',
-                            ), array(
-                        'link_parameters' => array(
-                            'context' => 'image_partenaire'
-                        ))
-                    );
-           
+                    ), array(
+                            'link_parameters' => array(
+                                'context' => 'image_partenaire'
+                            ))
+                    )
+                ->end()
+            ->end()
+            ->tab('Autre')
+                ->with('Partenaire')
+                    ->add('services')
+                    ->add('proximite')
+                    ->add('utilisateur')
+                ->end()
+            ->end()
         ;
+           
+
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -149,5 +166,32 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('logo')
             ->add('image')
         ;
+    }
+
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.id', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
     }
 }
