@@ -20,4 +20,9 @@ class DefaultController extends Controller
     {
         return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig');
     }
+    
+      public function rechercheAction()
+    {
+        return $this->render('NanotechCanhebergementBundle:Default:recherche.html.twig');
+    }
 }

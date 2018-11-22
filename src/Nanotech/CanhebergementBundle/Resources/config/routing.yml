@@ -9,3 +9,7 @@ nanotech_canhebergement_hotel:
 nanotech_canhebergement_reserver:
     path:     /reserver
     defaults: { _controller: NanotechCanhebergementBundle:Default:reservation }
+    
+nanotech_canhebergement_recherche:
+    path:     /recherche
+    defaults: { _controller: NanotechCanhebergementBundle:Default:recherche }
