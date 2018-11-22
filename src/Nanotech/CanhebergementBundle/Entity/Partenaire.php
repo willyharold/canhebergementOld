@@ -213,6 +213,12 @@ class Partenaire
     * @ORM\JoinColumn(nullable=true) 
     */
     private $commandeRestaurant;
+    
+      /**
+     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Gallery", cascade={"all"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private  $baniere;
    
     public function __construct()
     {
