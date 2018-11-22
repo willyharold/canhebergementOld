@@ -72,6 +72,12 @@ class Utilisateur extends BaseUser
 
     protected $username;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $partenaire;
+
     public function __construct()
     {
         parent::__construct();
@@ -231,5 +237,29 @@ class Utilisateur extends BaseUser
     public function getDateEnreg()
     {
         return $this->dateEnreg;
+    }
+
+    /**
+     * Set partenaire
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
+     *
+     * @return Utilisateur
+     */
+    public function setPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire = null)
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Get partenaire
+     *
+     * @return \Nanotech\CanhebergementBundle\Entity\Partenaire
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
     }
 }

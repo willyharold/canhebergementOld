@@ -30,12 +30,14 @@ class PlanningAdmin extends AbstractAdmin
             ->add('dateDebut')
             ->add('dateFin')
             ->add('dateEnreg')
-            ->add('fichier') 
+            ->add('fichier')
+            ->add('partenaire')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
+
                 ],
             ])
         ;
@@ -44,7 +46,6 @@ class PlanningAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-         ->add('partenaire')
             ->add('dateDebut')
             ->add('dateFin')
             ->add('fichier', 'sonata_media_type', array(
@@ -53,7 +54,11 @@ class PlanningAdmin extends AbstractAdmin
                    'required' => true,
                    'label' => "pdf du planning",
                ))
+
         ;
+        if(!$this->getUser()->getPartenaire()) {
+            $formMapper->add('partenaire');
+        }
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -66,4 +71,46 @@ class PlanningAdmin extends AbstractAdmin
             ->add('dateEnreg')
         ;
     }
+
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
+    }
+
+    public function prePersist($object) {
+        parent::prePersist($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
+    }
+
+    public function preUpdate($object) {
+        parent::preUpdate($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
+    }
+
+
 }

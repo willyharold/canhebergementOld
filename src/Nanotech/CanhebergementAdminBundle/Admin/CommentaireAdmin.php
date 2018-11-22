@@ -16,6 +16,7 @@ class CommentaireAdmin extends AbstractAdmin
             ->add('id')
             ->add('dateEnreg')
             ->add('description')
+            ->add('internaute')
         ;
     }
 
@@ -25,6 +26,8 @@ class CommentaireAdmin extends AbstractAdmin
             ->add('id')
             ->add('dateEnreg')
             ->add('description')
+            ->add('partenaire')
+            ->add('internaute')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -40,7 +43,7 @@ class CommentaireAdmin extends AbstractAdmin
         $formMapper
            
             ->add('description')
-                 ->add('partenaire')
+            ->add('partenaire')
             ->add('internaute')
         ;
     }
@@ -49,8 +52,38 @@ class CommentaireAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('dateEnreg')
+
             ->add('description')
+            ->add('dateEnreg')
+            ->add('partenaire')
+            ->add('internaute')
         ;
+    }
+
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
     }
 }

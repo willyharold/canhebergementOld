@@ -36,6 +36,7 @@ class PieceAdmin extends AbstractAdmin
             ->add('prix')
             ->add('quantite')
             ->add('nbrPersonne')
+            ->add('partenaire')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -56,14 +57,18 @@ class PieceAdmin extends AbstractAdmin
             ->add('prix')
             ->add('quantite')
             ->add('nbrPersonne')
-            ->add('partenaire')
-            ->add('image', 'sonata_media_type', array(
-                   'provider' => 'sonata.media.provider.image',
-                   'context' => 'image_partenaire',
-                   'required' => false,
-                   'label' => "image",
-               ))
         ;
+
+        if(!$this->getUser()->getPartenaire()) {
+            $formMapper->add('partenaire');
+        }
+
+        $formMapper->add('image', 'sonata_media_type', array(
+        'provider' => 'sonata.media.provider.image',
+        'context' => 'image_partenaire',
+        'required' => false,
+        'label' => "image",
+        ));
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -76,7 +81,49 @@ class PieceAdmin extends AbstractAdmin
             ->add('prix')
             ->add('quantite')
             ->add('nbrPersonne')
+            ->add('partenaire')
             ->add('dateEnreg')
         ;
+    }
+
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
+    }
+
+    public function prePersist($object) {
+        parent::prePersist($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
+    }
+
+    public function preUpdate($object) {
+        parent::preUpdate($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
     }
 }

@@ -74,14 +74,14 @@ class Partenaire
     /**
      * @var int
      *
-     * @ORM\Column(name="num_tel2", type="integer")
+     * @ORM\Column(name="num_tel2", type="integer",nullable=true)
      */
     private $numTel2;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="num_tel3", type="integer")
+     * @ORM\Column(name="num_tel3", type="integer" ,nullable=true)
      */
     private $numTel3;
 
@@ -174,8 +174,8 @@ class Partenaire
     private  $logo;
 
     /**
-     * @ORM\OneToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", cascade={"all"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", mappedBy="partenaire")
+     * @ORM\JoinColumn(nullable=true)
      */
     private  $utilisateur;
      /**
@@ -991,5 +991,29 @@ class Partenaire
     public function __toString() {
         return $this->nom? $this->nom." ":" ";
         
+    }
+
+    /**
+     * Add utilisateur
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Partenaire
+     */
+    public function addUtilisateur(\Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur[] = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur
+     */
+    public function removeUtilisateur(\Nanotech\CanhebergementBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur->removeElement($utilisateur);
     }
 }

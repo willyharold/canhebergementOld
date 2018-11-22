@@ -321,54 +321,32 @@ class CarteRestaurant
      */
     public function __construct()
     {
-        $this->partenaire = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateEnreg = new \DateTime();
     }
 
+   
+
     /**
-     * Add partenaire
+     * Set partenaire
      *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
      *
      * @return CarteRestaurant
      */
-    public function addPartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
+    public function setPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
     {
-        $this->partenaire[] = $partenaire;
+        $this->partenaire = $partenaire;
 
         return $this;
-    }
-
-    /**
-     * Remove partenaire
-     *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
-     */
-    public function removePartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
-    {
-        $this->partenaire->removeElement($partenaire);
     }
 
     /**
      * Get partenaire
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Nanotech\CanhebergementBundle\Entity\Partenaire
      */
     public function getPartenaire()
     {
         return $this->partenaire;
-    }
-
-    /**
-     * Set partenaire
-     *
-     * @param \Nanotech\Canhebergement\Entity\Partenaire $partenaire
-     *
-     * @return CarteRestaurant
-     */
-    public function setPartenaire(\Nanotech\Canhebergement\Entity\Partenaire $partenaire)
-    {
-        $this->partenaire = $partenaire;
-
-        return $this;
     }
 }
