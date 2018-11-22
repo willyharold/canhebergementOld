@@ -54,6 +54,12 @@ class PlanningAdmin extends AbstractAdmin
                    'required' => true,
                    'label' => "pdf du planning",
                ))
+                
+                ->add('service', 'choice', [
+                    'choices' => [
+                        1 => 'Bar',
+                        2 => 'Restaurant',
+                        3 => 'Ressource Humaine',  ] ])
 
         ;
         if(!$this->getUser()->getPartenaire()) {

@@ -13,3 +13,7 @@ nanotech_canhebergement_reserver:
 nanotech_canhebergement_recherche:
     path:     /recherche
     defaults: { _controller: NanotechCanhebergementBundle:Default:recherche }
+    
+nanotech_canhebergement_recherchemaison:
+    path:     /recherche
+    defaults: { _controller: NanotechCanhebergementBundle:Default:recherchemaison }

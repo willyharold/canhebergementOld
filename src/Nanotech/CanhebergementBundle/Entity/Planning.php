@@ -52,6 +52,15 @@ class Planning
      * @ORM\JoinColumn(nullable=true)
      */
     private  $fichier;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service", type="string", length=20)
+     */
+    private $service;
+
+    
 
     /**
      * Get id
@@ -190,4 +199,14 @@ class Planning
     {
         return $this->fichier;
     }
+    
+    function getService() {
+        return $this->service;
+    }
+
+    function setService($service) {
+        $this->service = $service;
+    }
+
+
 }

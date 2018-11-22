@@ -1022,4 +1022,28 @@ class Partenaire
     {
         $this->utilisateur->removeElement($utilisateur);
     }
+
+    /**
+     * Set baniere
+     *
+     * @param \Nanotech\MediaBundle\Entity\Gallery $baniere
+     *
+     * @return Partenaire
+     */
+    public function setBaniere(\Nanotech\MediaBundle\Entity\Gallery $baniere = null)
+    {
+        $this->baniere = $baniere;
+
+        return $this;
+    }
+
+    /**
+     * Get baniere
+     *
+     * @return \Nanotech\MediaBundle\Entity\Gallery
+     */
+    public function getBaniere()
+    {
+        return $this->baniere;
+    }
 }

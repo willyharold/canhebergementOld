@@ -122,6 +122,16 @@ class PartenaireAdmin extends AbstractAdmin
                                 'context' => 'image_partenaire'
                             ))
                     )
+                
+                 ->add('baniere', 'sonata_type_model_list', array(
+                        'btn_list' => false,
+                        'help' => 'image de présentation de l\'hotel',
+                    ), array(
+                            'link_parameters' => array(
+                                'context' => 'image_partenaire'
+                            ))
+                    )
+                
                 ->end()
             ->end()
             ->tab('Autre')
