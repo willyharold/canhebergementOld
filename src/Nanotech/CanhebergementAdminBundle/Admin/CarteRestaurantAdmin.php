@@ -30,7 +30,6 @@ class CarteRestaurantAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nomFr')
             ->add('nomEn')
             ->add('descriptionFr')

@@ -43,7 +43,6 @@ class PartenaireAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nom')
             ->add('pays')
             ->add('ville')
