@@ -218,6 +218,6 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, role: [ROLE_PARTENAIRE,] }
+        - { path: ^/admin, role: [ROLE_PARTENAIRE,ROLE_SERVICE,ROLE_RECEPTION] }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         
