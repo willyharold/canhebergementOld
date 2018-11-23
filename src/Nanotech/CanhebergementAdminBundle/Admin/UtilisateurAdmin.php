@@ -42,6 +42,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('telephone')
             ->add('roles')
             ->add('partenaire')
+            ->add('enabled')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -70,6 +71,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('dateNaissance')
             ->add('telephone')
             ->add('partenaire')
+            ->add('enabled')
                ->add('roles', 'choice', [
                     'choices' => [
                         'ROLE_RECEPTION' => 'Reception',
@@ -99,6 +101,7 @@ class UtilisateurAdmin extends AbstractAdmin
             ->add('telephone')
             ->add('roles')
             ->add('partenaire')
+            ->add('enabled')
             ->add('dateEnreg')
         ;
     }

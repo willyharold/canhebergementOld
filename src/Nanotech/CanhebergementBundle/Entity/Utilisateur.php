@@ -72,6 +72,8 @@ class Utilisateur extends BaseUser
 
     protected $username;
 
+    protected  $enabled;
+
     /**
      * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire")
      * @ORM\JoinColumn(nullable=true)

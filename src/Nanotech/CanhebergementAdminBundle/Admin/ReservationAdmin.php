@@ -30,6 +30,7 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateDepart')
             ->add('dateArrive')
             ->add('quantite')
+            ->add('piece')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -49,7 +50,8 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateArrive')
             ->add('quantite')
             ->add('internaute')
-                  ->add('Piece')
+            ->add('Piece')
+
         ;
     }
 
@@ -60,7 +62,48 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateDepart')
             ->add('dateArrive')
             ->add('quantite')
+            ->add('piece')
             ->add('dateEnreg')
         ;
+    }
+    public function getUser()
+    {
+        // get container
+        $container = $this->getConfigurationPool()
+            ->getContainer();
+
+        // get current user
+        $user = $container->get('security.token_storage')
+            ->getToken()
+            ->getUser();
+
+        return $user;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $user = $this->getUser();
+        $query = parent::createQuery($context);
+        if($user->getPartenaire()) {
+            $query->andWhere(
+                $query->expr()->eq($query->getRootAliases()[0] . '.piece.partenaire', ':id')
+            );
+            $query->setParameter('id', $user->getPartenaire());
+        }
+        return $query;
+    }
+
+    public function prePersist($object) {
+        parent::prePersist($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
+    }
+
+    public function preUpdate($object) {
+        parent::preUpdate($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPiece()->setPartenaire($this->getUser()->getPartenaire());
+        }
     }
 }
