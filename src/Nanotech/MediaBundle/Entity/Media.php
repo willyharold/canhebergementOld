@@ -28,7 +28,6 @@ class Media extends BaseMedia{
      * @ORM\JoinColumn(nullable=true)
      */
     private $gallery;
-    
      
    
     public function __construct() {

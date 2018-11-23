@@ -35,7 +35,7 @@ sonata_media:
                 - sonata.media.provider.image         
             formats:
                 big:  { width: 2048 ,height: 1024 , quality: 100}
-    
+
         image_logo:  
             providers:
                 - sonata.media.provider.image        

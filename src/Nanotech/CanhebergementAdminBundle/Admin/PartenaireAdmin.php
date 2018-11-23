@@ -8,6 +8,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Sonata\AdminBundle\Form\Type\AdminType;
 
 class PartenaireAdmin extends AbstractAdmin
 {
@@ -80,30 +83,32 @@ class PartenaireAdmin extends AbstractAdmin
                             'config' => array(
                                 'uiColor' => '#ffffff',
                             ),
+                            'label' => 'Description Française'
                         ))
                     ->add('descriptionEn', CKEditorType::class, array(
                             'config' => array(
                                 'uiColor' => '#ffffff',
                             ),
+                            'label' => 'Description Anglaise'
                         ))
-                    ->add('nbrEtoile')
-                    ->add('adrServ')
+                    ->add('nbrEtoile',null,['label' => 'Nombre Etoile'])
+                    ->add('adrServ',null,['label' => 'Adresse Serveur'])
                 ->end()
             ->end()
             ->tab('Adresse')
                 ->with('Partenaire')
-                    ->add('pays')
+                    ->add('pays',CountryType::class)
                     ->add('ville')
                     ->add('quartier')
                     ->add('coordx',null,['label' => 'Latitude'])
                     ->add('coordy',null,['label' => 'Longitude'])
-                    ->add('adrComplete')
-                    ->add('numTel1')
-                    ->add('numTel2')
-                    ->add('numTel3')
-                    ->add('faxTel')
-                    ->add('boitPost')
-                    ->add('adrEmail')
+                    ->add('adrComplete',null,['label' => 'Adresse Complete'])
+                    ->add('numTel1',null,['label' => 'Numero Téléphone 1'])
+                    ->add('numTel2',null,['label' => 'Numero Téléphone 2'])
+                    ->add('numTel3',null,['label' => 'Numero Téléphone 3'])
+                    ->add('faxTel',null,['label' => 'Fax Téléphone'])
+                    ->add('boitPost',null,['label' => 'Boîte Postal'])
+                    ->add('adrEmail',EmailType::class,['label' => 'Adresse Email'])
                 ->end()
             ->end()
             ->tab('Image')
@@ -111,11 +116,21 @@ class PartenaireAdmin extends AbstractAdmin
                     ->add('logo', 'sonata_media_type', array(
                         'provider' => 'sonata.media.provider.image',
                         'context' => 'image_logo',
-                        'required' => false,
+                        'required' => true,
                         'label' => "logo du partenaire",
                     ))
+
+                    ->add('baniere', 'sonata_type_model_list', array(
+                        'btn_list' => true,
+                        'help' => 'image de la bannière de l\'hotel',
+                    ), array(
+                            'link_parameters' => array(
+                                'context' => 'image_banniere'
+                            ))
+                    )
+
                     ->add('image', 'sonata_type_model_list', array(
-                        'btn_list' => false,
+                        'btn_list' => true,
                         'help' => 'image de présentation de l\'hotel',
                     ), array(
                             'link_parameters' => array(
@@ -123,14 +138,7 @@ class PartenaireAdmin extends AbstractAdmin
                             ))
                     )
                 
-                 ->add('baniere', 'sonata_type_model_list', array(
-                        'btn_list' => false,
-                        'help' => 'image de présentation de l\'hotel',
-                    ), array(
-                            'link_parameters' => array(
-                                'context' => 'image_partenaire'
-                            ))
-                    )
+
                 
                 ->end()
             ->end()

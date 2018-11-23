@@ -134,3 +134,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Commentaire }
         public: true
+
+    nanotech_canhebergement_admin.admin.gallery:
+        class: Nanotech\CanhebergementAdminBundle\Admin\GalleryAdmin
+        arguments: [~, Nanotech\MediaBundle\Entity\Gallery, NanotechCanhebergementAdminBundle:GalleryAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Gallery }
+        public: true

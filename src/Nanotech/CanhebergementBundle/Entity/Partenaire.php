@@ -123,7 +123,7 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="adr_serv", type="string", length=255)
+     * @ORM\Column(name="adr_serv", type="string", length=255,nullable=true)
      */
     private $adrServ;
 
@@ -215,7 +215,7 @@ class Partenaire
     private $commandeRestaurant;
     
       /**
-     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Gallery", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Gallery",  cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private  $baniere;
@@ -998,6 +998,7 @@ class Partenaire
         return $this->nom? $this->nom." ":" ";
         
     }
+
 
     /**
      * Add utilisateur
