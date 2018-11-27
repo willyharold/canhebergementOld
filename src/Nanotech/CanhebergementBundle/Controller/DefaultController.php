@@ -12,14 +12,14 @@ class DefaultController extends Controller
         $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));;
         $partenaires = $em->getRepository('NanotechCanhebergementBundle:Partenaire')->findBy(array(), array('dateEnreg' => 'DESC'), 5, 0);;
           $titre = $request->get("name");
-        $titres = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneBy(array('titre_fr' => $titre));;
+        $parametre = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneById(1);
         
         
         return $this->render('NanotechCanhebergementBundle:Default:index.html.twig', array(
              'partenaires' => $partenaires,
              'titre' => $titre,
              'banieres' => $banieres,
-             'titres' => $titres,
+             'parametre' => $parametre,
            
                 
                 ));

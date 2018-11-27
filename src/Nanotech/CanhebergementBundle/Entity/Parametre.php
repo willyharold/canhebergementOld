@@ -38,16 +38,16 @@ class Parametre
     /**
      * @var string
      *
-     * @ORM\Column(name="titre_fr", type="string", length=255)
+     * @ORM\Column(name="titrefr", type="string", length=255)
      */
-    private $titre_fr;
+    private $titreFr;
     
      /**
      * @var string
      *
-     * @ORM\Column(name="titre_en", type="string", length=255)
+     * @ORM\Column(name="titreen", type="string", length=255)
      */
-    private $titre_en;
+    private $titreEn;
 
     public function __construct()
     {
@@ -55,11 +55,12 @@ class Parametre
 
     }
 
+
+
     /**
      * Get id
      *
-     * @return int
-     * 
+     * @return integer
      */
     public function getId()
     {
@@ -115,30 +116,6 @@ class Parametre
     }
 
     /**
-     * Set tire
-     *
-     * @param string $tire
-     *
-     * @return Parametre
-     */
-    public function setTire($tire)
-    {
-        $this->tire = $tire;
-
-        return $this;
-    }
-
-    /**
-     * Get tire
-     *
-     * @return string
-     */
-    public function getTire()
-    {
-        return $this->tire;
-    }
-
-    /**
      * Set titreFr
      *
      * @param string $titreFr
@@ -147,7 +124,7 @@ class Parametre
      */
     public function setTitreFr($titreFr)
     {
-        $this->titre_fr = $titreFr;
+        $this->titreFr = $titreFr;
 
         return $this;
     }
@@ -159,7 +136,7 @@ class Parametre
      */
     public function getTitreFr()
     {
-        return $this->titre_fr;
+        return $this->titreFr;
     }
 
     /**
@@ -171,7 +148,7 @@ class Parametre
      */
     public function setTitreEn($titreEn)
     {
-        $this->titre_en = $titreEn;
+        $this->titreEn = $titreEn;
 
         return $this;
     }
@@ -183,6 +160,6 @@ class Parametre
      */
     public function getTitreEn()
     {
-        return $this->titre_en;
+        return $this->titreEn;
     }
 }

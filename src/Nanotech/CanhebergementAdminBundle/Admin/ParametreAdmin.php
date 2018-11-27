@@ -17,8 +17,8 @@ class ParametreAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('devise')
-           ->add('titre_fr')
-                 ->add('titre_en')
+           ->add('titreFr')
+                 ->add('titreEn')
             ->add('dateEnreg')
 
         ;
@@ -29,8 +29,8 @@ class ParametreAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('devise')
-              ->add('titre_fr')
-                 ->add('titre_en')
+              ->add('titreFr')
+                 ->add('titreEn')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -46,8 +46,8 @@ class ParametreAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('devise')          
-             ->add('titre_fr')
-                 ->add('titre_en')
+             ->add('titreFr')
+                 ->add('titreEn')
         ;
     }
 
@@ -56,8 +56,8 @@ class ParametreAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('devise')
-             ->add('titre_fr')
-                 ->add('titre_en')
+             ->add('titreFr')
+                 ->add('titreEn')
             ->add('dateEnreg')
          
         ;
