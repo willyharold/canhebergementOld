@@ -129,5 +129,29 @@ class DashboardController extends Controller
         return new Response(count($commentaire));
     }
     
+     public function index10Action()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+   $reservationconf = $em->getRepository('NanotechCanhebergementBundle:ReservationConfirme')->findAll();
+        if (empty($reservationconf)) {
+            return new Response(0);
+        }
+
+        return new Response(count($reservationconf));
+    }
+    
+      public function index11Action()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+    $payer = $em->getRepository('NanotechCanhebergementBundle:Payer')->findAll();
+        if (empty($payer)) {
+            return new Response(0);
+        }
+
+        return new Response(count($payer));
+    }
+    
       
 }

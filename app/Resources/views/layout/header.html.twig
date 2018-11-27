@@ -1,9 +1,11 @@
 <header id="header row" class="ovh">
+     
     <div class="slider row" >
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/1.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/3.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/2.jpg') }})"></div>
+        {% for baniere in banieres %}
+        <div class="col-sm-12 sl" style="background-image: url({% path baniere.image, 'big' %})"></div>
+        {% endfor %}
     </div>
+       
     <div class="col-sm-12 headTop2" id="headTop">
         <div class="container-fluid ">
             <div class="row ">
@@ -12,7 +14,7 @@
                         <span class="burg"></span>
                     </span>
                     <img style="width: 34px" src="{{ asset('can/images/logo1.svg') }}"> 
-                    <span class="dorix"> <span class="jaune"> CAN</span>HEBERGEMENT</span> 
+                  <span class="dorix">  {% for titre in titres %}   <span class="jaune"> {{titre.titre_fr}}</span> {% endfor %}</span> 
                 </div>
                 <div class="col-md-5 text-right menlor p-0">
                     <ul class="menu p-0">

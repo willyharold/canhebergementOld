@@ -7,61 +7,21 @@
 	<div class="container">	
 	<div class="row">
 		<div class="col-md-12"><h3 class="cl1 text-center">NOUVEAU HÔTEL</h3></div>
+		
+		  {% for partenaire in partenaires %}
 		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
 			<div class="htl" >
-				<div class="htlin" style="background-image: url({{ asset('can/images/1.jpg') }});"></div>
+				<div class="htlin" style="background-image: url({% path partenaire.image, 'big' %});"></div>
 				<div class="couvr jaune md-18" >
 					<i class="material-icons">star</i>
 					<i class="material-icons">star</i>
 					<i class="material-icons">star</i>
 				</div>
 			</div>
-			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
+			<p> <h5 class="nhtl">{{partenaire.nom}}</h5></p>
 			<p>
-				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
-				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor inci...</span><br><span class="text-center srv" title="Sale de sérémonie"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
-				<span class=" text-center srv" title="Coktail"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
-				<span class=" text-center srv" title="+ de details"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
-				
-			</p>
-			<a href="hotel.html" class="d-none lien"></a>
-		</div>
-		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
-			<div class="htl" >
-				<div class="htlin" style="background-image: url({{ asset('can/images/2.jpg') }});"></div>
-				<div class="couvr jaune md-18" >
-					<i class="material-icons">star</i>
-					<i class="material-icons">star</i>
-				</div>
-			</div>
-			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
-			<p>
-				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
-				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor inci...</span><br>
-				<span class=" text-center srv" title="restaurant"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
-				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
-				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
-				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/fruit.svg') }}"> </span>
-				<span class=" text-center srv" title="Wifi"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
-				<span class=" text-center critaire srv md-20 dpb2 material-icons" title="+ de details">add </span>
-			</p>
-		</div>
-		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
-			<div class="htl" >
-				<div class="htlin" style="background-image: url({{ asset('can/images/3.jpg') }});"></div>
-				<div class="couvr jaune md-18" >
-					<i class="material-icons">star</i>
-					<i class="material-icons">star</i>
-					<i class="material-icons">star</i>
-				</div>
-			</div>
-			<p> <h5 class="nhtl">NOM DE l'HOTEL</h5></p>
-			<p>
-				<span class="md-13 cl3"><i class="material-icons">place</i>  Localition de l'hotel <br> </span>
-				<span class="desch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor inci...</span><br>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  Localisation de l'hotel <br> </span>
+				<span class="desch">{{partenaire.descriptionFr}}</span><br>
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cheers.svg') }}"> </span>
@@ -69,6 +29,7 @@
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/wifi.svg') }}"> </span>
 			</p>
 		</div>
+                        {% endfor %}
 		<div class="col-md-12 dividers"></div>
 		<div class="col-md-12 text-center mb-sm-3"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">visibility</i>VOIR TOUS LES HÔTELS</a></div>
 	</div>
