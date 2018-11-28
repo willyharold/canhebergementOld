@@ -46,8 +46,8 @@ class ParametreAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('devise')          
-             ->add('titreFr')
-                 ->add('titreEn')
+             ->add('titreFr',null,  ['label' => 'Titre Français'])
+                 ->add('titreEn',null,  ['label' => 'Titre Anglais'])
         ;
     }
 

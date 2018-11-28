@@ -45,8 +45,8 @@ class ServiceAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nomFr')
-             ->add('nomEn')
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+             ->add('nomEn',null,  ['label' => 'Nom Anglais'])
             ->add('code')
         ;
     }

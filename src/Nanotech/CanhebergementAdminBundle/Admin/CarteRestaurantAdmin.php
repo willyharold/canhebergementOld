@@ -52,10 +52,10 @@ class CarteRestaurantAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nomFr')
-            ->add('nomEn')
-            ->add('descriptionFr')
-            ->add('descriptionEn')
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+            ->add('nomEn',null,  ['label' => 'Nom Anglais'])
+            ->add('descriptionFr',null,  ['label' => 'Description Française'])
+            ->add('descriptionEn',null,  ['label' => 'Description Anglaise'])
             ->add('prix')
             ->add('famille')
             ->add('type')

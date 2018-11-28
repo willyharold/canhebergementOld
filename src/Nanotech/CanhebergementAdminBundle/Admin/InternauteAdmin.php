@@ -57,8 +57,8 @@ class InternauteAdmin extends AbstractAdmin
             ->add('email')
             ->add('cni')
             ->add('passeport')
-            ->add('dateNai')
-            ->add('lieuNai')
+            ->add('dateNai',null,  ['label' => 'Date de Naissance'])
+            ->add('lieuNai',null,  ['label' => 'Lieu de Naissance'])
         
         ;
     }

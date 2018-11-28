@@ -50,10 +50,10 @@ class CarteBarAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nomFr')
-            ->add('nomEn')   
-            ->add('descriptionEn')
-            ->add('descriptionFr')
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+            ->add('nomEn',null,  ['label' => 'Nom Anglais'])   
+            ->add('descriptionEn',null,  ['label' => 'Description Française'])
+            ->add('descriptionFr',null,  ['label' => 'Description Anglaise'])
             ->add('prix')
             ->add('famille')
         ;

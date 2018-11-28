@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
 
 class CategorieAdmin extends AbstractAdmin
 {
@@ -41,8 +42,8 @@ class CategorieAdmin extends AbstractAdmin
     {
         $formMapper
                   
-            ->add('nomFr')
-            ->add('nomEn')
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+            ->add('nomEn',null,  ['label' => 'Nom Anglais'])
         ;
     }
 

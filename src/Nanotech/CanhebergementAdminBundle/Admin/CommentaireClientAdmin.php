@@ -49,8 +49,8 @@ class CommentaireClientAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('fonction')
-            ->add('descriptionFr')
-            ->add('descriptionEn')
+            ->add('descriptionFr',null,  ['label' => 'Description Française'])
+            ->add('descriptionEn',null,  ['label' => 'Description Anglaise'])
             ->add('image', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'logo_moyen_paiement',
