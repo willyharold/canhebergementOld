@@ -3,21 +3,21 @@
 namespace Nanotech\CanhebergementBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+
 class DefaultController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
         $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));;
         $partenaires = $em->getRepository('NanotechCanhebergementBundle:Partenaire')->findBy(array(), array('dateEnreg' => 'DESC'), 5, 0);;
-          $titre = $request->get("name");
-        $parametre = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneById(1);
+       
+        $parametre = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneById(2);
         
         
         return $this->render('NanotechCanhebergementBundle:Default:index.html.twig', array(
              'partenaires' => $partenaires,
-             'titre' => $titre,
+          
              'banieres' => $banieres,
              'parametre' => $parametre,
            

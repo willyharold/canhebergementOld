@@ -85,6 +85,7 @@ class PartenaireAdmin extends AbstractAdmin
                             ),
                             'label' => 'Description Française'
                         ))
+                 ->add('categorie')
                     ->add('descriptionEn', CKEditorType::class, array(
                             'config' => array(
                                 'uiColor' => '#ffffff',

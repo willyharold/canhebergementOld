@@ -53,6 +53,7 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.commande_bar
                     - nanotech_canhebergement_admin.admin.commande_restaurant
                     - nanotech_canhebergement_admin.admin.commentaire
+                    - nanotech_canhebergement_admin.admin.categorie
 
                 roles: [ROLE_PARTENAIRE,ROLE_ADMIN,ROLE_SUPER_ADMIN]
 

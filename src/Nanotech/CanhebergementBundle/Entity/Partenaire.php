@@ -214,6 +214,12 @@ class Partenaire
     */
     private $commandeRestaurant;
     
+     /**
+    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Categorie")
+    * @ORM\JoinColumn(nullable=false) 
+    */
+    private $categorie; 
+    
       /**
      * @ORM\OneToOne(targetEntity="Nanotech\MediaBundle\Entity\Gallery",  cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
@@ -1047,4 +1053,14 @@ class Partenaire
     {
         return $this->baniere;
     }
+    
+    function getCategorie() {
+        return $this->categorie;
+    }
+
+    function setCategorie($categorie) {
+        $this->categorie = $categorie;
+    }
+
+
 }
