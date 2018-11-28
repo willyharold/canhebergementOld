@@ -156,30 +156,14 @@
 			<div class="col-md-12 mt-sm-5"><h3 class="cl1 text-center">NOS PARTENAIRES</h3></div>
 			<div class="container mt-3 pb-4">
 				<div class="row">
+                                     {% for comclient in comclients %}
 					<div class="col-md-3 col-12 col-sm-6">
-						<div style="background-image: url({{ asset('can/images/p1.jpg') }})" class="hepart"></div>
-						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE1 <br> <span class="cl8">Fonction du partenaire</span></div>
-						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod
+						<div style="background-image: url({% path comclient.image, 'big' %})" class="hepart"></div>
+						<div class="nm font-weight-bold  mt-2 dorix">{{comclient.nom}} <br> <span class="cl8">{{comclient.fonction}}</span></div>
+						<div class="cl8 mt-2 mb-3">{{comclient.descriptionFr}}
 						</div>
 					</div>
-					<div class="col-md-3 col-12 col-sm-6">
-						<div style="background-image: url({{ asset('can/images/p2.jpg') }})" class="hepart"></div>
-						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE2 <br> <span class="cl8">Fonction du partenaire</span></div>
-						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur dipisicin adipisicing elit, sdo doeiueiued do eiusm do eiuod
-						</div>
-					</div>
-					<div class="col-md-3 col-12 col-sm-6">
-						<div style="background-image: url({{ asset('can/images/p3.jpg') }})" class="hepart"></div>
-						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE3 <br> <span class="cl8">Fonction du partenaire</span></div>
-						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-						</div>
-					</div>
-					<div class="col-md-3 col-12 col-sm-6">
-						<div style="background-image: url({{ asset('can/images/p4.jpg') }})" class="hepart"></div>
-						<div class="nm font-weight-bold  mt-2 dorix">NOM PARTENAIRE4 <br> <span class="cl8">Fonction du partenaire</span></div>
-						<div class="cl8 mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-						</div>
-					</div>
+                                                {% endfor %}
 				</div>
 				<div class="divider"></div>
 			</div>

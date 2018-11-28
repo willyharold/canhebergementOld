@@ -11,13 +11,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));;
         $partenaires = $em->getRepository('NanotechCanhebergementBundle:Partenaire')->findBy(array(), array('dateEnreg' => 'DESC'), 5, 0);;
-       
-        $parametre = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneById(2);
+        $comclient = $em->getRepository('NanotechCanhebergementBundle:CommentaireClient')->findBy(array(), array('dateEnreg' => 'DESC'), 4, 0);;
+        $parametre = $em->getRepository('NanotechCanhebergementBundle:Parametre')->findOneById(1);
         
         
         return $this->render('NanotechCanhebergementBundle:Default:index.html.twig', array(
              'partenaires' => $partenaires,
-          
+             'comclients' => $comclient,
              'banieres' => $banieres,
              'parametre' => $parametre,
            

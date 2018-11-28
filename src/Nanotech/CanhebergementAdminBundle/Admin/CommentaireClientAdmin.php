@@ -53,7 +53,7 @@ class CommentaireClientAdmin extends AbstractAdmin
             ->add('descriptionEn',null,  ['label' => 'Description Anglaise'])
             ->add('image', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
-                   'context' => 'logo_moyen_paiement',
+                   'context' => 'image_partenaire',
                    'required' => false,
                    'label' => "logo de la bannière",
                ))
