@@ -78,4 +78,12 @@ class DefaultController extends Controller
             'banieres' => $banieres,
         ));
     }
+
+    public function footerAction(){
+        return $this->render('NanotechCanhebergementBundle:Default:footer.html.twig', array());
+    }
+
+    public function menuAction($id=0){
+        return $this->render('NanotechCanhebergementBundle:Default:menu.html.twig', array('id'=>$id));
+    }
 }

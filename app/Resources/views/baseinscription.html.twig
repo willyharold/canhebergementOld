@@ -32,7 +32,7 @@
     
 {% include 'layoutinscription/header.html.twig' %}
 {% block content %}{% endblock %}
-{% include 'layoutinscription/footer.html.twig' %}
+{{ render(controller('NanotechCanhebergementBundle:Default:footer'))}}
 
    <!-- codes js -->
 <script type="text/javascript" src="{{ asset('can/js/jquery-3.3.1.min.js') }}"></script>

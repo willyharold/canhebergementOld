@@ -1,66 +1,9 @@
 <header id="header row" class="ovh">
 
     {{ render(controller('NanotechCanhebergementBundle:Default:banniere'))}}
-       
-    <div class="col-sm-12 headTop2" id="headTop">
-        <div class="container-fluid ">
-            <div class="row ">
-                <div class=" col-md-4 md-18 mm">
-                    <span class="contai menlord openm">
-                        <span class="burg"></span>
-                    </span>
-                    <img style="width: 34px" src="{{ asset('can/images/logo1.svg') }}"> 
-                  <span class="dorix">   <span class="jaune"> CAN</span>HEBERGEMENT</span>
-                </div>
-                <div class="col-md-5 text-right menlor p-0">
-                    <ul class="menu p-0">
-                        <li class=""> <a href="{{ path('nanotech_canhebergement_homepage') }}" class="activ">ACCUEIL</a> </li>
-                        <li class="" >
-                            <span style="position: relative">
-                                <a href="#" class="lgmt">LOGEMENT</a>
-                                <span class="sousmenuz smcnt dnone">
-                                    <div class="trgl"></div>
-                                    <span><a href="{{ path('nanotech_canhebergement_hotel') }}" class="sousm bordsousmen">HÔTEL</a></span>
-                                    <span><a href="" class="sousm bordsousmen">MAISON D'HOTE</a></span>
-                                    <span><a href="" class="sousm bordsousmen">APPARTEMENT</a></span>
-                                    <span><a href="" class="sousm">AUBERGE</a></span>
-                                </span>
-                            </span> 
-                        </li>
-                        <li class="rsvt"> <a href="#">RESERVATION</a> </li>
-                        <!-- <li class=""> <a href="#">CONTACT</a> </li> -->
-                        <li class=""> <a href="#">A PROPOS</a> </li>
-                    </ul>
-                </div>
-                <div class="col-md-3 text-right menlor p-0">
-                    <ul class="mencon p-0">
-                        <li class=""> <a href="{{ path('fos_user_security_login') }}">Se connecter</a> </li>
-                        <li class="ins"> <a href="{{ path('fos_user_security_login') }}">Inscription</a> </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="menlat0 menlatX">
-                <div class="cls point"><i class="material-icons">close</i></div>
-                <div class="menlatin">
-                    <ul>
-                        <li><a href="#" class="activ">ACCUEIL</a></li>
-                        <li><a href="#" class="lgc">LOGEMENT</a></li>
-                        <div class="mltsm mltsmno">
-                            <li><a href="#" class="menlatinsm">Appartement</a></li>
-                            <li><a href="#" class="menlatinsm">Hôtel</a></li>
-                            <li><a href="#" class="menlatinsm" >Maison d'hôte</a></li>
-                        </div>
-                        <!-- <li><a href="#" >CONTACT</a></li> -->
-                        <li><a href="#" >A PROPOS</a></li>
-                        <li><a href="#" >ACCUEIL</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flo">
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 couv"></div>
+
+    {{ render(controller('NanotechCanhebergementBundle:Default:menu',{'id':1}))}}
+
     <div class="col-sm-12 couv2 p-0">
         <div class="col-sm-12 conttop">
             <div class="row">
@@ -97,7 +40,7 @@
                                     <label class="position-absolute pl-12" for="direct">
                                         <span class="material-icons cl12 labrech">search</span>
                                     </label>
-                                    <input class="mu lh35 inp" type="text" id="ville" name="ville" placeholder="Type d'établissement ?">
+                                    <input class="mu lh35 inp" type="text" id="ville" name="ville" placeholder="Type d'hébergement ?">
                                 </div>
                                 <span class="sousmenuz smslt ville">
                                     <div class="trgl"></div>
