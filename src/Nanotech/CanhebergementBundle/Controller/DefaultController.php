@@ -55,7 +55,7 @@ class DefaultController extends Controller
     
       public function recherchemaisonAction()
     {
-          $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
         return $this->render('NanotechCanhebergementBundle:Default:recherchemaison.html.twig', array(
                              'banieres' => $banieres,
@@ -69,5 +69,13 @@ class DefaultController extends Controller
         return $this->render('NanotechCanhebergementBundle:Default:inscription.html.twig', array(
                              'banieres' => $banieres,
                 ));
+    }
+
+    public function banniereAction(){
+        $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'ASC'));
+        return $this->render('NanotechCanhebergementBundle:Default:banniere.html.twig', array(
+            'banieres' => $banieres,
+        ));
     }
 }

@@ -1,0 +1,5 @@
+<div class="slider row" >
+    {% for baniere in banieres %}
+		<div class="col-sm-12 sl" style="background-image: url({% path baniere.image, 'big' %})"></div>
+    {% endfor %}
+</div>

@@ -1,11 +1,6 @@
 <header id="header row" class="ovh">
      
-    <div class="slider row" >
-        {% for baniere in banieres %}
-        <div class="col-sm-12 sl" style="background-image: url({% path baniere.image, 'big' %})"></div>
-        {% endfor %}
-    </div>
-       
+    {{ render(controller('NanotechCanhebergementBundle:Default:banniere'))}}
   <div class="col-sm-12 headTop2" id="headTop">
 		<div class="container-fluid ">
 			<div class="row ">

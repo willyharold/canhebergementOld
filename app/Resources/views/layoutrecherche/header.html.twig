@@ -1,9 +1,5 @@
 <header id="header row" class="ovh">
-    <div class="slider row" >
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/1.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/3.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/2.jpg') }})"></div>
-    </div>
+    {{ render(controller('NanotechCanhebergementBundle:Default:banniere'))}}
     <div class="col-sm-12 headTop2" id="headTop">
         <div class="container-fluid ">
             <div class="row ">
@@ -62,6 +58,7 @@
             </div>
         </div>
     </div>
+
    <div class="col-sm-12 couv"></div>
 	<div class="col-sm-12 couv2 p-0">
 		<div class="col-sm-12 conttop">
