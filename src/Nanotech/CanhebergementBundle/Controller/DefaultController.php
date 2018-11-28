@@ -27,21 +27,47 @@ class DefaultController extends Controller
     
       public function hotelAction()
     {
-        return $this->render('NanotechCanhebergementBundle:Default:hotel.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        
+        return $this->render('NanotechCanhebergementBundle:Default:hotel.html.twig', array(
+                             'banieres' => $banieres,
+                ));
     }
     
       public function reservationAction()
     {
-        return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig');
+          $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig', array(
+                             'banieres' => $banieres,
+                ));
     }
     
       public function rechercheAction()
     {
-        return $this->render('NanotechCanhebergementBundle:Default:recherche.html.twig');
+          $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        return $this->render('NanotechCanhebergementBundle:Default:recherche.html.twig', array(
+                             'banieres' => $banieres,
+                ));
     }
     
       public function recherchemaisonAction()
     {
-        return $this->render('NanotechCanhebergementBundle:Default:recherchemaison.html.twig');
+          $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        return $this->render('NanotechCanhebergementBundle:Default:recherchemaison.html.twig', array(
+                             'banieres' => $banieres,
+                ));
+    }
+    
+     public function inscriptionAction()
+    {
+         $em = $this->getDoctrine()->getManager();
+        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        return $this->render('NanotechCanhebergementBundle:Default:inscription.html.twig', array(
+                             'banieres' => $banieres,
+                ));
     }
 }
