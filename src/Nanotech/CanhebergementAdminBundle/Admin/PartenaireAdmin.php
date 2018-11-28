@@ -79,13 +79,14 @@ class PartenaireAdmin extends AbstractAdmin
             ->tab('Général')
                 ->with('Partenaire')
                     ->add('nom')
+                    ->add('categorie')
                     ->add('descriptionFr', CKEditorType::class, array(
                             'config' => array(
                                 'uiColor' => '#ffffff',
                             ),
                             'label' => 'Description Française'
                         ))
-                 ->add('categorie')
+
                     ->add('descriptionEn', CKEditorType::class, array(
                             'config' => array(
                                 'uiColor' => '#ffffff',

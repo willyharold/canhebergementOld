@@ -11,7 +11,7 @@
 		  {% for partenaire in partenaires %}
 		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
 			<div class="htl" >
-				<div class="htlin" style="background-image: url({% path partenaire.image, 'big' %});"></div>
+				<div class="htlin" style="background-image: url({% path partenaire.image.galleryHasMedias[0].media, 'big' %});"></div>
 				<div class="couvr jaune md-18" >
 					<i class="material-icons">star</i>
 					<i class="material-icons">star</i>
@@ -20,7 +20,7 @@
 			</div>
 			<p> <h5 class="nhtl">{{partenaire.nom}}</h5></p>
 			<p>
-				<span class="md-13 cl3"><i class="material-icons">place</i>  {{partenaire.quartier}},{{partenaire.ville}}, {{partenaire.pays}}  <br> </span>
+				<span class="md-13 cl3"><i class="material-icons">place</i>  {{partenaire.quartier}}, {{partenaire.ville}}, {{partenaire.pays}}  <br> </span>
 				<span class="desch">{{partenaire.descriptionFr}}</span><br>
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/resto.svg') }}"></span> 
 				<span class=" text-center srv"><img style="width: 24px" src="{{ asset('can/images/cocktail.svg') }}"> </span>

@@ -148,6 +148,11 @@ class Categorie
         $this->partenaire = $partenaire;
     }
 
+    public function __toString()
+    {
+        return "".$this->nomFr;
+    }
+
 
 }
 
