@@ -46,7 +46,7 @@
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">Administration</a> </li>
                         {% else %}
-							<li class="ins"> <a href="{{ path('nanotech_canhebergement_inscription') }}" class="jaune">Inscription/Connexion</a> </li>
+							<li class="ins"> <a href="{{ path('fos_user_security_login') }}" class="jaune">Inscription/Connexion</a> </li>
                         {% endif %}
                     {% else %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

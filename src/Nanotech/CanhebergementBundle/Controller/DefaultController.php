@@ -83,6 +83,11 @@ class DefaultController extends Controller
         return $this->render('NanotechCanhebergementBundle:Default:footer.html.twig', array());
     }
 
+    public function loginreservationAction(){
+        return $this->render('NanotechCanhebergementBundle:Default:loginReservation.html.twig', array());
+    }
+
+
     public function menuAction($id=0){
         return $this->render('NanotechCanhebergementBundle:Default:menu.html.twig', array('id'=>$id));
     }
