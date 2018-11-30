@@ -17,3 +17,7 @@ nanotech_canhebergement_recherche:
 nanotech_canhebergement_recherchemaison:
     path:     /recherche
     defaults: { _controller: NanotechCanhebergementBundle:Default:recherchemaison }
+    
+nanotech_canhebergement_inscription:
+    path:     /inscription
+    defaults: { _controller: NanotechCanhebergementBundle:Default:inscription }

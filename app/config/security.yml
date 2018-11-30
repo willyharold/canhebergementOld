@@ -56,6 +56,13 @@ security:
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_EDIT
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_CREATE
             - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_UTILISATEUR_DELETE
+            
+        ROLE_SONATA_CANHEBERGEMENT_CATEGORIE:
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_CATEGORIE_LIST
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_CATEGORIE_VIEW
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_CATEGORIE_EDIT
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_CATEGORIE_CREATE
+            - ROLE_CANHEBERGEMENT_ADMIN_ADMIN_CATEGORIE_DELETE
 
         ROLE_SONATA_CANHEBERGEMENT_BANNIERE:
             - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_BANNIERE_LIST
@@ -189,8 +196,6 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email        # fos_user.user_provider.username_email does not seem to work (OAuth-spec related ("username + password") ?)
     firewalls:
-
-        
         oauth_token:                                   # Everyone can access the access token URL.
             pattern: ^/oauth/v2/token
             security: false
@@ -211,25 +216,17 @@ security:
                 csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
-
+                default_target_path: /admin
             logout:       true
             anonymous:    true
 
-        login:
-            pattern:  ^/login$
-            security: false
 
-            remember_me:
-                key: "%secret%"
-                lifetime: 31536000
-                path: /
-                domain: ~
-        
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/admin, role: ROLE_CONNEXION }
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         

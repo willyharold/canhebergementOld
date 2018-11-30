@@ -50,9 +50,9 @@ class CommandeRestaurantAdmin extends AbstractAdmin
     {
         $formMapper
      
-            ->add('nomFr')
-            ->add('nomEn')
-            ->add('dateCom')
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+            ->add('nomEn',null,  ['label' => 'Nom Anglais'])
+            ->add('dateCom',null,  ['label' => 'Date Commande'])
             ->add('prix')
             ->add('quantite')
             ->add('partenaire')

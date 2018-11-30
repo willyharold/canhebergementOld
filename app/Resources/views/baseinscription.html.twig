@@ -25,75 +25,22 @@
 	<link rel="stylesheet" href="{{ asset('can/css/jquery-ui.min.css') }}" type="text/css" media="all" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/rangestyle.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('can/css/fotorama.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/datepicker/bootstrap-datepicker.css') }}"/>
+        
 </head>
 <body>
     
-{% include 'layouthotel/header.html.twig' %}
-{% block body %}{% endblock %}
+{% include 'layoutinscription/header.html.twig' %}
+{% block content %}{% endblock %}
 {{ render(controller('NanotechCanhebergementBundle:Default:footer'))}}
 
    <!-- codes js -->
 <script type="text/javascript" src="{{ asset('can/js/jquery-3.3.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('can/js/jquery.velocity.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('can/js/mdb.js') }}"></script>
-<script type="text/javascript" src="{{ asset('can/js/popper.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('can/js/bxslider.js') }}"></script>
 <script src="{{ asset('can/js/jquery-ui.min.js') }}" type="text/javascript"></script>
-<script type="text/javascript" src="{{ asset('can/js/rangescript.js') }}" ></script>
-<script type="text/javascript" src="{{ asset('can/js/rangescriptet.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/custom.js') }}" ></script>
-<script type="text/javascript" src="{{ asset('can/js/fotorama.js') }}" ></script>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0V1K6eya1M35KgHRT6q2XOP-1uV9Czo&callback=initMap"
-    async defer></script>
-<script type="text/javascript">
-
-	var nomEta="NomEtablissement";
-	var pos = {lat: 3.885532, lng: 11.540810};
-
-	function initMap() {
-	    var map = new google.maps.Map(document.getElementById('loc'), {
-	        center: pos,
-	        zoom: 10,
-	    });
-		var contentString='<div id="content">'+
-	            '<div id="siteNotice">'+
-	            '</div>'+
-	            '<h5 id="firstHeading" class="firstHeading">'+nomEta+'</h5>'+
-	            '</div>';
-
-	    var infowindow = new google.maps.InfoWindow({
-	        content: contentString,
-	        maxWidth: 500
-	        });
-		var marker = new google.maps.Marker({
-		    map: map,
-		    position: pos,
-		    draggable: false, //tu met cette valeur à false dans la page qui affiche la map
-		    title: 'Nom position',
-		    animation: google.maps.Animation.DROP
-		});
-	    infowindow.open(map, marker);
-	}
-
-	$(function(){ 
-
-		$('.btn-vpcd').click(function(e){
-			e.preventDefault();
-			$('#list-cmbd').append('<div class="spin pt-4 spin-cmb"></div>');
-			$('#cnt-lst-cmb').find('.aff-vpcd').remove();
-		});
-		$('.btn-apdc').click(function(e){
-			e.preventDefault();
-			$('#list-cmt').append('<div class="spin pt-4 spin-cmt"></div>');
-			$('#cnt-lst-cmt').find('.aff-apdc').remove();
-		});
-
-	});
-	
-
-</script>
-    
 </body>
 </html>

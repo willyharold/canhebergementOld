@@ -7,20 +7,17 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\AdminType;
 
-class ParametreAdmin extends AbstractAdmin
+class CategorieAdmin extends AbstractAdmin
 {
-    protected $baseRoutePattern = 'parametre';
-    protected $baseRouteName = 'canhebergement_parametre';
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
             ->add('id')
-            ->add('devise')
-           ->add('titreFr')
-                 ->add('titreEn')
-            ->add('dateEnreg')
-
+            ->add('dateEn')
+            ->add('nomFr')
+            ->add('nomEn')
         ;
     }
 
@@ -28,10 +25,9 @@ class ParametreAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('devise')
-              ->add('titreFr')
-                 ->add('titreEn')
-            ->add('dateEnreg')
+            ->add('dateEn')
+            ->add('nomFr')
+            ->add('nomEn')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -45,9 +41,9 @@ class ParametreAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('devise')          
-             ->add('titreFr',null,  ['label' => 'Titre Français'])
-                 ->add('titreEn',null,  ['label' => 'Titre Anglais'])
+                  
+            ->add('nomFr',null,  ['label' => 'Nom Français'])
+            ->add('nomEn',null,  ['label' => 'Nom Anglais'])
         ;
     }
 
@@ -55,11 +51,9 @@ class ParametreAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('devise')
-             ->add('titreFr')
-                 ->add('titreEn')
-            ->add('dateEnreg')
-         
+            ->add('dateEn')
+            ->add('nomFr')
+            ->add('nomEn')
         ;
     }
 }

@@ -68,7 +68,7 @@ class UtilisateurAdmin extends AbstractAdmin
                         'feminin' => 'FEMININ',  
                     ],
                 ])
-            ->add('dateNaissance')
+            ->add('dateNaissance',null,  ['label' => 'Date de Naissance'])
             ->add('telephone')
             ->add('partenaire')
             ->add('enabled')

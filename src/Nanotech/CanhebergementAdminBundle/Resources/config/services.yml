@@ -141,3 +141,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Gallery }
         public: true
+
+    nanotech_canhebergement_admin.admin.categorie:
+        class: Nanotech\CanhebergementAdminBundle\Admin\CategorieAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Categorie, NanotechCanhebergementAdminBundle:CategorieAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
+        public: true

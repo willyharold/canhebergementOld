@@ -1,0 +1,82 @@
+<div class="col-sm-12 headTop2" id="headTop">
+	<div class="container-fluid ">
+		<div class="row ">
+			<div class=" col-md-4 md-18 mm">
+						<span class="contai menlord openm">
+							<span class="burg"></span>
+						</span>
+				<img style="width: 34px" src="{{ asset('can/images/logo1.svg') }}">
+				<span class="dorix"> <span class="jaune"> CAN</span>HEBERGEMENT</span>
+			</div>
+			<div class="col-md-5 text-right menlor p-0">
+				<ul class="menu p-0">
+					{% if id == 1 %}
+					<li class=""> <a href="{{ path('nanotech_canhebergement_homepage') }}" class="activ">ACCUEIL</a> </li>
+					{% else %}
+					<li class=""> <a href="{{ path('nanotech_canhebergement_homepage') }}" >ACCUEIL</a> </li>
+					{% endif %}
+					<li class="" >
+						<span style="position: relative">
+							{% if id == 2 %}
+							<a href="#" class="lgmt" class="activ">LOGEMENT</a>
+							{% else %}
+								<a href="#" class="lgmt">LOGEMENT</a>
+							{% endif %}
+							<span class="sousmenuz smcnt dnone">
+								<div class="trgl"></div>
+								<span><a href="{{ path('nanotech_canhebergement_hotel') }}" class="sousm bordsousmen">HÔTEL</a></span>
+								<span><a href="" class="sousm bordsousmen">MAISON D'HOTE</a></span>
+								<span><a href="" class="sousm bordsousmen">APPARTEMENT</a></span>
+								<span><a href="" class="sousm">AUBERGE</a></span>
+							</span>
+						</span>
+					</li>
+                    {% if id == 3 %}
+						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#" class="activ">RESERVATION</a> </li>
+                    {% else %}
+						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#">RESERVATION</a> </li>
+                    {% endif %}
+					<!-- <li class=""> <a href="#">CONTACT</a> </li> -->
+					<li class=""> <a href="#">A PROPOS</a> </li>
+				</ul>
+			</div>
+			<div class="col-md-3 text-right menlor p-0">
+				<ul class="mencon p-0">
+                    {% if id == 5 %}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">Administration</a> </li>
+                        {% else %}
+							<li class="ins"> <a href="{{ path('fos_user_security_login') }}" class="jaune">Inscription/Connexion</a> </li>
+                        {% endif %}
+                    {% else %}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}">Administration</a> </li>
+                        {% else %}
+							<li class="ins"> <a href="{{ path('fos_user_security_login') }}">Inscription/Connexion</a> </li>
+                        {% endif %}
+
+                    {% endif %}
+
+				</ul>
+			</div>
+		</div>
+		<div class="menlat0 menlatX">
+			<div class="cls-mn point"><i class="material-icons">close</i></div>
+			<div class="menlatin">
+				<ul>
+					<li><a href="#" class="activ">ACCUEIL</a></li>
+					<li><a href="#" class="lgc">LOGEMENT</a></li>
+					<div class="mltsm mltsmno">
+						<li><a href="#" class="menlatinsm">Appartement</a></li>
+						<li><a href="#" class="menlatinsm">Hôtel</a></li>
+						<li><a href="#" class="menlatinsm" >Maison d'hôte</a></li>
+					</div>
+					<li><a href="#" >A PROPOS</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="flo">
+		</div>
+	</div>
+</div>
+<div class="col-sm-12 couv"></div>
