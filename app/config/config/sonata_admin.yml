@@ -14,7 +14,6 @@ sonata_block:
 sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
-        
         role_admin: ROLE_ADMIN
         role_super_admin: ROLE_SUPER_ADMIN
 
