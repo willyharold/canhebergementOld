@@ -127,19 +127,19 @@ security:
             - ROLE_INTERNAUTE
 
         ROLE_CONNEXION:
-            - ROLE_CONNEXION
+#            - ROLE_CONNEXION
 
         ROLE_RECEPTION:
-            - ROLE_RECEPTION
+#            - ROLE_RECEPTION
             - ROLE_SONATA_CANHEBERGEMENT_RESERVATION
             - ROLE_SONATA_CANHEBERGEMENT_RESERVATION_CONFIRME
             - ROLE_SONATA_CANHEBERGEMENT_PAYER
-            - ROLE_CONNEXION
+#            - ROLE_CONNEXION
 
         ROLE_SERVICE:
-            - ROLE_SERVICE
+#            - ROLE_SERVICE
             - ROLE_SONATA_CANHEBERGEMENT_PLANNING
-            - ROLE_CONNEXION
+#            - ROLE_CONNEXION
 
         ROLE_PARTENAIRE:
             - ROLE_SONATA_CANHEBERGEMENT_GALLERY
@@ -148,7 +148,7 @@ security:
             - ROLE_SONATA_CANHEBERGEMENT_CARTEBAR
             - ROLE_SONATA_CANHEBERGEMENT_CARTERESTAURANT
             - ROLE_SONATA_CANHEBERGEMENT_PIECE
-            - ROLE_PARTENAIRE
+#            - ROLE_PARTENAIRE
             - ROLE_RECEPTION
             - ROLE_SERVICE
             - ROLE_NANOTECH_CANHEBERGEMENT_ADMIN_ADMIN_PLANNING_EDIT
@@ -159,7 +159,6 @@ security:
             - ROLE_SONATA_ADMIN
 
         ROLE_ADMIN:
-            - ROLE_ADMIN
             - ROLE_PARTENAIRE
             - ROLE_SONATA_CANHEBERGEMENT_SERVICE
             - ROLE_SONATA_CANHEBERGEMENT_PROXIMITE
@@ -230,6 +229,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, role: ROLE_CONNEXION }
+#        - { path: ^/admin, role: ROLE_CONNEXION }
+        - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         
