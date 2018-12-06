@@ -785,6 +785,21 @@ a.allhtl{
 a.allhtl:hover{
   background-color: rgba(228,22,59,1);
 }
+.allhtl{
+  display: inline-block;
+  text-decoration:  none;
+  padding:10px 20px 10px 20px ;
+  color: #FFF;
+  background-color: rgba(34,16,65,1);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.allhtl:hover{
+  background-color: rgba(228,22,59,1);
+}
 .divider{
   height: 40px;
 }

@@ -27,11 +27,12 @@ class Commentaire
     * @ORM\JoinColumn(nullable=false) 
     */
     private $partenaire;
-    
+
     /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Internaute")
-    * @ORM\JoinColumn(nullable=false) 
-    */
+     * @var string
+     *
+     * @ORM\Column(name="internaute", type="string", length=255)
+     */
     private $internaute;
     
     /**
@@ -48,57 +49,117 @@ class Commentaire
      */
     private $description;
 
+  public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
+
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
 
-  
-    
-    function getPartenaire() {
-        return $this->partenaire;
+    /**
+     * Set internaute
+     *
+     * @param string $internaute
+     *
+     * @return Commentaire
+     */
+    public function setInternaute($internaute)
+    {
+        $this->internaute = $internaute;
+
+        return $this;
     }
 
-    function getInternaute() {
+    /**
+     * Get internaute
+     *
+     * @return string
+     */
+    public function getInternaute()
+    {
         return $this->internaute;
     }
 
-    function getDateEnreg() {
+    /**
+     * Set dateEnreg
+     *
+     * @param \DateTime $dateEnreg
+     *
+     * @return Commentaire
+     */
+    public function setDateEnreg($dateEnreg)
+    {
+        $this->dateEnreg = $dateEnreg;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEnreg
+     *
+     * @return \DateTime
+     */
+    public function getDateEnreg()
+    {
         return $this->dateEnreg;
     }
 
-    function setPartenaire($partenaire) {
-        $this->partenaire = $partenaire;
-    }
-
-    function setInternaute($internaute) {
-        $this->internaute = $internaute;
-    }
-
-    function setDateEnreg(\DateTime $dateEnreg) {
-        $this->dateEnreg = $dateEnreg;
-    }
-
-  public function __construct()
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Commentaire
+     */
+    public function setDescription($description)
     {
-        $this->dateEnreg = new \DateTime();
+        $this->description = $description;
 
+        return $this;
     }
-    
-    function getDescription() {
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    function setDescription($description) {
-        $this->description = $description;
+    /**
+     * Set partenaire
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
+     *
+     * @return Commentaire
+     */
+    public function setPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
     }
 
-
+    /**
+     * Get partenaire
+     *
+     * @return \Nanotech\CanhebergementBundle\Entity\Partenaire
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
+    }
 }
-

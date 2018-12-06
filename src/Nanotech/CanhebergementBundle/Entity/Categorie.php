@@ -140,13 +140,7 @@ class Categorie
         return $this->nomEn;
     }
     
-    function getPartenaire() {
-        return $this->partenaire;
-    }
-
-    function setPartenaire($partenaire) {
-        $this->partenaire = $partenaire;
-    }
+   
 
     public function __toString()
     {
@@ -154,5 +148,38 @@ class Categorie
     }
 
 
-}
 
+    /**
+     * Add partenaire
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
+     *
+     * @return Categorie
+     */
+    public function addPartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
+    {
+        $this->partenaire[] = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove partenaire
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire
+     */
+    public function removePartenaire(\Nanotech\CanhebergementBundle\Entity\Partenaire $partenaire)
+    {
+        $this->partenaire->removeElement($partenaire);
+    }
+
+    /**
+     * Get partenaire
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
+    }
+}

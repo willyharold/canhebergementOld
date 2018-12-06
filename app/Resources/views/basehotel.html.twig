@@ -49,9 +49,10 @@
     async defer></script>
 <script type="text/javascript">
 
-	var nomEta="NomEtablissement";
-	var pos = {lat: 3.885532, lng: 11.540810};
+	var nomEta="{{ partenaire.nom }}";
 
+	var pos = {lat: {{ partenaire.coordx }}, lng: {{ partenaire.coordy }}};
+    var nbr = 8;
 	function initMap() {
 	    var map = new google.maps.Map(document.getElementById('loc'), {
 	        center: pos,
@@ -76,7 +77,6 @@
 		});
 	    infowindow.open(map, marker);
 	}
-
 	$(function(){ 
 
 		$('.btn-vpcd').click(function(e){
@@ -87,7 +87,15 @@
 		$('.btn-apdc').click(function(e){
 			e.preventDefault();
 			$('#list-cmt').append('<div class="spin pt-4 spin-cmt"></div>');
-			$('#cnt-lst-cmt').find('.aff-apdc').remove();
+            //$('#cnt-lst-cmt').find('.aff-apdc').remove();
+			var lien = "{{ path('nanotech_canhebergement_hotel',{'slug':partenaire.slug}) }}"
+			lien = lien + "/"+nbr;
+            $.get(lien,function(data){
+                console.log(data);
+                $('#list-cmt').html(data);
+                nbr = nbr + 4;
+            });
+
 		});
 
 	});

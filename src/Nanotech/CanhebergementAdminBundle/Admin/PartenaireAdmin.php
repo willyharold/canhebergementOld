@@ -139,9 +139,6 @@ class PartenaireAdmin extends AbstractAdmin
                                 'context' => 'image_partenaire'
                             ))
                     )
-                
-
-                
                 ->end()
             ->end()
             ->tab('Autre')

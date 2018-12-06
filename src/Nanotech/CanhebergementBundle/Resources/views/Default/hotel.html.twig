@@ -9,24 +9,17 @@
                 <div class="col-md-12">
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <h4 class="h1-r font-weight-bold cl8" id="nom">A propos de Nom établissement</h4>
+                            <h4 class="h1-r font-weight-bold cl8" id="nom">A propos de {{ partenaire.nom }}</h4>
                         </div>
                         <div class="col-md-12 mt-3 cl8">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            <p class="mt-2">n ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit </p>
+                            {{ partenaire.descriptionFr | raw}}
                         </div>
                         <div class="col-md-12 mb-5">
                             <div id="loc" class="mt-2 mb-2">
                             </div>
-                            <div><span class="font-weight-bold cl12">TELEHONE:</span> (+237) 254 521 368</div>
-                            <div class="mt-2"><span class="font-weight-bold cl12">EMAIL:</span> email@gmail.com</div>
-                            <div class="mt-2"><span class="font-weight-bold cl12 ">ADRESSE:</span> Yaoundé, Quartier Soa</div>
+                            <div><span class="font-weight-bold cl12">TELEHONE:</span> {{ partenaire.numTel1 }}, {{ partenaire.numTel2 }}, {{ partenaire.numTel3 }}</div>
+                            <div class="mt-2"><span class="font-weight-bold cl12">EMAIL:</span> {{ partenaire.adrEmail }}</div>
+                            <div class="mt-2"><span class="font-weight-bold cl12 ">ADRESSE:</span> {{partenaire.quartier}}, {{partenaire.ville}}, {{partenaire.pays}}</div>
                         </div>
 
                     </div>
@@ -126,16 +119,12 @@
                         <div class="col-md-6 ">
                             <div class="ovh" style="max-height:500px">
                                 <div class="fotorama" data-allowfullscreen="true" data-arrows="false" data-loop="true" data-width="100%" data-max-width="100%" data-nav="thumbs" >
-                                    <img src="{{ asset('can/images/1.jpg') }}">
+
+
                                     <img src="{{ asset('can/images/2.jpg') }}">
-                                    <img src="{{ asset('can/images/3.jpg') }}">
-                                    <img src="{{ asset('can/images/1.jpg') }}">
-                                    <img src="{{ asset('can/images/2.jpg') }}">
-                                    <img src="{{ asset('can/images/3.jpg') }}">
-                                    <img src="{{ asset('can/images/2.jpg') }}">
-                                    <img src="{{ asset('can/images/3.jpg') }}">
-                                    <img src="{{ asset('can/images/1.jpg') }}">
-                                    <img src="{{ asset('can/images/2.jpg') }}">
+                                    {% for image in partenaire.image.galleryHasMedias %}
+                                        <img src="{% path image.media, 'big' %}">
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -168,7 +157,34 @@
                     </div>
                     <div id="cnt-lst-cmb" class="row mb-4">
                         <div class="col-md-12">
-                            <h4 class="h1-r font-weight-bold cl8" id="nom">Chambre disponible <span class="md-14 cl8 ">(04)</span></h4>
+                            <h4 class="h1-r font-weight-bold cl8" id="nom">Logement disponible <span class="md-14 cl8 ">(04)</span></h4>
+                        </div>
+                        <div id="list-cmbd" class="col-md-12 mt-3 mb-3">
+                            <div class="col-md-12">
+                                <div id="14" class="row inpl chmb" style="min-height: 200px">
+                                    <div class="col-md-9 pt-2 pb-2">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div><h5 class="h1-r">Chambre standard</h5>
+                                                    <span class="cl8">Chambre restante - <span class="cl3 md-16">03</span></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class=" pb-4">Equipement de la chambre:
+                                                    <ul class="cl8">
+                                                        <li>2 Lits</li>
+                                                        <li>Télévision</li>
+                                                        <li>Sale de bain</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="cl8 col-md-12"><span class="cl3 md-20" style="font-weight:500"> 15 500 </span>XAF par nuit</div>
+                                        </div>
+                                        <div> <a href="{{ path('nanotech_canhebergement_reserver') }}" class="btn btn-primary md-12 float-right mt-3" >Reserver la chambre</a></div>
+                                    </div>
+                                    <div class="col-md-3" style="background-position:center top;background-size: cover; background-image: url({{ asset('can/images/2.jpg') }});"></div>
+                                </div>
+                            </div>
                         </div>
                         <div id="list-cmbd" class="col-md-12 mt-3 mb-3">
                             <div class="col-md-12">
@@ -198,91 +214,53 @@
                             </div>
                         </div>
                         <div class="col-md-12 dividers"></div>
-                        <div class="col-md-12 text-center mb-sm-3 aff-vpcd"><a href="#" class="allhtl md-12 btn-vpcd"><i class="material-icons mr-2 dpb2">add</i> VOIR PLUS DE CHAMBRE DISPONIBLE</a></div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 mt-5">
-                            <h4 class="h1-r font-weight-bold cl8" id="nom">Récommandation</h4>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3 point conthtl" id="hotel.html">
-                            <div class="inp" style="height: 150px; background-image: url({{ asset('can/images/3.jpg') }});background-position:center top;background-size: cover;">
-                            </div>
-                            <div class="mt-3"> Nom établissement</div>
-
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i><br>
-                            <span class="cl8 font-weight-bold"> A partir de 222.000 XAF </span><br>
-                            <span class="md-13 cl3"><i class="material-icons dpb2">place</i>  Soa - Yaoundé <br> </span>
-
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3 point conthtl" id="hotel.html">
-                            <div class="inp" style="height: 150px; background-image: url({{ asset('can/images/1.jpg') }});background-position:center top;background-size: cover;">
-                            </div>
-                            <div class="mt-3"> Nom établissement</div>
-
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i><br>
-                            <span class="cl8 font-weight-bold"> A partir de 222.000 XAF </span><br>
-                            <span class="md-13 cl3"><i class="material-icons dpb2">place</i>  Soa - Yaoundé <br> </span>
-
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3 point conthtl" id="hotel.html">
-                            <div class="inp" style="height: 150px; background-image: url({{ asset('can/images/2.jpg') }});background-position:center top;background-size: cover;">
-                            </div>
-                            <div class="mt-3"> Nom établissement</div>
-
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i><br>
-                            <span class="cl8 font-weight-bold"> A partir de 222.000 XAF </span><br>
-                            <span class="md-13 cl3"><i class="material-icons dpb2">place</i>  Soa - Yaoundé <br> </span>
-
-                        </div>
                     </div>
                     <div  id="cnt-lst-cmt" class="row mb-5 mt-5">
                         <div class="col-md-12 ">
                             <h4 class="h1-r font-weight-bold cl8" id="nom">Commentaire</h4>
                         </div>
                         <div id="list-cmt" class="col-md-12">
-                            <div class="cmt-item mt-3">
-                                <div class="font-weight-bold cl9">Nom personne </div>
-                                <div class="cl8 md-10 pb-2">Publier le 12/01/2018</div>
-                                <div class="cl8 brd-btm pb-3 cnt-cmt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip . Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            {% for com in commentaire %}
+                                <div class="cmt-item mt-3">
+                                    <div class="font-weight-bold cl9">{{ com.internaute }}</div>
+                                    <div class="cl8 md-10 pb-2">Publier le {{ com.dateEnreg |date("d/m/Y")  }}</div>
+                                    <div class="cl8 brd-btm pb-3 cnt-cmt">
+                                        {{ com.description }}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="cmt-item mt-3">
-                                <div class="font-weight-bold cl9">Nom personne </div>
-                                <div class="cl8 md-10 pb-2">Publier le 12/01/2018</div>
-                                <div class="cl8 brd-btm pb-3 cnt-cmt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
 
-                        <div class="col-md-12 pt-4 aff-apdc"><a href="#" class="allhtl md-12 btn-apdc"><i class="material-icons mr-2 dpb2">add</i>Afficher plus de commentairee</a></div>
+                        <div class="col-md-12 pt-4 aff-apdc">
+                            <a href="#" class="allhtl md-12 btn-apdc">
+                                <i class="material-icons mr-2 dpb2">add</i>
+                                Afficher plus de commentaire
+                            </a>
+                        </div>
                     </div>
                     <div class="row mb-5 mt-5">
                         <div class="col-md-12 ">
                             <h4 class="h1-r font-weight-bold cl8" id="nom">Laisser un commentaire</h4>
                         </div>
-                        <form class="col-md-12 mt-3">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <input class="md-13 contact" type="text" id="nom" name="nom" placeholder="Votre nom" style="width: 100%">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <textarea class="p-3 contact" rows="5" id="cmt" name="cmt" placeholder="Votre commentaire..."></textarea>
-                                </div>
-                                <div class="col-md-12 text-center"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">send</i>ENVOYEZ</a></div>
-                        </form>
+                        {{ form_start(form,{'attr':{'class':'col-md-12 mt-3'}}) }}
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                {{ form_widget(form.internaute, {'attr': {'class': 'md-13 contact'}}) }}
+                            </div>
+                            <div class="form-group col-md-12">
+                                {{ form_widget(form.description, {'attr': {'class': 'p-3 contact'}}) }}
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 text-center">
+
+                        {{ form_widget(form.save, {'attr': {'class': 'allhtl md-12'}}) }}
+                        </div>
+                        {{ form_rest(form) }}
+
+                        {# Fermeture de la balise <form> du formulaire HTML #}
+                        {{ form_end(form) }}
+
                         <div class="col-md-12 coments">
                             <div class="cmt-nm"></div>
                             <div class="cmt-msg"></div>
@@ -294,33 +272,8 @@
             <div class="divider"></div>
         </div>
         <div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
-        <div class="logn bcl1">
-            <div class="clsl point"><i class="material-icons">close</i></div>
-            <div class="col-md-4 offset-md-4 lognc" style="color:#fff">
-                <div class="mt-4">
-                    <div>
-                        <h2 class="h1-r jaune">LOGIN RESERVATION</h2>
-                        <p>Pour voir vos précédentes réservations, veuillez entrez
-                            les informations qui vous ont été envoyées par mail.
-                        </p>
-                        <p class="md-12 cl3 error">Les informations que vous avez entrer ne sont pas correct.</p>
-                    </div>
-                    <div>
-                        <form>
-                            <div class="heiI inp mt-4">
-                                <span class="material-icons cl12 labrech">account_circle</span>
-                                <input class="md-13 inrech" type="text" id="login" name="login" placeholder="Identifiant">
-                            </div>
-                            <div class="heiI inp mt-4">
-                                <span class="material-icons cl12 labrech">lock</span>
-                                <input class="md-13 inrech" type="text" id="login" name="login" placeholder="Mot de passe">
-                            </div>
-                            <button class="btn btn-outline-warning mt-4 md-12">Se connecter</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
     </section>
 
 

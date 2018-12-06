@@ -134,19 +134,16 @@ security:
             - ROLE_INTERNAUTE
 
         ROLE_CONNEXION:
-#            - ROLE_CONNEXION
 
         ROLE_RECEPTION:
-#            - ROLE_RECEPTION
             - ROLE_SONATA_CANHEBERGEMENT_RESERVATION
             - ROLE_SONATA_CANHEBERGEMENT_RESERVATION_CONFIRME
             - ROLE_SONATA_CANHEBERGEMENT_PAYER
-#            - ROLE_CONNEXION
+            - ROLE_CONNEXION
 
         ROLE_SERVICE:
-#            - ROLE_SERVICE
             - ROLE_SONATA_CANHEBERGEMENT_PLANNING
-#            - ROLE_CONNEXION
+            - ROLE_CONNEXION
 
         ROLE_PARTENAIRE:
             - ROLE_SONATA_CANHEBERGEMENT_GALLERY
@@ -226,6 +223,6 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, role: ROLE_PARTENAIRE}
+        - { path: ^/admin, role: ROLE_CONNEXION}
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         

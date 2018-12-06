@@ -1,0 +1,9 @@
+    {% for com in commentaire %}
+    <div class="cmt-item mt-3">
+        <div class="font-weight-bold cl9">{{ com.internaute }}</div>
+        <div class="cl8 md-10 pb-2">Publier le {{ com.dateEnreg |date("d/m/Y")  }}</div>
+        <div class="cl8 brd-btm pb-3 cnt-cmt">
+            {{ com.description }}
+        </div>
+    </div>
+    {% endfor %}

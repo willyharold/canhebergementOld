@@ -1,8 +1,8 @@
 <header id="header row" class="ovh">
     <div class="slider row" >
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/1.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/3.jpg') }})"></div>
-        <div class="col-sm-12 sl" style="background-image: url({{ asset('can/images/2.jpg') }})"></div>
+        {% for image in partenaire.baniere.galleryHasMedias %}
+            <div class="col-sm-12 sl" style="background-image: url({% path image.media, 'big' %})"></div>
+        {% endfor %}
     </div>
     <div class="col-sm-12 headTop2" id="headTop">
         <div class="container-fluid ">
@@ -16,20 +16,20 @@
                 </div>
                 <div class="col-md-5 text-right menlor p-0">
                     <ul class="menu p-0">
-                        <li class=""> <a href="{{ path('nanotech_canhebergement_homepage') }}" class="activ">ACCUEIL</a> </li>
+                        <li class=""> <a href="{{ path('nanotech_canhebergement_homepage') }}" >ACCUEIL</a> </li>
                         <li class="" >
                             <span style="position: relative">
-                                <a href="#" class="lgmt">LOGEMENT</a>
+                                <a href="#" class="lgmt activ" >LOGEMENT</a>
                                 <span class="sousmenuz smcnt dnone">
                                     <div class="trgl"></div>
-                                    <span><a href="{{ path('nanotech_canhebergement_hotel') }}" class="sousm bordsousmen">HÔTEL</a></span>
+                                    <span><a href="" class="sousm bordsousmen">HÔTEL</a></span>
                                     <span><a href="" class="sousm bordsousmen">MAISON D'HOTE</a></span>
                                     <span><a href="" class="sousm bordsousmen">APPARTEMENT</a></span>
                                     <span><a href="" class="sousm">AUBERGE</a></span>
                                 </span>
                             </span> 
                         </li>
-                        <li class="rsvt"> <a href="#">RESERVATION</a> </li>
+                        <li > <a data-toggle="modal" data-target="#modal-rsv" href="#">RESERVATION</a> </li>
                         <!-- <li class=""> <a href="#">CONTACT</a> </li> -->
                         <li class=""> <a href="#">A PROPOS</a> </li>
                     </ul>
@@ -68,11 +68,11 @@
 			<div class="row">
 				<div class="col-md-12 logo1 text-center ">
 					<span >
-						<img style="width:104px" src="{{ asset('can/images/logo1.svg') }}">
+						<img style="width:104px" src="{% path partenaire.logo, 'big' %}">
 					</span>
 				</div>
 				<div class="col-12 text-center mt-sm-4">
-					<h1 class="h1-r">NOM ETABLISSEMENT </h1>
+					<h1 class="h1-r">{{ partenaire.nom }} </h1>
 					<!-- <span class="h5-responsive">COMME SI VOUS ETIEZ A lA MAISON</span> -->
 				</div>
 				<div id="pta">
@@ -80,4 +80,5 @@
 			</div>
 		</div>
 	</div>
+    {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
 </header>

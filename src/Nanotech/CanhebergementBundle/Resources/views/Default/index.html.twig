@@ -4,12 +4,16 @@
     {% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
        {% block body %}
     <section>
-	<div class="container">	
+	<div class="container">
+
+        {% for categorie in categories %}
 	<div class="row">
-		<div class="col-md-12"><h3 class="cl1 text-center">NOUVEAU HÔTEL</h3></div>
+
+
+		<div class="col-md-12"><h3 class="cl1 text-center">{{ categorie.nomFr | upper }}</h3></div>
 		
-		  {% for partenaire in partenaires %}
-		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
+		  {% for partenaire in categorie.partenaire %}
+		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="{{ path('nanotech_canhebergement_hotel',{'slug':partenaire.slug}) }}">
 			<div class="htl" >
 				<div class="htlin" style="background-image: url({% path partenaire.image.galleryHasMedias[0].media, 'big' %});"></div>
 				<div class="couvr jaune md-18" >
@@ -34,7 +38,9 @@
 		<div class="col-md-12 text-center mb-sm-3"><a href="#" class="allhtl md-12"><i class="material-icons mr-2 dpb2">visibility</i>VOIR TOUS LES HÔTELS</a></div>
 	</div>
 	<div class="divider"></div>
-	<div class="row">
+
+        {% endfor %}
+		<div class="row">
 		<div class="col-md-12 mt-sm-5"><h3 class="cl1 text-center">APPARTEMENT</h3></div>
 		<div class="col-md-4 mt-sm-3 point conthtl mb-sm-3" id="hotel.html">
 			<div class="htl" >
