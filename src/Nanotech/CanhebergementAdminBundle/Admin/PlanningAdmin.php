@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 
@@ -37,6 +38,7 @@ class PlanningAdmin extends AbstractAdmin
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
+                    'download' => ['template' => 'NanotechCanhebergementBundle:CRUD:list__action_download.html.twig']
 
                 ],
             ])
@@ -65,6 +67,7 @@ class PlanningAdmin extends AbstractAdmin
         if(!$this->getUser()->getPartenaire()) {
             $formMapper->add('partenaire');
         }
+
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -117,6 +120,9 @@ class PlanningAdmin extends AbstractAdmin
             $object->setPartenaire($this->getUser()->getPartenaire());
         }
     }
-
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('download', $this->getRouterIdParameter().'/download');
+    }
 
 }

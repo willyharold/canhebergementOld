@@ -89,6 +89,8 @@ class DefaultController extends Controller
 
 
     public function menuAction($id=0){
-        return $this->render('NanotechCanhebergementBundle:Default:menu.html.twig', array('id'=>$id));
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('NanotechCanhebergementBundle:Categorie')->findAll();
+        return $this->render('NanotechCanhebergementBundle:Default:menu.html.twig', array('id'=>$id,'categories'=>$categories));
     }
 }

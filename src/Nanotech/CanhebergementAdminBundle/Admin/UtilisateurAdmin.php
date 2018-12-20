@@ -69,22 +69,35 @@ class UtilisateurAdmin extends AbstractAdmin
                     ],
                 ])
             ->add('dateNaissance',null,  ['label' => 'Date de Naissance'])
-            ->add('telephone')
-            ->add('partenaire')
-            ->add('enabled')
-               ->add('roles', 'choice', [
-                    'choices' => [
-                        'ROLE_RECEPTION' => 'Reception',
-                        'ROLE_SERVICE' => 'Chef service',
-                        'ROLE_PARTENAIRE' => 'Partenaire',
-                        'ROLE_ADMIN' => 'Administrateur',
-                        'ROLE_SUPER_ADMIN' => 'super administrateur',
-                    ],
-                   'multiple'=> true,
-                   'expanded'=> false,
-                ])
-                
-            
+            ->add('telephone');
+        if(!$this->getUser()->getPartenaire()) {
+            $formMapper->add('partenaire');
+        }
+
+        if($this->getUser()->getPartenaire()) {
+            $formMapper->add('roles', 'choice', [
+                'choices' => [
+                    'ROLE_RECEPTION' => 'Reception',
+                    'ROLE_SERVICE' => 'Chef service',
+                ],
+                'multiple'=> true,
+                'expanded'=> false,
+            ]);
+        }
+        else{
+            $formMapper->add('roles', 'choice', [
+                'choices' => [
+                    'ROLE_RECEPTION' => 'Reception',
+                    'ROLE_SERVICE' => 'Chef service',
+                    'ROLE_PARTENAIRE' => 'Partenaire',
+                    'ROLE_ADMIN' => 'Administrateur',
+                    'ROLE_SUPER_ADMIN' => 'super administrateur',
+                ],
+                'multiple'=> true,
+                'expanded'=> false,
+            ]);
+        }
+        $formMapper->add('enabled')
         ;
     }
 
@@ -145,11 +158,15 @@ class UtilisateurAdmin extends AbstractAdmin
 
     public function prePersist($object) {
         parent::prePersist($object);
-        $this->updateUser($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
     }
 
     public function preUpdate($object) {
         parent::preUpdate($object);
-        $this->updateUser($object);
+        if($this->getUser()->getPartenaire()) {
+            $object->setPartenaire($this->getUser()->getPartenaire());
+        }
     }
 }

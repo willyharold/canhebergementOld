@@ -59,12 +59,28 @@ class Reservation
     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Piece")
     * @ORM\JoinColumn(nullable=false) 
     */
-    private $Piece; 
+    private $piece;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="confirme", type="boolean")
+     */
+    private $confirme;
+    
+     public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+        $this->dateDepart = new \DateTime();
+        $this->dateArrive = new \DateTime();
+        $this->confirme = false;
+
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -136,7 +152,7 @@ class Reservation
     /**
      * Get quantite
      *
-     * @return int
+     * @return integer
      */
     public function getQuantite()
     {
@@ -165,6 +181,30 @@ class Reservation
     public function getDateEnreg()
     {
         return $this->dateEnreg;
+    }
+
+    /**
+     * Set confirme
+     *
+     * @param boolean $confirme
+     *
+     * @return Reservation
+     */
+    public function setConfirme($confirme)
+    {
+        $this->confirme = $confirme;
+
+        return $this;
+    }
+
+    /**
+     * Get confirme
+     *
+     * @return boolean
+     */
+    public function getConfirme()
+    {
+        return $this->confirme;
     }
 
     /**
@@ -200,7 +240,7 @@ class Reservation
      */
     public function setPiece(\Nanotech\CanhebergementBundle\Entity\Piece $piece)
     {
-        $this->Piece = $piece;
+        $this->piece = $piece;
 
         return $this;
     }
@@ -212,12 +252,10 @@ class Reservation
      */
     public function getPiece()
     {
-        return $this->Piece;
+        return $this->piece;
     }
     
-     public function __construct()
-    {
-        $this->dateEnreg = new \DateTime();
-
+    public function __toString() {
+        return "".$this->id;
     }
 }

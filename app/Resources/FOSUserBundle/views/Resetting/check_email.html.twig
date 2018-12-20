@@ -1,0 +1,37 @@
+{% extends '::baserecherche.html.twig'%}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row ">
+                    <div class="col-md-12 mt-5 mb-2">
+                        <h4 class="h1-r font-weight-bold cl8" id="inscription">{{ 'Reinitialisation du mot de passe '| trans | upper }}</h4>
+
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 mt-5 mb-2">
+                <p>
+                {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+                </p>
+                        <p>{{ 'Retours vers l\'accueil'|trans }}  <a href="{{ path('nanotech_canhebergement_homepage') }}" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 "><i class="material-icons dpb2">reply</i> {{ 'retour' | trans }}</a> </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="divider mt-5"></div>
+    </div>
+    <div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+    <!-- modal-reservation -->
+    {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
+
+
+
+</section>
+{% endblock %}

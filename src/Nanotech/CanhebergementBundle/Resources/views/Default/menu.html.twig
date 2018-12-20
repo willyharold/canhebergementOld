@@ -24,10 +24,9 @@
 							{% endif %}
 							<span class="sousmenuz smcnt dnone">
 								<div class="trgl"></div>
-								<span><a href="" class="sousm bordsousmen">HÔTEL</a></span>
-								<span><a href="" class="sousm bordsousmen">MAISON D'HOTE</a></span>
-								<span><a href="" class="sousm bordsousmen">APPARTEMENT</a></span>
-								<span><a href="" class="sousm">AUBERGE</a></span>
+								{% for categorie in categories %}
+									<span><a href="{{ path('nanotech_canhebergement_reserver') }}" class="sousm bordsousmen">{{ categorie.nomFr| upper }}</a></span>
+								{% endfor %}
 							</span>
 						</span>
 					</li>

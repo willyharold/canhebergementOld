@@ -4,12 +4,15 @@ namespace Nanotech\CanhebergementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * Partenaire
  *
  * @ORM\Table(name="partenaire")
  * @ORM\Entity(repositoryClass="Nanotech\CanhebergementBundle\Repository\PartenaireRepository")
+ * @UniqueEntity(fields="nom", message="Ce nom existe déjà.")
  */
 class Partenaire
 {
@@ -25,21 +28,21 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="pays", type="string", length=255)
+     * @ORM\Column(name="pays", type="string", length=255, nullable=true)
      */
     private $pays;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255)
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
      */
     private $ville;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="quartier", type="string", length=255)
+     * @ORM\Column(name="quartier", type="string", length=255, nullable=true)
      */
     private $quartier;
 
@@ -60,14 +63,14 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="adr_complete", type="string", length=255)
+     * @ORM\Column(name="adr_complete", type="string", length=255, nullable=true)
      */
     private $adrComplete;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="num_tel1", type="integer")
+     * @ORM\Column(name="num_tel1", type="integer", nullable=true)
      */
     private $numTel1;
 
@@ -88,21 +91,21 @@ class Partenaire
     /**
      * @var int
      *
-     * @ORM\Column(name="fax_tel", type="integer")
+     * @ORM\Column(name="fax_tel", type="integer", nullable=true)
      */
     private $faxTel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="boit_post", type="string", length=255)
+     * @ORM\Column(name="boit_post", type="string", length=255, nullable=true)
      */
     private $boitPost;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adr_email", type="string", length=255)
+     * @ORM\Column(name="adr_email", type="string", length=255, nullable=true)
      */
     private $adrEmail;
 
@@ -130,14 +133,14 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="coordx", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="coordx", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $coordx;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="coordy", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="coordy", type="decimal", precision=10, scale=0, nullable=true)
      */
     private $coordy;
 
@@ -151,13 +154,13 @@ class Partenaire
     /**
      * @var text
      *
-     * @ORM\Column(name="descriptionFr", type="text")
+     * @ORM\Column(name="descriptionFr", type="text", nullable=true)
      */
     private $descriptionFr;
     /**
      * @var text
      *
-     * @ORM\Column(name="descriptionEn", type="text")
+     * @ORM\Column(name="descriptionEn", type="text", nullable=true)
      */
     private $descriptionEn;
     
@@ -174,12 +177,12 @@ class Partenaire
     private  $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", mappedBy="partenaire")
+     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", mappedBy="partenaire", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private  $utilisateur;
      /**
-    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Proximite")
+    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Proximite" )
     * @ORM\JoinColumn(nullable=true) 
     */
     private $proximite;

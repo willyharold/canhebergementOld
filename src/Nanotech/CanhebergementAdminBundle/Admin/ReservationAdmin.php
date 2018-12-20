@@ -2,11 +2,14 @@
 
 namespace Nanotech\CanhebergementAdminBundle\Admin;
 
+use Nanotech\CanhebergementBundle\Repository\PieceRepository;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class ReservationAdmin extends AbstractAdmin
 {
@@ -20,6 +23,7 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateArrive')
             ->add('quantite')
             ->add('dateEnreg')
+            ->add('confirme')    
         ;
     }
 
@@ -32,11 +36,18 @@ class ReservationAdmin extends AbstractAdmin
             ->add('quantite')
             ->add('piece')
             ->add('dateEnreg')
+            ->add('confirme')    
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
+                    
+                ],
+            ])
+            ->addIdentifier('', 'actions', [
+                'actions' => [
+                    'confirmer' => ['template' => 'NanotechCanhebergementBundle:CRUD:list__action_confirmer.html.twig']
                 ],
             ])
         ;
@@ -44,15 +55,28 @@ class ReservationAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
           
             ->add('dateDepart')
             ->add('dateArrive')
             ->add('quantite')
-            ->add('internaute')
-            ->add('Piece')
+            ->add('internaute');
+        if($this->getUser()->getPartenaire()){
+            $partenaire = $this->getUser()->getPartenaire();
+            $formMapper->add('piece',EntityType::class,[
+                'query_builder'=> function(PieceRepository $repository) use($partenaire){
+                    return $repository->getLikeQueryBuilder($partenaire);
+                },
+                'class'=>'NanotechCanhebergementBundle:Piece',
+            ])
 
-        ;
+            ;
+        }
+        else{
+            $formMapper->add('piece');
+        }
+
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -85,9 +109,8 @@ class ReservationAdmin extends AbstractAdmin
         $user = $this->getUser();
         $query = parent::createQuery($context);
         if($user->getPartenaire()) {
-            $query->andWhere(
-                $query->expr()->eq($query->getRootAliases()[0] . '.piece.partenaire', ':id')
-            );
+            $query->join('NanotechCanhebergementBundle:Piece', 'pi', 'WITH', 'pi.id ='.$query->getRootAliases()[0].'.piece');
+            $query->andWhere('pi.partenaire = :id');
             $query->setParameter('id', $user->getPartenaire());
         }
         return $query;
@@ -95,15 +118,16 @@ class ReservationAdmin extends AbstractAdmin
 
     public function prePersist($object) {
         parent::prePersist($object);
-        if($this->getUser()->getPartenaire()) {
-            $object->setPartenaire($this->getUser()->getPartenaire());
-        }
+
     }
 
     public function preUpdate($object) {
         parent::preUpdate($object);
-        if($this->getUser()->getPartenaire()) {
-            $object->setPiece()->setPartenaire($this->getUser()->getPartenaire());
-        }
+
+    }
+    
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('confirmer', $this->getRouterIdParameter().'/confirmer');
     }
 }

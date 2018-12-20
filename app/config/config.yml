@@ -48,6 +48,8 @@ twig:
         resources:
             - 'media_widgets.html.twig'
             - 'SonataCoreBundle:Form:datepicker.html.twig'
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -148,6 +150,16 @@ fos_user:
     from_email:
                 address: wtakoutsing@gmail.com
                 sender_name: partner team
+
+    service:
+        mailer: fos_user.mailer.twig_swift
+    resetting:
+        email:
+            template:   '@FOSUser/Resetting/email.txt.twig'
+    registration:
+        confirmation:
+            template:   '@FOSUser/Registration/email.txt.twig'
+            enabled: true
 
 fos_oauth_server:
     db_driver:           orm

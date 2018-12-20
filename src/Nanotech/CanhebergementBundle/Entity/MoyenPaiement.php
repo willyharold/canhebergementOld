@@ -254,7 +254,7 @@ class MoyenPaiement
     }
     
     public function __toString() {
-        return $this->id? $this->id." ":" ";
+        return $this->nom." ";
         
     }
 }

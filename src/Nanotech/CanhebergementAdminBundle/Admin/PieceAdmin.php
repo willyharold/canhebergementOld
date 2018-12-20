@@ -53,7 +53,13 @@ class PieceAdmin extends AbstractAdmin
         $formMapper
             ->add('nomFr',null,  ['label' => 'Nom Français'])
             ->add('nomEn',null,  ['label' => 'Nom Anglais'])
-            ->add('type')
+            ->add('type','choice', [
+        'choices' => [
+            'chambre' => 'Chambre',
+        ],
+        'multiple'=> false,
+        'expanded'=> false,
+    ])
             ->add('prix')
             ->add('quantite')
             ->add('nbrPersonne',null,  ['label' => 'Nombre de Personne'])

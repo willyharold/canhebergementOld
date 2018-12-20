@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <h4 class="h1-r font-weight-bold cl8" id="nom">A propos de {{ partenaire.nom }}</h4>
+                            <h4 class="h1-r font-weight-bold cl8" id="nom">A propos de {{ partenaire.nom | upper }}</h4>
                         </div>
                         <div class="col-md-12 mt-3 cl8">
                             {{ partenaire.descriptionFr | raw}}
@@ -92,7 +92,7 @@
                                 <div class="srve text-center  mb-2"><img style="width: 34px" src="{{ asset('can/images/fruit.svg') }}"> <br>
                                     <span class="cl8">Service4</span>
                                 </div>
-                                <div class="srve text-center  mb-2"><img style="width: 34px" src="{{ asset('can/images/fruit.svg') }}"> <br>
+                                <div class="srve text-center  mb-2"> <img style="width: 34px" src="{{ asset('can/images/fruit.svg') }}"> <br>
                                     <span class="cl8">Service5</span>
                                 </div>
                                 <div class="srve text-center  mb-2"><img style="width: 34px" src="{{ asset('can/images/fruit.svg') }}"> <br>

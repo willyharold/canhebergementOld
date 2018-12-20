@@ -2,6 +2,7 @@
 
 namespace Nanotech\CanhebergementBundle\Repository;
 
+
 /**
  * PieceRepository
  *
@@ -10,4 +11,12 @@ namespace Nanotech\CanhebergementBundle\Repository;
  */
 class PieceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLikeQueryBuilder($pattern)
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->where('c.partenaire = :pattern')
+            ->setParameter('pattern', $pattern)
+            ;
+    }
 }

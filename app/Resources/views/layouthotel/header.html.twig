@@ -36,8 +36,7 @@
                 </div>
                 <div class="col-md-3 text-right menlor p-0">
                     <ul class="mencon p-0">
-                        <li class=""> <a href="{{ path('nanotech_canhebergement_inscription') }}">Se connecter</a> </li>
-                        <li class="ins"> <a href="{{ path('nanotech_canhebergement_inscription') }}">Inscription</a> </li>
+                        <li class="ins"> <a href="{{ path('fos_user_security_login') }}">Inscription/Connexion</a> </li>
                     </ul>
                 </div>
             </div>
@@ -72,7 +71,7 @@
 					</span>
 				</div>
 				<div class="col-12 text-center mt-sm-4">
-					<h1 class="h1-r">{{ partenaire.nom }} </h1>
+					<h1 class="h1-r">{{ partenaire.nom |upper}} </h1>
 					<!-- <span class="h5-responsive">COMME SI VOUS ETIEZ A lA MAISON</span> -->
 				</div>
 				<div id="pta">

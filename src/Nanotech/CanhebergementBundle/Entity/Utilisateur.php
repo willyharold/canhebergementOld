@@ -5,13 +5,15 @@ namespace Nanotech\CanhebergementBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Utilisateur
  *
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Nanotech\CanhebergementBundle\Repository\UtilisateurRepository")
+ * @UniqueEntity(fields="username", message="Un utilisateur existe déjà avec ce nom.")
+ * @UniqueEntity(fields="email", message="l'email existe déjà.")
  */
 class Utilisateur extends BaseUser
 {
@@ -75,7 +77,7 @@ class Utilisateur extends BaseUser
     protected  $enabled;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire")
+     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire" , cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $partenaire;

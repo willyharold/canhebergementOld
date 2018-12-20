@@ -1249,3 +1249,7 @@ svg{
 .no-dec:hover{
   text-decoration: none;
 }
+
+.datetaille{
+  width: 32% !important;
+}

@@ -25,11 +25,12 @@ sonata_media:
             allowed_extensions: ['jpg', 'png', 'jpeg']
             allowed_mime_types: ['image/pjpeg', 'image/jpeg', 'image/png', 'image/x-png']
 
-       
+
+
     db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
     default_context: image_banniere # you need to set a context
     contexts:
-                
+
         image_banniere:  
             providers:
                 - sonata.media.provider.image         
@@ -45,7 +46,10 @@ sonata_media:
                 
         pdf_planning:  
             providers:
-                - sonata.media.provider.file                
+                - sonata.media.provider.file
+            download:
+                strategy: sonata.media.security.connected_strategy
+                mode: http
         
         image_partenaire:  
             providers:

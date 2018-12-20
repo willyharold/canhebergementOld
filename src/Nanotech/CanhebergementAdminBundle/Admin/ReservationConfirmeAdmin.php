@@ -16,7 +16,6 @@ class ReservationConfirmeAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('etat')
             ->add('dateEnreg')
         ;
     }
@@ -25,7 +24,10 @@ class ReservationConfirmeAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('etat')
+            ->add('prix')
+            ->add('type')
+            ->add('reservation')
+            ->add('moyenPaiement')    
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -40,9 +42,23 @@ class ReservationConfirmeAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-      
-            ->add('etat')
-     
+            ->tab('Client')
+                ->with('Client')
+                ->end()
+            ->end()    
+            ->tab('Réservation')
+                ->with('Réservation')
+                ->add('reservation', \Nanotech\CanhebergementBundle\Form\ReservationType::class)
+                ->end()
+            ->end()
+            
+            ->tab('Confirmation')
+                ->with('Confirmation')
+                ->add('moyenPaiement')    
+            ->add('prix')
+            ->add('type')
+                ->end()
+            ->end()
         ;
     }
 
@@ -50,7 +66,10 @@ class ReservationConfirmeAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('etat')
+            ->add('prix')
+            ->add('type')
+            ->add('reservation')
+            ->add('moyenPaiement')
             ->add('dateEnreg')
         ;
     }

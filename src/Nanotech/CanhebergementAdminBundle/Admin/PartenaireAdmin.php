@@ -61,8 +61,6 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('coordy')
             ->add('slug')
             ->add('utilisateur')
-            ->add('descriptionFr')
-            ->add('descriptionEn')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -140,15 +138,29 @@ class PartenaireAdmin extends AbstractAdmin
                             ))
                     )
                 ->end()
-            ->end()
-            ->tab('Autre')
+            ->end();
+        if(!$this->getUser()->getPartenaire()) {
+            $formMapper->tab('Autre')
                 ->with('Partenaire')
-                    ->add('services')
-                    ->add('proximite')
-                    ->add('utilisateur')
+                ->add('services')
+                ->add('proximite')
+                ->add('utilisateur')
+                ->add('enable')
                 ->end()
-            ->end()
-        ;
+                ->end()
+            ;
+        }
+        else{
+            $formMapper->tab('Autre')
+                ->with('Partenaire')
+                ->add('services')
+                ->add('proximite')
+                ->add('utilisateur')
+                ->end()
+                ->end()
+            ;
+        }
+
            
 
     }

@@ -1,0 +1,8 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="mt-5">
+    <h5>{{ 'resetting.flash.success' | trans }}</h5>
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'Retours vers l\'accueil'|trans }}  <a href="{{ path('nanotech_canhebergement_homepage') }}" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 "><i class="material-icons dpb2">reply</i> {{ 'retour' | trans }}</a> </p>
+</div>

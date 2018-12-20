@@ -1,0 +1,119 @@
+{% extends "::baserecherche.html.twig" %}
+{% block title %}{{"Recherche"|trans }} {% endblock %}
+{% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="row ">
+                        <div class="col-md-12 mt-5 mb-2">
+                            <h4 class="h1-r font-weight-bold cl8" id="inscription">INSCRIPTION D'UN HEBERGEMENT</h4>
+                            <div class="rsv-error text-right md-12 cl3 "> {{ form_errors(form) }}</div>
+
+                        </div>
+                    </div>
+                    {{ form_start(form , {'action': path('nanotech_canhebergement_form_inscription'), 'method': 'POST'}) }}
+                    <div class="row ">
+
+                        <div class="col-md-6 mt-4">
+                            <div class="row">
+                                <div class="col-md-12 mt-2 mb-3">
+                                    <div class="p-3 bcl7">
+
+                                        <div class="mb-3 text-uppercase md-14 cl8">Information de l'administrateur</div>
+                                        <div class="mt-3">
+                                            <div class=" position-relative">
+                                                <div class="position-relative md-14"><label for="email-eta">Nom d'utilisateur<span class="cl3">*</span></label></div>
+                                                {% if form_errors(form.username) %}
+                                                    {{ form_widget(form.username, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 brd-error'}}) }}
+                                                {% else %}
+                                                    {{ form_widget(form.username, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                                {% endif %}
+                                                <div class="rsv-error text-right md-12 cl3 "> {{ form_errors(form.username) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class=" position-relative">
+                                                <div class="position-relative md-14"><label for="email-eta">Mot de passe<span class="cl3">*</span></label></div>
+                                                {{ form_widget(form.password, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class=" position-relative">
+                                                <div class="position-relative md-14"><label for="email-eta">Adresse email<span class="cl3">*</span></label></div>
+                                                {% if form_errors(form.email) %}
+                                                    {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 brd-error'}}) }}
+                                                {% else %}
+                                                    {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                                {% endif %}
+                                                <div class="rsv-error text-right md-12 cl3 "> {{ form_errors(form.email) }}</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="row">
+                                <div class="col-md-12 mt-2 mb-3">
+                                    <div class="p-3 bcl7">
+                                        <div class="mb-3 text-uppercase md-14 cl8">Détails de l'hébergement</div>
+                                        <div class="mt-3">
+                                            <div class=" position-relative">
+                                                <div class="position-relative md-14"><label for="nm-eta">Nom de l'établissement<span class="cl3">*</span></label></div>
+
+                                                 {{ form_widget(form.partenaire.nom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="position-relative">
+                                                <div class="position-relative md-14">
+                                                    <label for="type-eta">Catégorie<span class="cl3">*</span></label>
+                                                </div>
+                                                {{ form_widget(form.partenaire.categorie, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="position-relative mt-3">
+                                                <div class="position-relative md-14">
+                                                    <label for="etoile-eta">Nombre d'étoile<span class="cl3">*</span></label>
+                                                </div>
+                                                {{ form_widget(form.partenaire.nbrEtoile, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-12 pr-0">
+                                        <div class="form-group position-relative text-right mt-4">
+                                            <input type="submit" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 pl-2 pr-2" value="inscrire mon hébergement">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+            <div class="divider mt-5"></div>
+        </div>
+        <div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- modal-reservation -->
+        {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
+
+
+
+    </section>
+{% endblock %}

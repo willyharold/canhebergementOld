@@ -1,0 +1,11 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="mt-5">
+    <div class="form-group position-relative mb-3">
+        <div class="md-14"><label for="username">{{ 'resetting.request.username'|trans }}</label></div>
+        <input class="col-md-12 rsv-inp bo pt-2 pb-2 cl9 md-14" type="text"id="username" name="username" required="required" placeholder="Entrez vos identifiants">
+    </div>
+    <div class="form-group text-right mt-4">
+        <input id="btn-clt" type="submit" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 " name="_submit" value="{{ 'resetting.request.submit'|trans }}" />
+    </div>
+</form>
