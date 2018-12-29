@@ -38,6 +38,7 @@ class InternauteAdmin extends AbstractAdmin
             ->add('passeport')
             ->add('dateNai')
             ->add('lieuNai')
+            ->add('pays')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -59,6 +60,7 @@ class InternauteAdmin extends AbstractAdmin
             ->add('passeport')
             ->add('dateNai',null,  ['label' => 'Date de Naissance'])
             ->add('lieuNai',null,  ['label' => 'Lieu de Naissance'])
+            ->add('pays')
         
         ;
     }
@@ -74,6 +76,7 @@ class InternauteAdmin extends AbstractAdmin
             ->add('passeport')
             ->add('dateNai')
             ->add('lieuNai')
+            ->add('pays')
             ->add('dateEnreg')
         ;
     }

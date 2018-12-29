@@ -71,6 +71,13 @@ class Internaute
     private $lieuNai;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255)
+     */
+    private $pays;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_enreg", type="datetime")
@@ -289,5 +296,29 @@ class Internaute
     public function __toString() {
         return $this->nom? $this->nom." ":" ";
 
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Internaute
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
     }
 }

@@ -43,6 +43,13 @@ class Reservation
     private $quantite;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="prix", type="integer")
+     */
+    private $prix;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_enreg", type="datetime")
@@ -257,5 +264,29 @@ class Reservation
     
     public function __toString() {
         return "".$this->id;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param integer $prix
+     *
+     * @return Reservation
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer
+     */
+    public function getPrix()
+    {
+        return $this->prix;
     }
 }

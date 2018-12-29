@@ -133,14 +133,14 @@ class Partenaire
     /**
      * @var string
      *
-     * @ORM\Column(name="coordx", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="coordx", type="string", length=255, nullable=true)
      */
     private $coordx;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="coordy", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="coordy", type="string", length=255, nullable=true)
      */
     private $coordy;
 
@@ -228,6 +228,12 @@ class Partenaire
      * @ORM\JoinColumn(nullable=true)
      */
     private  $baniere;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Piece",mappedBy="partenaire")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $piece;
    
     public function __construct()
     {
@@ -1066,4 +1072,38 @@ class Partenaire
     }
 
 
+
+    /**
+     * Add piece
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Piece $piece
+     *
+     * @return Partenaire
+     */
+    public function addPiece(\Nanotech\CanhebergementBundle\Entity\Piece $piece)
+    {
+        $this->piece[] = $piece;
+
+        return $this;
+    }
+
+    /**
+     * Remove piece
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Piece $piece
+     */
+    public function removePiece(\Nanotech\CanhebergementBundle\Entity\Piece $piece)
+    {
+        $this->piece->removeElement($piece);
+    }
+
+    /**
+     * Get piece
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPiece()
+    {
+        return $this->piece;
+    }
 }

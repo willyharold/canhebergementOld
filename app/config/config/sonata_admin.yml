@@ -38,7 +38,7 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.banniere
                     - nanotech_canhebergement_admin.admin.proximite
                     - nanotech_canhebergement_admin.admin.commentaire_client
-                    - nanotech_canhebergement_admin.admin.internaute
+
                     - nanotech_canhebergement_admin.admin.gallery
                 roles: [ROLE_ADMIN,ROLE_SUPER_ADMIN]
             
@@ -75,7 +75,7 @@ sonata_admin:
                 items:
                     - nanotech_canhebergement_admin.admin.reservation
                     - nanotech_canhebergement_admin.admin.reservation_confirme
-                    - nanotech_canhebergement_admin.admin.payer
+                    - nanotech_canhebergement_admin.admin.internaute
 
                 roles: [ROLE_PARTENAIRE,ROLE_RECEPTION,ROLE_ADMIN,ROLE_SUPER_ADMIN]
 

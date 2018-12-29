@@ -35,8 +35,10 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateArrive')
             ->add('quantite')
             ->add('piece')
+            ->add('prix')
             ->add('dateEnreg')
-            ->add('confirme')    
+            ->add('confirme')
+
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -61,7 +63,9 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateDepart')
             ->add('dateArrive')
             ->add('quantite')
+            ->add('prix')
             ->add('internaute');
+
         if($this->getUser()->getPartenaire()){
             $partenaire = $this->getUser()->getPartenaire();
             $formMapper->add('piece',EntityType::class,[
@@ -87,6 +91,7 @@ class ReservationAdmin extends AbstractAdmin
             ->add('dateArrive')
             ->add('quantite')
             ->add('piece')
+            ->add('prix')
             ->add('dateEnreg')
         ;
     }

@@ -3,6 +3,8 @@
 namespace Nanotech\CanhebergementBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,11 +18,12 @@ class InternauteType extends AbstractType
         $builder
                 ->add('nom')
                 ->add('prenom')
-                ->add('email')
+                ->add('email',EmailType::class)
                 ->add('cni')
                 ->add('passeport')
-                ->add('dateNai')
-                ->add('lieuNai');
+                ->add('pays',CountryType::class)
+                ->add('lieuNai')
+                ->add('dateNai');
     }/**
      * {@inheritdoc}
      */

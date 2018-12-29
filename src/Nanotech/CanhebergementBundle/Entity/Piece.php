@@ -313,7 +313,7 @@ class Piece
     }
 
     public function __toString() {
-        return $this->nomFr? $this->nomFr." - ".$this->partenaire:" ";
+        return $this->nomFr? $this->nomFr." - ".$this->partenaire." -- ".$this->prix:$this->nomEn." - ".$this->partenaire." -- ".$this->prix;
 
     }
 }

@@ -1,0 +1,37 @@
+{% extends '::baserecherche.html.twig'%}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="row ">
+                        <div class="col-md-12 mt-5 mb-2">
+                            <h4 class="h1-r font-weight-bold cl8" id="inscription">{{ 'Félicitation'| trans | upper }}</h4>
+                        </div>
+                    </div>
+                    <div class="row ">
+
+                        <div class="mt-5">
+                            <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+                            {% if targetUrl %}
+                                <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="divider mt-5"></div>
+        </div>
+        <div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- modal-reservation -->
+        {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
+
+
+
+    </section>
+{% endblock body %}

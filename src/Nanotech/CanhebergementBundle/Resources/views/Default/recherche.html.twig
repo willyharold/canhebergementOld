@@ -7,91 +7,104 @@
 	<div class="container">	
 	<div class="row">
 		<div class="col-md-3 filtre bcl7 mb-5">
-			<div class="row">
+			<div class="row" id="filtre-rech">
 				<div class="col-md-12"><h5 class="h1-r">Filtres</h5></div>
-				<div class="form-group col-md-12 mt-3">
+
+				<div class="form-group col-md-12" style="height: 35px !important;">
 					<div class="position-relative">
 						<label class="position-absolute pl-12" for="direct">
-					<span class="material-icons cl12 labrech">place</span>
+							<span class="material-icons cl12 labrech">place</span>
 						</label>
-						<input type="text" class="mu lh35 inp" id="direct" name="direct" placeholder="Où allez vous ?"/>
+						<input type="text" class="mu lh35 inp" id="autocomplete" onFocus="geolocate()" name="direct" placeholder="Où allez vous ?" />
 					</div>
-					<span class="sousmenuz smslt direct">
-						<div class="trgl"></div>
-						<span><a href="" class="sousm bordsousmen dt">YAOUNDE</a></span>
-						<span><a href="" class="sousm bordsousmen dt">GAROUA</a></span>
-						<span><a href="" class="sousm bordsousmen dt">MAROUA</a></span>
-						<span><a href="" class="sousm dt">DOUALA</a></span>
-				
-					</span>
+
 				</div>
+
 				<div class="form-group col-md-12">
 					<div class="position-relative">
-						<label class="position-absolute pl-12" for="direct">
+						<label class="position-absolute pl-12" for="flt-type">
 							<span class="material-icons cl12 labrech">search</span>
 						</label>
-						<input type="text" class="mu lh35 inp" id="ville" name="ville" placeholder="Type d'établissement"/>
+						<select name="flt-type" class="mu lh35 inp" id="fil-type" onChange="requette()">
+							<option value=""  selected >Type d'établissement</option>
+							{% for categorie in categories %}<option value="{{ categorie.id }}">{{ categorie.nomFr }}</option>{% endfor %}
+						</select>
 					</div>
-					<span class="sousmenuz smslt ville">
-						<div class="trgl"></div>
-						<span><a href="" class="sousm bordsousmen vl">HÔTEL</a></span>
-						<span><a href="" class="sousm bordsousmen vl">MAISON D'HOTE</a></span>
-						<span><a href="" class="sousm bordsousmen vl">APPARTEMENT</a></span>
-					</span>
+
 				</div>
+
+
 				<div class="form-group col-md-12">
-								<div class="position-relative">
-									<label class="position-absolute pl-12" for="etoile">
-										<span class="material-icons cl12 labrech">star</span>
-									</label>
-									<input type="text" class="mu lh35 inp" id="etoile" name="etoile" placeholder="Nombre d'étoile"/>
-								</div>
-								<span class="sousmenuz smslt etoile">
+					<div class="position-relative">
+						<label class="position-absolute pl-12" for="flt-etl">
+							<span class="material-icons cl12 labrech">star</span>
+						</label>
+						<input type="text" class="mu lh35 inp change" id="flt-etl" name="flt-etl" placeholder="Nombre d'étoile"/>
+					</div>
+					<span class="sousmenuz smslt flt-etl">
 									<div class="trgl"></div>
-									<span><a href="" class="sousm bordsousmen et" val="5">
+									<span><a href="" class="sousm bordsousmen flt-et" val="5">
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i><span class="cl12 pl-3">(5)+</span></a>
 									</span>
-									<span><a href="" class="sousm bordsousmen et" val="4">
+									<span><a href="" class="sousm bordsousmen flt-et" val="4">
 										<i class="material-icons">star</i
 										><i class="material-icons">star</i>
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i><span class="cl12 pl-3">(4)</span></a></span>
-									<span><a href="" class="sousm bordsousmen et" val="3">
+									<span><a href="" class="sousm bordsousmen flt-et" val="3">
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i><span class="cl12 pl-3">(3)</span></a></span>
-									<span><a href="" class="sousm bordsousmen et" val="2">
+									<span><a href="" class="sousm bordsousmen flt-et" val="2">
 										<i class="material-icons">star</i>
 										<i class="material-icons">star</i><span class="cl12 pl-3">(2)</span></a></span>
-									<span><a href="" class="sousm bordsousmen et" val="1">
+									<span><a href="" class="sousm bordsousmen flt-et" val="1">
 										<i class="material-icons">star</i><span class="cl12 pl-3">(1)</span></a></span>
-							
+
 								</span>
-							</div>
-				<div class="form-group col-md-12 mt-4 ">
-					<div class="row">
-						<div class="col-6 md-13 mrb10 prx" >Prix-Min: <span id="min_pric" class="cl3">0 </span> XAF</div> <div class="col-6 prx md-13 text-right">Prix-Max: <span id="max_pric" class="cl3">0</span> XAF</div>
-						<div class="col-md-12"><div id="slider-range" class=" price-filter-range" name="rangeInput"></div></div>
-					</div>
 				</div>
 				<div class="form-group col-md-12 mt-4">
 					<div class="row">
-						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18" style="transform:rotate(-45deg)">vpn_key</i> Equipement de chambre <i class="material-icons float-right md-18 drl">add</i></div> 
+						<div class="col-md-6">
+							<input style="width: 100%" class=" rsv-inp pt-2 pl-3 pb-2 cl9 md-14 js-datepicker1" type="text" id="dateArr" name="dateArr" placeholder="Arrivé" >
+						</div>
+						<div class="col-md-6">
+							<input style="width: 100%" class=" rsv-inp pt-2 pl-3 pb-2 cl9 md-14 js-datepicker2" type="text"  id="dateDep" name="dateDep"   placeholder="Départ">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group col-md-12 mt-4 ">
+					<div class="row">
+						<div class="col-6 md-13 mrb10 prx" >Prix-Min: <br><span id="min_pric" class="cl3">0 </span> XAF</div>
+						<div class="col-6 prx md-13 text-right">Prix-Max: <br><span id="max_pric" class="cl3">0</span> XAF</div>
+						<div class="col-md-12">
+							<div id="slider-range-filter" class=" price-filter-range" name="rangeInput"></div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" class="change" name="prix_mini" id="prix_mini" value="">
+				<input type="hidden" class="change" name="prix_maxi" id="prix_maxi" value="">
+				<input type="hidden" name="longitude" id="longitude" value="">
+				<input type="hidden" name="latitude" id="latitude" value="">
+				<div class="form-group col-md-12 mt-4">
+					<div class="row">
+						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18" style="transform:rotate(-45deg)">vpn_key</i> Equipement de chambre <i class="material-icons float-right md-18 drl">add</i></div>
 						<div class="col-md-12 crtCnt cl9">
 							<div class="form-group col-md-12 mb-0 point tris ">
-								<input class="point chk" type="checkbox" value="" name="p1" id="p1">
+								<input class="point chk" type="checkbox" value="climatisation" chkattr="eq" name="eq1" id="eq1">
 								<label class="point txs pl-2" >Climatisation</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="p2" id="p2">
+								<input class="point chk" type="checkbox" value="television" chkattr="eq" name="eq2" id="eq2">
 								<label class="point txs pl-2">Télévision</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="p3" id="p3">
+								<input class="point chk" type="checkbox" value="minibar" chkattr="eq" name="eq3" id="eq3">
 								<label class="point txs pl-2">Mini-bar</label>
 							</div>
 						</div>
@@ -99,18 +112,18 @@
 				</div>
 				<div class="form-group col-md-12 ">
 					<div class="row">
-						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18">place</i> Proximité <i class="material-icons float-right md-18 drl">add</i></div> 
+						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18">place</i> Proximité <i class="material-icons float-right md-18 drl">add</i></div>
 						<div class="col-md-12 crtCnt cl9">
 							<div class="form-group col-md-12 mb-0 point tris ">
-								<input class="point chk" type="checkbox" name="p1" id="p1">
+								<input class="point chk" type="checkbox" chkattr="prx" value="aeroport" name="p1" id="p1">
 								<label class="point txs pl-2" >Aéroport</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="p2" id="p2">
+								<input class="point chk" type="checkbox" chkattr="prx" value="supermarche" name="p2" id="p2">
 								<label class="point txs pl-2">Supermarché</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="p3" id="p3">
+								<input class="point chk" type="checkbox" chkattr="prx" value="hopital"  name="p3" id="p3">
 								<label class="point txs pl-2">Hôpital</label>
 							</div>
 						</div>
@@ -118,27 +131,29 @@
 				</div>
 				<div class="form-group col-md-12">
 					<div class="row">
-						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18">apps</i> Services <i class="material-icons float-right md-18 drl">add</i></div> 
+						<div class="col-md-12 mrb10 critaire point" ><i class="material-icons cl8 md-18">apps</i> Services <i class="material-icons float-right md-18 drl">add</i></div>
 						<div class="col-md-12 crtCnt cl9">
 							<div class="form-group col-md-12 mb-0  point tris">
-								<input class="point chk" type="checkbox" name="s1" id="s1">
+								<input class="point chk" type="checkbox" chkattr="svc" value="wifi" name="s1" id="s1">
 								<label class="point txs pl-2" >Wifi</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="s2" id="s2">
+								<input class="point chk" type="checkbox" chkattr="svc" value="restaurant" name="s2" id="s2">
 								<label class="point txs pl-2">Réstaurant</label>
 							</div>
 							<div class="form-group col-md-12 mb-0 point tris">
-								<input class="point chk" type="checkbox" name="s3" id="s3">
+								<input class="point chk" type="checkbox" chkattr="svc" value="piscine" name="s3" id="s3">
 								<label class="point txs pl-2">Piscine</label>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
-	     {{  render(controller('NanotechCanhebergementBundle:Default:recherchemaison'))}}
+		<div id="resultelement" class="col-md-9 mb-5">
+
+		</div>
 	</div>
 	<div class="divider"></div>
 	</div>
@@ -173,6 +188,98 @@
 		</div>
 	</div>
 </section>
+
+
+{% endblock %}
+{% block script %}
+	<script type="text/javascript">
+        var darriver= null;
+
+        var ddepart = null
+		var booldepart = false;
+        var boolarrive = false;
+        $(function(){
+
+            $('#autocomplete').on('change',function(){
+                local = false;
+            });
+
+            $('.change').on('change',function(){
+
+                requette();
+            });
+
+            $('#dateArr').change(function(){
+                boolarrive = true;
+                $('.js-datepicker2').focus();
+            });
+
+            $('#dateDep').on('change',function(){
+                darriver = $('.js-datepicker1').val();
+                ddepart = $('.js-datepicker2').val();
+                booldepart = true;
+            })
+
+        });
+
+
+        function requette(){
+            // alert('req');
+            var type = $('#filtre-rech').find('select[name="flt-type"]').val();
+            var etoile = $('#filtre-rech').find('input[name="flt-etl"]').val();
+            var min = $('#filtre-rech').find('input[name="prix_mini"]').val();
+            var max = $('#filtre-rech').find('input[name="prix_maxi"]').val();
+
+            if((!boolarrive && booldepart)){
+                $('.js-datepicker1').focus();
+                $('.js-datepicker1').addClass('brd-help');
+			}
+			else {
+
+
+            if(local == false){
+                $('#autocomplete').focus();
+                $('#autocomplete').addClass('brd-help');
+            }else{
+                $('#autocomplete').removeClass('brd-help');
+                $('#resultelement').append('<div class="spin pt-4 spin-cmt" style="margin: auto;"></div>');
+                $('#resultelement').find('.row').remove();
+                $.ajax({
+                    async: true,
+                    url: "{{ path('nanotech_canhebergement_result_recherche') }}",
+                    method: "GET",
+                    data:{
+                        categorie: type,
+                        etoile: etoile,
+                        min: min,
+                        max: max,
+                        latitude: $('#latitude').val(),
+						longitude: $('#longitude').val(),
+                        eq: equipement,
+                        pxm: proximite,
+                        svc: service,
+						depart: ddepart,
+						arriver: darriver
+                    },
+                    success:function(data){
+                        $('#resultelement').append(data);
+                        $('#resultelement').find('.spin-cmt').remove();
+
+                    },
+                    error:function (er) {
+
+						console.log(er);
+                        $('#resultelement').append('<div id="row" class="row"><div class="col-md-12"><h5 class="h1-r" id="nom">Pas d\'hotel disponible</h5></div></div>');
+                        $('#resultelement').find('.spin-cmt').remove();
+                    }
+
+                });
+
+             }
+            }
+        }
+	</script>
+
 
 
 {% endblock %}

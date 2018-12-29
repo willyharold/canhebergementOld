@@ -24,6 +24,8 @@
 	<link href="{{ asset('can/css/custom.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('can/css/jquery-ui.min.css') }}" type="text/css" media="all" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/rangestyle.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/fotorama.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/datepicker/bootstrap-datepicker.css') }}"/>
        
 </head>
 <body>
@@ -39,21 +41,118 @@
 <script type="text/javascript" src="{{ asset('can/js/popper.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('can/js/bxslider.js') }}"></script>
-<script src="{{ asset('can/js/jquery-ui.min.js') }}" type="text/javascript"></script>
-<script type="text/javascript" src="{{ asset('can/js/rangescript.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/jquery-ui.min.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/rangescriptFiltre.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/rangescriptet.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/custom.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/fotorama.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.min.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.fr.min.js') }}" ></script>
+
 
 <script type="text/javascript">
-	$(function(){ 
 
-		$('.ins').click(function(){
-			var prix_min=parseInt($("#slider-range").slider("values", 0));
-			var prix_max=parseInt($("#slider-range").slider("values", 1));
-		});
-		
-	});
+    var placeSearch, autocomplete;
+    var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+        local = true;
+        $("#latitude").val(place.geometry.location.lat());
+        $("#longitude").val(place.geometry.location.lng());
+		requette();
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+
+
 </script>
-    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp0I07PNT-X6yOVeY5Hr9ri23MPwH13W8&libraries=places&callback=initAutocomplete"
+		async defer></script>
+
+<script async defer>
+
+    $('#resultelement').append('<div class="spin pt-4 spin-cmt" style="margin: auto;"></div>');
+    $('#resultelement').find('#row').remove();
+    $.ajax({
+        async: true,
+        url: "{{ path('nanotech_canhebergement_result_recherche') }}",
+        method: "GET",
+        data:{
+            categorie: $_GET('categorie'),
+			latitude : $_GET('latitude') ,
+			longitude: $_GET('longitude')
+        },
+        success:function(data){
+            $('#resultelement').append(data);
+            $('#resultelement').find('.spin-cmt').remove();
+
+        },
+        error:function (er) {
+
+            console.log(er);
+            $('#resultelement').append('<div id="row" class="row"><div class="col-md-12"><h5 class="h1-r" id="nom">Pas d\'hotel disponible</h5></div></div>');
+            $('#resultelement').find('.spin-cmt').remove();
+        }
+
+    });
+
+    function $_GET(param) {
+        var vars = {};
+        window.location.href.replace( location.hash, '' ).replace(
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+            function( m, key, value ) { // callback
+                vars[key] = value !== undefined ? value : '';
+            }
+        );
+
+        if ( param ) {
+            return vars[param] ? vars[param] : null;
+        }
+        return vars;
+    }
+</script>
+
+{% block script %}{% endblock %}
 </body>
 </html>

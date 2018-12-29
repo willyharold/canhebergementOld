@@ -51,16 +51,12 @@ class PartenaireAdmin extends AbstractAdmin
             ->add('ville')
             ->add('quartier')
             ->add('nbrEtoile')
-            ->add('adrComplete')
             ->add('numTel1')
             ->add('adrEmail')
-            ->add('dateEnreg')
             ->add('enable')
-            ->add('adrServ')
-            ->add('coordx')
-            ->add('coordy')
             ->add('slug')
             ->add('utilisateur')
+            ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],

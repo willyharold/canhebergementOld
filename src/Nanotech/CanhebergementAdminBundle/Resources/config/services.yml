@@ -97,7 +97,7 @@ services:
         class: Nanotech\CanhebergementAdminBundle\Admin\InternauteAdmin
         arguments: [~, Nanotech\CanhebergementBundle\Entity\Internaute, NanotechCanhebergementAdminBundle:InternauteAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Internaute }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Client }
         public: true
 
     nanotech_canhebergement_admin.admin.commande_bar:

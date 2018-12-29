@@ -17,7 +17,8 @@ class ReservationType extends AbstractType
                 ->add('dateArrive')
                 ->add('quantite')
                 ->add('internaute', InternauteType::class)
-                ->add('piece');
+                ->add('piece')
+                ->add('prix',null,['label' => 'Prix de la reservation']);
     }/**
      * {@inheritdoc}
      */

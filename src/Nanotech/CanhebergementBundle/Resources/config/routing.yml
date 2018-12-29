@@ -29,3 +29,8 @@ nanotech_canhebergement_form_inscription:
     path:     /login
     defaults: { _controller: NanotechCanhebergementBundle:Inscription:inscription }
     methods: POST
+
+nanotech_canhebergement_result_recherche:
+    path:     /result_hotel
+    defaults: { _controller: NanotechCanhebergementBundle:Default:recherchemaison }
+    methods: GET

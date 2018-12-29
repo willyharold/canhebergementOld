@@ -15,7 +15,7 @@ class ReservationConfirmeType extends AbstractType
     {
         $builder
             ->add('reservation',ReservationType::class)
-            ->add('prix');
+            ->add('prix',null,['label' => 'Prix de la confirmation']);
 
     }/**
      * {@inheritdoc}
