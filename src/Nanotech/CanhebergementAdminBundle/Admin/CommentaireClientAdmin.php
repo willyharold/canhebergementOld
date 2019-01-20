@@ -55,7 +55,7 @@ class CommentaireClientAdmin extends AbstractAdmin
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'image_partenaire',
                    'required' => false,
-                   'label' => "logo de la bannière",
+                   'label' => "Photo de la personne",
                ))
         ;
     }

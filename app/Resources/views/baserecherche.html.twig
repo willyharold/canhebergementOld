@@ -121,7 +121,8 @@
         data:{
             categorie: $_GET('categorie'),
 			latitude : $_GET('latitude') ,
-			longitude: $_GET('longitude')
+			longitude: $_GET('longitude'),
+			etoile:$_GET('etoile')
         },
         success:function(data){
             $('#resultelement').append(data);
@@ -136,6 +137,17 @@
         }
 
     });
+
+
+    $('#longitude').val($_GET('longitude'))
+    $('#latitude').val($_GET('latitude'))
+	if($_GET('direct')){
+		local = true;
+	}
+    $('#autocomplete').val($_GET('direct'))
+
+    $('#flt-etl').val($_GET('etoile'))
+    $('#fil-type').val($_GET('categorie'))
 
     function $_GET(param) {
         var vars = {};

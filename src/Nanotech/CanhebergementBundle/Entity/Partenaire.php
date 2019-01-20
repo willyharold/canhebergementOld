@@ -177,7 +177,7 @@ class Partenaire
     private  $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", mappedBy="partenaire", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Utilisateur", mappedBy="partenaire", cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private  $utilisateur;

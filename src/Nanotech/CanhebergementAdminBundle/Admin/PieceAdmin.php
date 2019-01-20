@@ -37,6 +37,7 @@ class PieceAdmin extends AbstractAdmin
             ->add('quantite')
             ->add('nbrPersonne')
             ->add('partenaire')
+            ->add('image')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -88,6 +89,7 @@ class PieceAdmin extends AbstractAdmin
             ->add('quantite')
             ->add('nbrPersonne')
             ->add('partenaire')
+            ->add('image')
             ->add('dateEnreg')
         ;
     }

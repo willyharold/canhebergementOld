@@ -24,7 +24,8 @@
 	<link href="{{ asset('can/css/custom.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('can/css/jquery-ui.min.css') }}" type="text/css" media="all" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/rangestyle.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('can/css/fotorama.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/fotorama.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/datepicker/bootstrap-datepicker.css') }}"/>
 </head>
 <body>
     
@@ -44,15 +45,21 @@
 <script type="text/javascript" src="{{ asset('can/js/rangescriptet.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/custom.js') }}" ></script>
 <script type="text/javascript" src="{{ asset('can/js/fotorama.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.min.js') }}" ></script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0V1K6eya1M35KgHRT6q2XOP-1uV9Czo&callback=initMap"
     async defer></script>
-<script type="text/javascript">
+<script type="text/javascript" async defer>
 
 	var nomEta="{{ partenaire.nom }}";
-
+	var parte = "{{ partenaire.id }}"
 	var pos = {lat: {{ partenaire.coordx }}, lng: {{ partenaire.coordy }}};
     var nbr = 8;
+
+    var darriver= null;
+
+    var ddepart = null;
+
 	function initMap() {
 	    var map = new google.maps.Map(document.getElementById('loc'), {
 	        center: pos,
@@ -97,11 +104,129 @@
             });
 
 		});
+        $('#dateArr').change(function(){
+            $('.js-datepicker2').focus();
+        });
 
-	});
-	
+        $('#dateDep').change(function(){
+            tmp2 = $('.js-datepicker1').val();
+
+            tmp = $('.js-datepicker2').val();
+            if(tmp != ddepart && tmp2 != darriver){
+                darriver = $('.js-datepicker1').val();
+                ddepart = $('.js-datepicker2').val();
+                actualise(darriver,ddepart,parte);
+
+            }
+            if(tmp2 != darriver && tmp == ddepart){
+                darriver = $('.js-datepicker1').val();
+                actualise(darriver,ddepart,parte);
+
+            }
+
+            if(tmp2 == darriver && tmp != ddepart){
+                ddepart = $('.js-datepicker2').val();
+                actualise(darriver,ddepart,parte);
+
+            }
+        })
+
+
+    });
+
+    function actualise(l,m,p) {
+        console.log("test")
+        $('#list-cmbd').append('<div class="spin pt-4 spin-cmt" style="margin: auto;"></div>');
+        $('#list-cmbd').find('#id-piece').remove();
+        $('#list-cmbd').find('#row').remove();
+        $.ajax({
+            async: true,
+            url: "{{ path('nanotech_canhebergement_result_piece') }}",
+            method: "GET",
+            data:{
+                arriver: l,
+				depart:m,
+				partenaire:p
+            },
+            success:function(data){
+                $('#list-cmbd').append(data);
+                $('#list-cmbd').find('.spin-cmt').remove();
+
+            },
+            error:function (er) {
+
+                console.log(er);
+                $('#list-cmbd').append('<div id="row" class="row"><div class="col-md-12"><h5 class="h1-r" id="nom">Pas disponible</h5></div></div>');
+                $('#list-cmbd').find('.spin-cmt').remove();
+            }
+
+        });
+    }
+
+
+
 
 </script>
-    
+
+<script async defer>
+
+    $("#dateArr").val($_GET('arriver'));
+    $("#dateDep").val($_GET('depart'));
+    $('#list-cmbd').append('<div class="spin pt-4 spin-cmt" style="margin: auto;"></div>');
+    $('#list-cmbd').find('#id-piece').remove();
+    $('#list-cmbd').find('#row').remove();
+    $.ajax({
+        async: true,
+        url: "{{ path('nanotech_canhebergement_result_piece') }}",
+        method: "GET",
+        data:{
+            arriver: $_GET('arriver'),
+            depart : $_GET('depart') ,
+            partenaire: "{{ partenaire.id }}"
+        },
+        success:function(data){
+            $('#list-cmbd').append(data);
+            $('#list-cmbd').find('.spin-cmt').remove();
+
+        },
+        error:function (er) {
+
+            console.log(er);
+            $('#list-cmbd').append('<div id="row" class="row"><div class="col-md-12"><h5 class="h1-r" id="nom">Pas disponible</h5></div></div>');
+            $('#list-cmbd').find('.spin-cmt').remove();
+        }
+
+    });
+
+    function $_GET(param) {
+        var vars = {};
+        window.location.href.replace( location.hash, '' ).replace(
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+            function( m, key, value ) { // callback
+                vars[key] = value !== undefined ? value : '';
+            }
+        );
+
+        if ( param ) {
+            return vars[param] ? vars[param] : null;
+        }
+        return vars;
+    }
+
+    function add(id,max) {
+		var l ="#frm-quantity-"+id;
+        var nbr =  Number($(l).val()) + 1;
+        if(nbr - 1 < max){
+        	$(l).val(nbr);
+        }
+    }
+    function remove(id) {
+        var l ="#frm-quantity-"+id;
+        var nbr =  Number($(l).val()) - 1;
+        if(nbr + 1 > 1){
+            $(l).val(nbr);
+        }
+    }
+</script>
 </body>
 </html>

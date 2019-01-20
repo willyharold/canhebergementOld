@@ -1,0 +1,51 @@
+<div id="id-piece">
+
+{% for piece in pieces %}
+<div id="piece" class="col-md-12">
+	<div id="14" class="row inpl chmb" style="min-height: 200px">
+		<div class="col-md-9 pt-2 pb-2">
+			<div class="row">
+				<div class="col-md-6">
+					<div><h5 class="h1-r"  style="font-weight: bolder;">{{ piece.nomFr | upper }}</h5>
+						<span class="cl8">{{ piece.nomFr }} restant(e) - <span class="cl3 md-16" id="quan">{{ piece.quantite }}</span></span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class=" pb-4">Equipement {{ piece.nomFr }}  :
+						<ul class="cl8">
+							<li>xxxxxx</li>
+						</ul>
+					</div>
+				</div>
+				<div class="cl8 col-md-12">
+					<span class="cl3 md-20" style="font-weight:bolder"> {{ piece.prix * nbrnuit }} </span>XAF pour {{ nbrnuit }} nuit(s)
+				</div>
+
+				<div class="col-md-12 text-right">
+					<form method="post" action="{{ path('nanotech_canhebergement_reserver') }}">
+
+					<input type="hidden" name="piece" value="{{ piece.id }}">
+					<input type="hidden" name="depart" id="depart" value="{{ depart | date }}">
+					<input type="hidden" name="arriver" id="arriver" value="{{ arriver | date }}">
+
+					<button type="button" class="btn btn-secondary btn-sm " onclick="add({{ piece.id }},{{ piece.quantite }})"><i class="material-icons mr-2 dpb2">add</i></button>
+						<input type="number"  readonly min="1" max="{{ piece.quantite }}" value="1" name="quantity" id="frm-quantity-{{ piece.id }}" style="border: none;text-align: center !important; width: 40px ;padding-left: 0.25em;padding-right: 0.25em; font-size: 20px">
+						<button type="button" class="btn btn-secondary btn-sm" onclick="remove({{ piece.id }})"><i class="material-icons mr-2 dpb2">remove</i></button>
+
+					<input type="submit"  class="btn-primary md-12 mt-3" style="padding: 0.375rem 0.75rem; border:1px solid transparent;border-radius: 0.25rem"  value="Reserver"   >
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+		{% if piece.image %}
+			<div class="col-md-3" style="background-position:center top;background-size: cover; background-image:  url({% path piece.image, 'big' %});"></div>
+		{% else %}
+			<div class="col-md-3" style="background-position:center top;background-size: cover; background-image: url({{ asset('can/images/2.jpg') }});">
+		{% endif %}
+	</div>
+</div>
+{% endfor %}
+
+</div>

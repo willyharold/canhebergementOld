@@ -7,6 +7,7 @@ use Nanotech\CanhebergementBundle\Entity\Utilisateur;
 use Nanotech\CanhebergementBundle\Form\PartenaireType;
 use Nanotech\CanhebergementBundle\Form\UtilisateurType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
@@ -43,7 +44,8 @@ class InscriptionController extends Controller
                 $dispatcher = $this->get('event_dispatcher');
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
                 $request->getSession()->getFlashBag()->add('notice', 'Partenaire bien enregistré.');
-                return $this->redirect('login');
+                $this->get('session')->set('fos_user_send_confirmation_email/email',$utilisateur->getEmail());
+                return $this->redirect('check-email');
             }
             else{
                 return $this->render('NanotechCanhebergementBundle:Default:login-inscription.html.twig', array(
@@ -55,6 +57,26 @@ class InscriptionController extends Controller
 
         return $this->render('NanotechCanhebergementBundle:Default:inscription.html.twig', array(
             'form' => $form->createView(),
+        ));
+    }
+
+    public function checkEmailAction()
+    {
+        $email = $this->get('session')->get('fos_user_send_confirmation_email/email');
+
+        if (empty($email)) {
+            return $this->redirect('login');
+        }
+
+        $this->get('session')->remove('fos_user_send_confirmation_email/email');
+        $user = $this->get('fos_user.user_manager')->findUserByEmail($email);
+
+        if (null === $user) {
+            throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
+        }
+
+        return $this->render('@FOSUser/Registration/check_email.html.twig', array(
+            'user' => $user,
         ));
     }
 }

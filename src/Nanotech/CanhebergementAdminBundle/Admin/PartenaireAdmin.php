@@ -78,33 +78,35 @@ class PartenaireAdmin extends AbstractAdmin
                             'config' => array(
                                 'uiColor' => '#ffffff',
                             ),
-                            'label' => 'Description Française'
+                            'label' => 'Description Française',
+                            'required' => true
                         ))
 
                     ->add('descriptionEn', CKEditorType::class, array(
                             'config' => array(
                                 'uiColor' => '#ffffff',
                             ),
-                            'label' => 'Description Anglaise'
+                            'label' => 'Description Anglaise',
+                            'required' => true
                         ))
-                    ->add('nbrEtoile',null,['label' => 'Nombre Etoile'])
+                    ->add('nbrEtoile',null,['label' => 'Nombre Etoile','required' => true   ])
                     ->add('adrServ',null,['label' => 'Adresse Serveur'])
                 ->end()
             ->end()
             ->tab('Adresse')
                 ->with('Partenaire')
-                    ->add('pays',CountryType::class)
-                    ->add('ville')
-                    ->add('quartier')
-                    ->add('coordx',null,['label' => 'Latitude'])
-                    ->add('coordy',null,['label' => 'Longitude'])
-                    ->add('adrComplete',null,['label' => 'Adresse Complete'])
-                    ->add('numTel1',null,['label' => 'Numero Téléphone 1'])
+                    ->add('pays',CountryType::class,['required' => true])
+                    ->add('ville',null,['required' => true])
+                    ->add('quartier',null,['required' => true])
+                    ->add('coordx',null,['label' => 'Latitude','required' => true])
+                    ->add('coordy',null,['label' => 'Longitude','required' => true])
+                    ->add('adrComplete',null,['label' => 'Adresse Complete','required' => true])
+                    ->add('numTel1',null,['label' => 'Numero Téléphone 1','required' => true])
                     ->add('numTel2',null,['label' => 'Numero Téléphone 2'])
                     ->add('numTel3',null,['label' => 'Numero Téléphone 3'])
                     ->add('faxTel',null,['label' => 'Fax Téléphone'])
-                    ->add('boitPost',null,['label' => 'Boîte Postal'])
-                    ->add('adrEmail',EmailType::class,['label' => 'Adresse Email'])
+                    ->add('boitPost',null,['label' => 'Boîte Postal','required' => true])
+                    ->add('adrEmail',EmailType::class,['label' => 'Adresse Email','required' => true])
                 ->end()
             ->end()
             ->tab('Image')
@@ -119,6 +121,7 @@ class PartenaireAdmin extends AbstractAdmin
                     ->add('baniere', 'sonata_type_model_list', array(
                         'btn_list' => true,
                         'help' => 'image de la bannière de l\'hotel',
+                        'required' => true
                     ), array(
                             'link_parameters' => array(
                                 'context' => 'image_banniere'
@@ -128,6 +131,7 @@ class PartenaireAdmin extends AbstractAdmin
                     ->add('image', 'sonata_type_model_list', array(
                         'btn_list' => true,
                         'help' => 'image de présentation de l\'hotel',
+                        'required' => true
                     ), array(
                             'link_parameters' => array(
                                 'context' => 'image_partenaire'

@@ -40,12 +40,64 @@ class PartenaireController extends Controller
             }
         }
         $commentaire = $em->getRepository('NanotechCanhebergementBundle:Commentaire')->findByPartenaire($partenaire, array('dateEnreg' => 'DESC'), 4, 0);
+
+        $carteRestaurant = $partenaire->getCarteRestaurant();
+        $carteBar = $partenaire->getCarteBar();
+
+        $tmpcarteRest = [];
+        $tmpcarteBar = [];
+
+        $carteRest = [];
+        $carteB = [];
+
+        foreach ($carteRestaurant as $carte){
+            array_push($carteRest, $carte);
+        }
+        foreach ($carteRest as $carte){
+            $cartmp = [];
+            $famille = $carte->getFamille();
+            foreach ($carteRest as $item){
+                if($item->getFamille() == $famille){
+                    array_push($cartmp,$item);
+                    $carteRest = $this->compare_func_rest($carteRest,$item);
+                }
+            }
+            array_push($tmpcarteRest,$cartmp);
+        }
+
+        foreach ($carteBar as $carte){
+            array_push($carteB, $carte);
+        }
+        foreach ($carteB as $carte){
+            $cartmp = [];
+            $famille = $carte->getFamille();
+            foreach ($carteB as $item){
+                if($item->getFamille() == $famille){
+                    array_push($cartmp,$item);
+                    $carteB = $this->compare_func_rest($carteB,$item);
+                }
+            }
+            array_push($tmpcarteBar,$cartmp);
+        }
+
         return $this->render('NanotechCanhebergementBundle:Default:hotel.html.twig', array(
             'banieres' => $banieres,
             'partenaire' => $partenaire,
             'commentaire' => $commentaire,
+            'cartes' => $tmpcarteRest,
+            'cartesB' =>$tmpcarteBar,
             'form'=> $form->createView()
         ));
+    }
+    public function compare_func_rest($tab, $item)
+    {
+        $tmp = [];
+        foreach ($tab as $element){
+            if($element->getId() != $item->getId()){
+                array_push($tmp,$element);
+            }
+        }
+         return $tmp;
     }
 
     public function commmentaireAction($slug,$nombre){

@@ -2,9 +2,13 @@
 
 namespace Nanotech\CanhebergementBundle\Controller;
 
+use function GuzzleHttp\Psr7\copy_to_stream;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Nanotech\CanhebergementBundle\Repository\PartenaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Matcher\RedirectableUrlMatcher;
 
 
 class DefaultController extends Controller
@@ -38,15 +42,58 @@ class DefaultController extends Controller
                 ));
     }
     
-      public function reservationAction()
+      public function reservationAction(Request $request)
     {
-          $em = $this->getDoctrine()->getManager();
-        $banieres = $em->getRepository('NanotechCanhebergementBundle:Banniere')->findBy(array(), array('position' => 'DESC'));
+        $id = $request->request->get('piece');
+        $arrive = $request->request->get('arriver');
+        $depart = $request->request->get('depart');
+        $quantite = $request->request->get('quantity');
+        if(!$quantite){
+            $quantite = 1;
+        }
+        if($arrive || !$arrive == ""){
+            $date1int = date_parse($arrive);
+            $date1 = new \DateTime($date1int["year"]."-".$date1int["month"]."-".$date1int["day"]);
+        }
+        else{
+            $date1 = new \DateTime();
+        }
+
+        if($depart || !$depart == ""){
+            $date2int = date_parse($depart);
+            $date2 = new \DateTime($date2int["year"]."-".$date2int["month"]."-".$date2int["day"]);
+
+        }
+        else{
+            $date2 = new \DateTime();
+        }
+
+
+        if(!$id || $id == "" ){
+            throw new BadRequestHttpException();
+        }
+        $em = $this->getDoctrine()->getManager();
+
+        $piece = $em->getRepository('NanotechCanhebergementBundle:Piece')->findOneById($id);
+        $moyenpaiment = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findAll();
+
+        $nbrnuit = $this->date( $date1->format('Y-m-d H:i:s'),$date2->format('Y-m-d H:i:s'));
+        if($nbrnuit == 0){
+            $nbrnuit = 1;
+        }
         return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig', array(
-                             'banieres' => $banieres,
+                             'piece' => $piece,
+                             'nbrnuit' => $nbrnuit,
+                             'date1' =>$date1,
+                             'date2' =>$date2,
+                             'quantite'=> $quantite,
+            'paiments'=>$moyenpaiment
                 ));
     }
-    
+
+    public function confirmResaAction(Request $request){
+        return $this->redirect("​https://api.safimoney.com/v1/extern/send-request/");
+    }
       public function rechercheAction()
     {
           $em = $this->getDoctrine()->getManager();
@@ -87,6 +134,92 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NanotechCanhebergementBundle:Categorie')->findAll();
         return $this->render('NanotechCanhebergementBundle:Default:menu.html.twig', array('id'=>$id,'categories'=>$categories));
+    }
+
+    public function recherchepieceAction(Request $request){
+        $arrive = $request->query->get('arriver');
+        $depart = $request->query->get('depart');
+        if($arrive || !$arrive == ""){
+            $date1int = date_parse($arrive);
+            $date1 = new \DateTime($date1int["year"]."-".$date1int["month"]."-".$date1int["day"]);
+        }
+        else{
+            $date1 = new \DateTime();
+        }
+
+        if($depart || !$depart == ""){
+            $date2int = date_parse($depart);
+            $date2 = new \DateTime($date2int["year"]."-".$date2int["month"]."-".$date2int["day"]);
+
+        }
+        else{
+            $date2 = new \DateTime();
+        }
+
+        $partenaire = $request->query->get('partenaire');
+        if(!$partenaire){
+            throw new BadRequestHttpException();
+        }
+        $em = $this->getDoctrine()->getManager();
+        $partenaires = $em->getRepository('NanotechCanhebergementBundle:Partenaire')->findBy(["id"=> $partenaire,"enable"=> true]);
+        foreach ($partenaires as $element){
+            $pieces = $element->getPiece();
+        }
+        $tmppiece=[];
+        foreach ($pieces as $piece){
+           $result= $this->findpiece($piece,$date1->getTimestamp(),$date2->getTimestamp());
+           if($result){
+               array_push($tmppiece,$result);
+           }
+        }
+        $nbrnuit = $this->date( $date1->format('Y-m-d H:i:s'),$date2->format('Y-m-d H:i:s'));
+        if($nbrnuit == 0){
+            $nbrnuit = 1;
+        }
+        return $this->render('NanotechCanhebergementBundle:Default:recherchepiece.html.twig',
+            ["pieces" => $tmppiece,
+            "nbrnuit" => $nbrnuit,
+            "arriver" => $date1,
+                "depart" =>$date2,
+                ]);
+    }
+
+    public function findpiece($pi,$ar,$de){
+        $em = $this->getDoctrine()->getManager();
+        $resas = $em->getRepository('NanotechCanhebergementBundle:Reservation')->findByPiece($pi);
+        $tmpresas = [];
+        if($resas){
+            foreach ($resas as $resa){
+                $resaconfirme = $em->getRepository('NanotechCanhebergementBundle:ReservationConfirme')->findByReservation($resa);
+                if($resaconfirme){
+                    array_push($tmpresas,$resa);
+                }
+            }
+        }
+        else{
+            return $pi;
+        }
+        $tmpnbr = 0;
+        $tmpresas1 = [];
+        foreach ($tmpresas as $tmpresa){
+            $tmpar = $tmpresa->getDateArrive()->getTimestamp();
+            $tmpdep = $tmpresa->getDateDepart()->getTimestamp();
+            if( (($ar >= $tmpar)&&($ar <= $tmpdep)) || (($de >= $tmpar)&&($de <= $tmpdep)) || (($ar <= $tmpar)&&($de >= $tmpdep)) ){
+
+            }
+            else{
+                array_push($tmpresas1,$tmpresa);
+                $tmpnbr = $tmpnbr + $tmpresa->getQuantite();
+            }
+
+        }
+        $pi->setQuantite($tmpnbr);
+        if($tmpnbr <= 0) {
+            return null;
+        }
+
+        return $pi;
+
     }
       public function recherchemaisonAction(Request $request)
     {
@@ -139,7 +272,9 @@ class DefaultController extends Controller
                              'partenaires' => $partenaires,
                             'taille'=>count($partenaires),
                             'nbrnuit'=>$nbrenuit,
-                            'tabpiece'=>$tab_piece
+                            'tabpiece'=>$tab_piece,
+                           'depart' => $depart,
+                           'arriver' => $arrive
                 ));
     }
     
@@ -155,7 +290,7 @@ class DefaultController extends Controller
                     if($piece->getPrix() >= $min && $piece->getPrix() <= $max){
 
                         if($i == 0){
-                            $tmp = ["partenaire"=> $partenaire->getId(),"prix" => $piece->getPrix()];
+                            $tmp = ["partenaire"=> $partenaire->getId(),"prix" => $piece->getPrix(),"idpiece" => $piece->getId()];
                         }
                         if( $piece->getPrix() < $tmp["prix"] ){
                             $tmp["prix"] = $piece->getPrix();
@@ -171,7 +306,7 @@ class DefaultController extends Controller
                 $i = 0;
                 foreach ($partenaire->getPiece() as $piece){
                         if($i == 0){
-                            $tmp = ["partenaire"=> $partenaire->getId(),"prix" => $piece->getPrix()];
+                            $tmp = ["partenaire"=> $partenaire->getId(),"prix" => $piece->getPrix(),"idpiece" => $piece->getId()];
                         }
                         if( $piece->getPrix() < $tmp["prix"] ){
                                 $tmp["prix"] = $piece->getPrix();

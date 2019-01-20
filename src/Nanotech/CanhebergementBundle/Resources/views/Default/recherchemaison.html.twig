@@ -24,7 +24,17 @@
 									</div>
 								</div>
 								<div class="cl8"><span class="md-12 cl8 dpb2">A partir de <br></span><span class="cl3 md-20" style="font-weight:500">{% for piece in tabpiece %} {% if piece.partenaire == partenaire.id %} {{ piece.prix }} {% endif %} {% endfor %} </span>XAF pour {{ nbrnuit }} nuit(s)</div>
-								<div class=""> <button class="btn btn-outline-primary md-12 float-right ml-2"><i class="material-icons dpb2">add</i> Détails</button><button class="btn btn-primary md-12 float-right">Reserver</button></div>
+								<div class="">
+                                    {% for piece in tabpiece %} {% if piece.partenaire == partenaire.id %}
+										<button class="btn btn-outline-primary md-12 float-right ml-2" onclick="gotodetail('{{ path('nanotech_canhebergement_hotel',{'slug':partenaire.slug}) }}')" ><i class="material-icons dpb2">add</i> Détails</button>
+										<form method="post" action="{{ path('nanotech_canhebergement_reserver') }}" >
+											<input type="hidden" name="piece" value="{{ piece.idpiece }}">
+											<input type="hidden" name="depart" id="depart" value="{{ depart | date }}">
+											<input type="hidden" name="arriver" id="arriver" value="{{ arriver | date }}">
+											<input type="submit" class="btn btn-primary md-12 float-right" value="{{ 'Reserver'|trans }}">
+										</form>
+                                    {% endif %} {% endfor %}
+								</div>
 							</div>
 							<div class="col-md-3" style="background-position:center top;background-size: cover; background-image: url({% path partenaire.image.galleryHasMedias[0].media, 'big' %});"></div>
 							<a href="{{ path('nanotech_canhebergement_hotel',{'slug':partenaire.slug}) }}" class="lien"></a>

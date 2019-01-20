@@ -15,7 +15,13 @@ nanotech_canhebergement_commentaire:
 nanotech_canhebergement_reserver:
     path:     /reserver
     defaults: { _controller: NanotechCanhebergementBundle:Default:reservation }
-    
+    methods: POST
+
+nanotech_canhebergement_confirm_reserver:
+    path:     /confirm-reserver
+    defaults: { _controller: NanotechCanhebergementBundle:Default:confirmResa }
+    methods: POST
+
 nanotech_canhebergement_recherche:
     path:     /recherche
     defaults: { _controller: NanotechCanhebergementBundle:Default:recherche }
@@ -33,4 +39,14 @@ nanotech_canhebergement_form_inscription:
 nanotech_canhebergement_result_recherche:
     path:     /result_hotel
     defaults: { _controller: NanotechCanhebergementBundle:Default:recherchemaison }
+    methods: GET
+
+nanotech_canhebergement_result_piece:
+    path:     /result_piece
+    defaults: { _controller: NanotechCanhebergementBundle:Default:recherchepiece }
+    methods: GET
+
+nanotech_canhebergement_check_email:
+    path:     /check-email
+    defaults: { _controller: NanotechCanhebergementBundle:Inscription:checkEmail }
     methods: GET

@@ -215,9 +215,30 @@
             });
 
             $('#dateDep').on('change',function(){
-                darriver = $('.js-datepicker1').val();
-                ddepart = $('.js-datepicker2').val();
+
                 booldepart = true;
+
+                tmp2 = $('.js-datepicker1').val();
+
+                tmp = $('.js-datepicker2').val();
+
+                if(tmp != ddepart && tmp2 != darriver){
+                    darriver = $('.js-datepicker1').val();
+                    ddepart = $('.js-datepicker2').val();
+                    requette();
+
+                }
+                if(tmp2 != darriver && tmp == ddepart){
+                    darriver = $('.js-datepicker1').val();
+                    requette()
+
+                }
+
+                if(tmp2 == darriver && tmp != ddepart){
+                    ddepart = $('.js-datepicker2').val();
+                    requette()
+
+                }
             })
 
         });
@@ -277,6 +298,25 @@
 
              }
             }
+        }
+
+        function gotoreserver(id){
+            var lien = "{{ path('nanotech_canhebergement_reserver') }}";
+
+            lien = lien + "?piece=" +id;
+            if(ddepart && darriver){
+                lien = lien + "&depart="+ddepart+"&arriver="+darriver;
+			}
+            window.location.href = lien ;
+
+		}
+
+        function gotodetail(lien){
+            if(ddepart && darriver){
+                lien = lien + "?depart="+ddepart+"&arriver="+darriver;
+            }
+            window.location.href = lien ;
+
         }
 	</script>
 

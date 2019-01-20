@@ -1,21 +1,19 @@
-<header id="header row" class="ovh">
-    {{ render(controller('NanotechCanhebergementBundle:Default:banniere'))}}
-    {{ render(controller('NanotechCanhebergementBundle:Default:menu',{'id':2}))}}
-	<div class="col-sm-12 couv2 p-0">
-		<div class="col-sm-12 conttop">
-			<div class="row">
-				<div class="col-md-12 logo1 text-center ">
-					<span >
-						<img style="width:104px" src="{{ asset('can/images/logo1.svg') }}">
-					</span>
-				</div>
-				<div class="col-12 text-center mt-sm-4">
-					<h1 class="h1-r">HEBERGEMENT CAN 2019 </h1>
-					<!-- <span class="h5-responsive">COMME SI VOUS ETIEZ A lA MAISON</span> -->
-				</div>
-				<div id="pta">
+<header id="header row" class="ovh" style="margin-bottom: 50px">
+	<div class="bx-wrapper" style="max-width: 100%;">
+		<div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 125px;">
+			<div class="slider row" style="height: 125px; width: auto; position: relative;">
+				<div class="col-sm-12 sl" style="background-image: url('{{ asset('can/images/1.jpg') }}'); float: none; list-style: none; position: absolute; width: 1583px; z-index: 50; display: block;" aria-hidden="false">
+
 				</div>
 			</div>
 		</div>
+		<div class="bx-controls bx-has-controls-direction">
+			<div class="bx-controls-direction">
+				<a class="bx-prev icov disabled" href=""><i class="material-icons">arrow_back</i></a>
+				<a class="bx-next icov disabled" href=""><i class="material-icons">arrow_forward</i></a>
+			</div>
+		</div>
 	</div>
+    {{ render(controller('NanotechCanhebergementBundle:Default:menu',{'id':2}))}}
+
 </header>
