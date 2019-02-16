@@ -1,0 +1,30 @@
+{% extends "::baserenitialisation.html.twig" %}
+{% block title %}{{"Reinitilisation"|trans }} {% endblock %}
+{% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
+{% block body %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 mb-4 mt-4">
+					<div class="row inpl " style="min-height: 200px" >
+						<div class="col-md-6 pt-4">
+							<h4 class="h1-r font-weight-bold cl8 text-uppercase"><strong> REINITIALISATION </strong> </h4>
+                            {% block fos_user_content %}
+                            {% endblock fos_user_content %}
+
+						</div>
+						<div class="col-md-6" style="background-position:center top;background-size: cover; background-image: url('{{ asset('can/images/3.jpg') }}');"></div>
+						<a href="hotel.html" class="lien"></a>
+					</div>
+				</div>
+			</div>
+			<div class="divider mt-5"></div>
+		</div>
+		<div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+		<!-- modal-reservation -->
+
+	</section>
+
+
+{% endblock %}

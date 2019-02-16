@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -118,8 +119,9 @@ class PartenaireAdmin extends AbstractAdmin
                         'label' => "logo du partenaire",
                     ))
 
-                    ->add('baniere', 'sonata_type_model_list', array(
-                        'btn_list' => true,
+                    ->add('baniere', ModelListType::class, array(
+                        'btn_list' => false,
+
                         'help' => 'image de la bannière de l\'hotel',
                         'required' => true
                     ), array(

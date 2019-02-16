@@ -28,9 +28,14 @@
 					<input type="hidden" name="depart" id="depart" value="{{ depart | date }}">
 					<input type="hidden" name="arriver" id="arriver" value="{{ arriver | date }}">
 
-					<button type="button" class="btn btn-secondary btn-sm " onclick="add({{ piece.id }},{{ piece.quantite }})"><i class="material-icons mr-2 dpb2">add</i></button>
-						<input type="number"  readonly min="1" max="{{ piece.quantite }}" value="1" name="quantity" id="frm-quantity-{{ piece.id }}" style="border: none;text-align: center !important; width: 40px ;padding-left: 0.25em;padding-right: 0.25em; font-size: 20px">
-						<button type="button" class="btn btn-secondary btn-sm" onclick="remove({{ piece.id }})"><i class="material-icons mr-2 dpb2">remove</i></button>
+					<button type="button" class="btn btn-secondary btn-sm" onclick="remove({{ piece.id }})">
+						<i class="material-icons mr-2 dpb2">remove</i>
+					</button>
+					<input type="number"  readonly min="1" max="{{ piece.quantite }}" value="1" name="quantity" id="frm-quantity-{{ piece.id }}" style="border: none;text-align: center !important; width: 40px ;padding-left: 0.25em;padding-right: 0.25em; font-size: 20px">
+					<button type="button" class="btn btn-secondary btn-sm " onclick="add({{ piece.id }},{{ piece.quantite }})">
+						<i class="material-icons mr-2 dpb2">add</i>
+					</button>
+
 
 					<input type="submit"  class="btn-primary md-12 mt-3" style="padding: 0.375rem 0.75rem; border:1px solid transparent;border-radius: 0.25rem"  value="Reserver"   >
 					</form>

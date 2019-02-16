@@ -28,10 +28,10 @@ class ServiceAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('dateEnreg')
              ->add('nomFr')
              ->add('nomEn')
             ->add('code')
+                ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -55,10 +55,11 @@ class ServiceAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('dateEnreg')
+            
             ->add('nomFr')
              ->add('nomEn')
             ->add('code')
+                ->add('dateEnreg')
         ;
     }
 }

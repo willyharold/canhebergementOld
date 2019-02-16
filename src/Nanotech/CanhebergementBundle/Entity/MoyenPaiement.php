@@ -55,6 +55,13 @@ class MoyenPaiement
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255)
+     */
+    private $code;
 
     /**
      * @var bool
@@ -62,6 +69,13 @@ class MoyenPaiement
      * @ORM\Column(name="national", type="boolean")
      */
     private $national;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="enable", type="boolean")
+     */
+    private $enable;
     
     /**
      * @ORM\ManyToOne(targetEntity="Nanotech\MediaBundle\Entity\Media", cascade={"all"})
@@ -256,5 +270,53 @@ class MoyenPaiement
     public function __toString() {
         return $this->nom." ";
         
+    }
+
+    /**
+     * Set enable
+     *
+     * @param boolean $enable
+     *
+     * @return MoyenPaiement
+     */
+    public function setEnable($enable)
+    {
+        $this->enable = $enable;
+
+        return $this;
+    }
+
+    /**
+     * Get enable
+     *
+     * @return boolean
+     */
+    public function getEnable()
+    {
+        return $this->enable;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return MoyenPaiement
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

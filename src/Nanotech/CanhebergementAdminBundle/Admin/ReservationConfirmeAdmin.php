@@ -17,6 +17,7 @@ class ReservationConfirmeAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('dateEnreg')
+            ->add('transaction')
         ;
     }
 
@@ -27,7 +28,8 @@ class ReservationConfirmeAdmin extends AbstractAdmin
             ->add('prix')
             ->add('type')
             ->add('reservation')
-            ->add('moyenPaiement')    
+            ->add('moyenPaiement')
+            ->add('transaction')
             ->add('dateEnreg')
             ->add('_action', null, [
                 'actions' => [
@@ -70,6 +72,7 @@ class ReservationConfirmeAdmin extends AbstractAdmin
             ->add('type')
             ->add('reservation')
             ->add('moyenPaiement')
+            ->add('transaction')
             ->add('dateEnreg')
         ;
     }

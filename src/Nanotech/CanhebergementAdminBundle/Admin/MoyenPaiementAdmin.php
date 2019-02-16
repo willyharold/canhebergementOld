@@ -21,8 +21,9 @@ class MoyenPaiementAdmin extends AbstractAdmin
             ->add('secretid')  
             ->add('clientid')
             ->add('national')
+            ->add('code')
             ->add('dateEnreg')
-
+            ->add('enable')
                 
         ;
     }
@@ -36,6 +37,8 @@ class MoyenPaiementAdmin extends AbstractAdmin
             ->add('secretid')  
             ->add('clientid')
             ->add('national')
+            ->add('code')
+            ->add('enable')
             ->add('dateEnreg')
             ->add('logo')
             ->add('_action', null, [
@@ -56,6 +59,8 @@ class MoyenPaiementAdmin extends AbstractAdmin
             ->add('secretid')  
             ->add('clientid')
             ->add('national')
+            ->add('code')
+            ->add('enable')
             ->add('logo', 'sonata_media_type', array(
                    'provider' => 'sonata.media.provider.image',
                    'context' => 'image_logo',
@@ -73,10 +78,11 @@ class MoyenPaiementAdmin extends AbstractAdmin
             ->add('lien')
             ->add('secretid')  
             ->add('clientid')
+            ->add('code')    
             ->add('national')
             ->add('logo')
-
-            ->add('dateEnreg')
+            ->add('enable')               
+           ->add('dateEnreg')
                 
         ;
     }

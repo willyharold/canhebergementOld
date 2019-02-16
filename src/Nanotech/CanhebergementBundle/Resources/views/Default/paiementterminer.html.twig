@@ -1,0 +1,45 @@
+{% extends "::baserecherche.html.twig" %}
+
+
+{% block body %}
+	<section>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12">
+					<div class="row ">
+						<div class="col-md-12 mt-5 mb-2">
+							<h4 class="h1-r font-weight-bold cl8" id="inscription">{{ 'Félicitation'| trans | upper }}</h4>
+						</div>
+					</div>
+					<div class="row ">
+
+						<div class="mt-5">
+							{% if user %}
+							<p> Vos identifiants de connexion ont été envoyé dans votre boite mail.</p>
+							{% endif %}
+							{% if reser %}
+							<p>Votre reservation a été effectué ! </p>
+							{% endif %}
+							{% if payer %}
+							<p>Le paiement de votre reservation a été effectuer avec success !</p>
+								<p>NB: Si vous êtes un nouvel utilisateur, vos identifiants de connexion ont été envoyé dans votre boite mail  </p>
+							{% endif %}
+							<p>Retour vers la page d'accueil <a href="{{ path('nanotech_canhebergement_homepage') }}">{{ 'Retour'|trans }}</a></p>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="divider mt-5"></div>
+		</div>
+		<div  id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+		<!-- modal-reservation -->
+        {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
+
+
+
+	</section>
+{% endblock body %}

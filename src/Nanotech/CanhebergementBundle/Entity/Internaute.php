@@ -38,35 +38,56 @@ class Internaute
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255,unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
+     * @ORM\Column(name="telephone", type="string", length=255)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=255)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="cni", type="string", length=255, nullable=true)
      */
-    private $cni;
+    private $typedocument;
 
     /**
      * @var string
      *
      * @ORM\Column(name="passeport", type="string", length=255, nullable=true)
      */
-    private $passeport;
+    private $numdocument;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_nai", type="date")
+     * @ORM\Column(name="date_nai", type="date",nullable=true)
      */
     private $dateNai;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lieu_nai", type="string", length=255)
+     * @ORM\Column(name="lieu_nai", type="string", length=255,nullable=true)
      */
     private $lieuNai;
 
@@ -84,11 +105,17 @@ class Internaute
      */
     private $dateEnreg;
 
+    public function __construct()
+    {
+        $this->dateEnreg = new \DateTime();
+
+    }
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -168,51 +195,123 @@ class Internaute
     }
 
     /**
-     * Set cni
+     * Set telephone
      *
-     * @param string $cni
+     * @param string $telephone
      *
      * @return Internaute
      */
-    public function setCni($cni)
+    public function setTelephone($telephone)
     {
-        $this->cni = $cni;
+        $this->telephone = $telephone;
 
         return $this;
     }
 
     /**
-     * Get cni
+     * Get telephone
      *
      * @return string
      */
-    public function getCni()
+    public function getTelephone()
     {
-        return $this->cni;
+        return $this->telephone;
     }
 
     /**
-     * Set passeport
+     * Set adresse
      *
-     * @param string $passeport
+     * @param string $adresse
      *
      * @return Internaute
      */
-    public function setPasseport($passeport)
+    public function setAdresse($adresse)
     {
-        $this->passeport = $passeport;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get passeport
+     * Get adresse
      *
      * @return string
      */
-    public function getPasseport()
+    public function getAdresse()
     {
-        return $this->passeport;
+        return $this->adresse;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     *
+     * @return Internaute
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * Set typedocument
+     *
+     * @param string $typedocument
+     *
+     * @return Internaute
+     */
+    public function setTypedocument($typedocument)
+    {
+        $this->typedocument = $typedocument;
+
+        return $this;
+    }
+
+    /**
+     * Get typedocument
+     *
+     * @return string
+     */
+    public function getTypedocument()
+    {
+        return $this->typedocument;
+    }
+
+    /**
+     * Set numdocument
+     *
+     * @param string $numdocument
+     *
+     * @return Internaute
+     */
+    public function setNumdocument($numdocument)
+    {
+        $this->numdocument = $numdocument;
+
+        return $this;
+    }
+
+    /**
+     * Get numdocument
+     *
+     * @return string
+     */
+    public function getNumdocument()
+    {
+        return $this->numdocument;
     }
 
     /**
@@ -264,6 +363,30 @@ class Internaute
     }
 
     /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Internaute
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
      * Set dateEnreg
      *
      * @param \DateTime $dateEnreg
@@ -286,39 +409,9 @@ class Internaute
     {
         return $this->dateEnreg;
     }
-    
-      public function __construct()
-    {
-        $this->dateEnreg = new \DateTime();
-
-    }
 
     public function __toString() {
         return $this->nom? $this->nom." ":" ";
 
-    }
-
-    /**
-     * Set pays
-     *
-     * @param string $pays
-     *
-     * @return Internaute
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
-
-        return $this;
-    }
-
-    /**
-     * Get pays
-     *
-     * @return string
-     */
-    public function getPays()
-    {
-        return $this->pays;
     }
 }

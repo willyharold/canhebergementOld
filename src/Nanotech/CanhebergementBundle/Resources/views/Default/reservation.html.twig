@@ -29,9 +29,12 @@
 					</div>
 				</div>
 			</div>
-			<form method="post" action="{{ path('nanotech_canhebergement_confirm_reserver') }}">
-
+            {% if error %}
+			<div class="rsv-error text-center md-18 cl3 "> Si vous avez déjà un compte, connectez vous!</div>
+            {% endif %}
+			{{ form_start(form) }}
 			<div class="row mt-3">
+				{% if   connected %}
 				<div class="col-md-4">
 					<div class="row">
 
@@ -41,296 +44,101 @@
 
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-nom">Nom*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-nom" id="rsv-nom" required>
+                                    {{ form_widget(form.nom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true' }}) }}
 
 								</div>
 
 								<div class="form-group position-relative mb-3">
-									<div class="position-relative md-14"><label for="rsv-prn">Prenom*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-prn" id="rsv-prn">
+									<div class="position-relative md-14"><label for="rsv-prn">Prenom</label></div>
+                                    {{ form_widget(form.prenom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
+
 								</div>
 
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-prn">Numéro téléphone*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="tel" name="rsv-phn" id="rsv-phn" required>
+                                    {{ form_widget(form.telephone, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
 								</div>
 
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-prn">Email*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="email" name="rsv-eml" id="rsv-eml" required>
+									{% if error %}
+                                    {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 brd-error','readonly':'true'}}) }}
+									<div class="rsv-error text-right md-12 cl3 "> Email déjà utilisé</div>
+									{% else %}
+                                    {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
+									{% endif %}
 								</div>
 
 
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-nbr">Pays de résidence*</label></div>
 
-									<select class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " name="rsd-pays">
-										<option value="France" selected="selected">France </option>
+                                    {{ form_widget(form.pays, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
 
-										<option value="Afghanistan">Afghanistan </option>
-										<option value="Afrique_Centrale">Afrique_Centrale </option>
-										<option value="Afrique_du_sud">Afrique_du_Sud </option>
-										<option value="Albanie">Albanie </option>
-										<option value="Algerie">Algerie </option>
-										<option value="Allemagne">Allemagne </option>
-										<option value="Andorre">Andorre </option>
-										<option value="Angola">Angola </option>
-										<option value="Anguilla">Anguilla </option>
-										<option value="Arabie_Saoudite">Arabie_Saoudite </option>
-										<option value="Argentine">Argentine </option>
-										<option value="Armenie">Armenie </option>
-										<option value="Australie">Australie </option>
-										<option value="Autriche">Autriche </option>
-										<option value="Azerbaidjan">Azerbaidjan </option>
-
-										<option value="Bahamas">Bahamas </option>
-										<option value="Bangladesh">Bangladesh </option>
-										<option value="Barbade">Barbade </option>
-										<option value="Bahrein">Bahrein </option>
-										<option value="Belgique">Belgique </option>
-										<option value="Belize">Belize </option>
-										<option value="Benin">Benin </option>
-										<option value="Bermudes">Bermudes </option>
-										<option value="Bielorussie">Bielorussie </option>
-										<option value="Bolivie">Bolivie </option>
-										<option value="Botswana">Botswana </option>
-										<option value="Bhoutan">Bhoutan </option>
-										<option value="Boznie_Herzegovine">Boznie_Herzegovine </option>
-										<option value="Bresil">Bresil </option>
-										<option value="Brunei">Brunei </option>
-										<option value="Bulgarie">Bulgarie </option>
-										<option value="Burkina_Faso">Burkina_Faso </option>
-										<option value="Burundi">Burundi </option>
-
-										<option value="Caiman">Caiman </option>
-										<option value="Cambodge">Cambodge </option>
-										<option value="Cameroun">Cameroun </option>
-										<option value="Canada">Canada </option>
-										<option value="Canaries">Canaries </option>
-										<option value="Cap_vert">Cap_Vert </option>
-										<option value="Chili">Chili </option>
-										<option value="Chine">Chine </option>
-										<option value="Chypre">Chypre </option>
-										<option value="Colombie">Colombie </option>
-										<option value="Comores">Colombie </option>
-										<option value="Congo">Congo </option>
-										<option value="Congo_democratique">Congo_democratique </option>
-										<option value="Cook">Cook </option>
-										<option value="Coree_du_Nord">Coree_du_Nord </option>
-										<option value="Coree_du_Sud">Coree_du_Sud </option>
-										<option value="Costa_Rica">Costa_Rica </option>
-										<option value="Cote_d_Ivoire">Côte_d_Ivoire </option>
-										<option value="Croatie">Croatie </option>
-										<option value="Cuba">Cuba </option>
-
-										<option value="Danemark">Danemark </option>
-										<option value="Djibouti">Djibouti </option>
-										<option value="Dominique">Dominique </option>
-
-										<option value="Egypte">Egypte </option>
-										<option value="Emirats_Arabes_Unis">Emirats_Arabes_Unis </option>
-										<option value="Equateur">Equateur </option>
-										<option value="Erythree">Erythree </option>
-										<option value="Espagne">Espagne </option>
-										<option value="Estonie">Estonie </option>
-										<option value="Etats_Unis">Etats_Unis </option>
-										<option value="Ethiopie">Ethiopie </option>
-
-										<option value="Falkland">Falkland </option>
-										<option value="Feroe">Feroe </option>
-										<option value="Fidji">Fidji </option>
-										<option value="Finlande">Finlande </option>
-										<option value="France">France </option>
-
-										<option value="Gabon">Gabon </option>
-										<option value="Gambie">Gambie </option>
-										<option value="Georgie">Georgie </option>
-										<option value="Ghana">Ghana </option>
-										<option value="Gibraltar">Gibraltar </option>
-										<option value="Grece">Grece </option>
-										<option value="Grenade">Grenade </option>
-										<option value="Groenland">Groenland </option>
-										<option value="Guadeloupe">Guadeloupe </option>
-										<option value="Guam">Guam </option>
-										<option value="Guatemala">Guatemala</option>
-										<option value="Guernesey">Guernesey </option>
-										<option value="Guinee">Guinee </option>
-										<option value="Guinee_Bissau">Guinee_Bissau </option>
-										<option value="Guinee equatoriale">Guinee_Equatoriale </option>
-										<option value="Guyana">Guyana </option>
-										<option value="Guyane_Francaise ">Guyane_Francaise </option>
-
-										<option value="Haiti">Haiti </option>
-										<option value="Hawaii">Hawaii </option>
-										<option value="Honduras">Honduras </option>
-										<option value="Hong_Kong">Hong_Kong </option>
-										<option value="Hongrie">Hongrie </option>
-
-										<option value="Inde">Inde </option>
-										<option value="Indonesie">Indonesie </option>
-										<option value="Iran">Iran </option>
-										<option value="Iraq">Iraq </option>
-										<option value="Irlande">Irlande </option>
-										<option value="Islande">Islande </option>
-										<option value="Israel">Israel </option>
-										<option value="Italie">italie </option>
-
-										<option value="Jamaique">Jamaique </option>
-										<option value="Jan Mayen">Jan Mayen </option>
-										<option value="Japon">Japon </option>
-										<option value="Jersey">Jersey </option>
-										<option value="Jordanie">Jordanie </option>
-
-										<option value="Kazakhstan">Kazakhstan </option>
-										<option value="Kenya">Kenya </option>
-										<option value="Kirghizstan">Kirghizistan </option>
-										<option value="Kiribati">Kiribati </option>
-										<option value="Koweit">Koweit </option>
-
-										<option value="Laos">Laos </option>
-										<option value="Lesotho">Lesotho </option>
-										<option value="Lettonie">Lettonie </option>
-										<option value="Liban">Liban </option>
-										<option value="Liberia">Liberia </option>
-										<option value="Liechtenstein">Liechtenstein </option>
-										<option value="Lituanie">Lituanie </option>
-										<option value="Luxembourg">Luxembourg </option>
-										<option value="Lybie">Lybie </option>
-
-										<option value="Macao">Macao </option>
-										<option value="Macedoine">Macedoine </option>
-										<option value="Madagascar">Madagascar </option>
-										<option value="Madère">Madère </option>
-										<option value="Malaisie">Malaisie </option>
-										<option value="Malawi">Malawi </option>
-										<option value="Maldives">Maldives </option>
-										<option value="Mali">Mali </option>
-										<option value="Malte">Malte </option>
-										<option value="Man">Man </option>
-										<option value="Mariannes du Nord">Mariannes du Nord </option>
-										<option value="Maroc">Maroc </option>
-										<option value="Marshall">Marshall </option>
-										<option value="Martinique">Martinique </option>
-										<option value="Maurice">Maurice </option>
-										<option value="Mauritanie">Mauritanie </option>
-										<option value="Mayotte">Mayotte </option>
-										<option value="Mexique">Mexique </option>
-										<option value="Micronesie">Micronesie </option>
-										<option value="Midway">Midway </option>
-										<option value="Moldavie">Moldavie </option>
-										<option value="Monaco">Monaco </option>
-										<option value="Mongolie">Mongolie </option>
-										<option value="Montserrat">Montserrat </option>
-										<option value="Mozambique">Mozambique </option>
-
-										<option value="Namibie">Namibie </option>
-										<option value="Nauru">Nauru </option>
-										<option value="Nepal">Nepal </option>
-										<option value="Nicaragua">Nicaragua </option>
-										<option value="Niger">Niger </option>
-										<option value="Nigeria">Nigeria </option>
-										<option value="Niue">Niue </option>
-										<option value="Norfolk">Norfolk </option>
-										<option value="Norvege">Norvege </option>
-										<option value="Nouvelle_Caledonie">Nouvelle_Caledonie </option>
-										<option value="Nouvelle_Zelande">Nouvelle_Zelande </option>
-
-										<option value="Oman">Oman </option>
-										<option value="Ouganda">Ouganda </option>
-										<option value="Ouzbekistan">Ouzbekistan </option>
-
-										<option value="Pakistan">Pakistan </option>
-										<option value="Palau">Palau </option>
-										<option value="Palestine">Palestine </option>
-										<option value="Panama">Panama </option>
-										<option value="Papouasie_Nouvelle_Guinee">Papouasie_Nouvelle_Guinee </option>
-										<option value="Paraguay">Paraguay </option>
-										<option value="Pays_Bas">Pays_Bas </option>
-										<option value="Perou">Perou </option>
-										<option value="Philippines">Philippines </option>
-										<option value="Pologne">Pologne </option>
-										<option value="Polynesie">Polynesie </option>
-										<option value="Porto_Rico">Porto_Rico </option>
-										<option value="Portugal">Portugal </option>
-
-										<option value="Qatar">Qatar </option>
-
-										<option value="Republique_Dominicaine">Republique_Dominicaine </option>
-										<option value="Republique_Tcheque">Republique_Tcheque </option>
-										<option value="Reunion">Reunion </option>
-										<option value="Roumanie">Roumanie </option>
-										<option value="Royaume_Uni">Royaume_Uni </option>
-										<option value="Russie">Russie </option>
-										<option value="Rwanda">Rwanda </option>
-
-										<option value="Sahara Occidental">Sahara Occidental </option>
-										<option value="Sainte_Lucie">Sainte_Lucie </option>
-										<option value="Saint_Marin">Saint_Marin </option>
-										<option value="Salomon">Salomon </option>
-										<option value="Salvador">Salvador </option>
-										<option value="Samoa_Occidentales">Samoa_Occidentales</option>
-										<option value="Samoa_Americaine">Samoa_Americaine </option>
-										<option value="Sao_Tome_et_Principe">Sao_Tome_et_Principe </option>
-										<option value="Senegal">Senegal </option>
-										<option value="Seychelles">Seychelles </option>
-										<option value="Sierra Leone">Sierra Leone </option>
-										<option value="Singapour">Singapour </option>
-										<option value="Slovaquie">Slovaquie </option>
-										<option value="Slovenie">Slovenie</option>
-										<option value="Somalie">Somalie </option>
-										<option value="Soudan">Soudan </option>
-										<option value="Sri_Lanka">Sri_Lanka </option>
-										<option value="Suede">Suede </option>
-										<option value="Suisse">Suisse </option>
-										<option value="Surinam">Surinam </option>
-										<option value="Swaziland">Swaziland </option>
-										<option value="Syrie">Syrie </option>
-
-										<option value="Tadjikistan">Tadjikistan </option>
-										<option value="Taiwan">Taiwan </option>
-										<option value="Tonga">Tonga </option>
-										<option value="Tanzanie">Tanzanie </option>
-										<option value="Tchad">Tchad </option>
-										<option value="Thailande">Thailande </option>
-										<option value="Tibet">Tibet </option>
-										<option value="Timor_Oriental">Timor_Oriental </option>
-										<option value="Togo">Togo </option>
-										<option value="Trinite_et_Tobago">Trinite_et_Tobago </option>
-										<option value="Tristan da cunha">Tristan de cuncha </option>
-										<option value="Tunisie">Tunisie </option>
-										<option value="Turkmenistan">Turmenistan </option>
-										<option value="Turquie">Turquie </option>
-
-										<option value="Ukraine">Ukraine </option>
-										<option value="Uruguay">Uruguay </option>
-
-										<option value="Vanuatu">Vanuatu </option>
-										<option value="Vatican">Vatican </option>
-										<option value="Venezuela">Venezuela </option>
-										<option value="Vierges_Americaines">Vierges_Americaines </option>
-										<option value="Vierges_Britanniques">Vierges_Britanniques </option>
-										<option value="Vietnam">Vietnam </option>
-
-										<option value="Wake">Wake </option>
-										<option value="Wallis et Futuma">Wallis et Futuma </option>
-
-										<option value="Yemen">Yemen </option>
-										<option value="Yougoslavie">Yougoslavie </option>
-
-										<option value="Zambie">Zambie </option>
-										<option value="Zimbabwe">Zimbabwe </option>
-
-									</select>
 								</div>
 								<div class="form-group position-relative">
 									<div class="position-relative md-14"><label for="rsv-nbr">Adresse*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsd-ad" id="" required>
+                                    {{ form_widget(form.adresse, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
+
 								</div>
 							</div>
 						</div>
 
 					</div>
 				</div>
+					{% else %}
+						<div class="col-md-4">
+							<div class="row">
+
+								<div class="col-md-12 mt-3 mb-3">
+									<div class="p-3 bcl7 ">
+										<div class="mb-3 text-uppercase md-14 cl8">Détails du client</div>
+
+										<div class="form-group position-relative mb-3">
+											<div class="position-relative md-14"><label for="rsv-nom">Nom*</label></div>
+                                            {{ form_widget(form.nom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+										</div>
+
+										<div class="form-group position-relative mb-3">
+											<div class="position-relative md-14"><label for="rsv-prn">Prenom</label></div>
+                                            {{ form_widget(form.prenom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+										</div>
+
+										<div class="form-group position-relative mb-3">
+											<div class="position-relative md-14"><label for="rsv-prn">Numéro téléphone*</label></div>
+                                            {{ form_widget(form.telephone, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+										</div>
+
+										<div class="form-group position-relative mb-3">
+											<div class="position-relative md-14"><label for="rsv-prn">Email*</label></div>
+                                            {% if error %}
+                                                {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 brd-error'}}) }}
+												<div class="rsv-error text-right md-12 cl3 "> Email déjà utilisé</div>
+                                            {% else %}
+                                                {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                            {% endif %}
+										</div>
+
+
+										<div class="form-group position-relative mb-3">
+											<div class="position-relative md-14"><label for="rsv-nbr">Pays de résidence*</label></div>
+
+                                            {{ form_widget(form.pays, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+										</div>
+										<div class="form-group position-relative">
+											<div class="position-relative md-14"><label for="rsv-nbr">Adresse*</label></div>
+                                            {{ form_widget(form.adresse, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				{% endif %}
 				<div class="col-md-4">
 					<div class="row">
 
@@ -339,39 +147,62 @@
 								<div class="mb-3 text-uppercase md-14 cl8">Durée du séjour</div>
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-nbr">Date d'arrivé*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " readonly required type="text" id="arriver" name="duree-arriv" placeholder="dd/mm/yy" value="{{ date1 | date }}">
+									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " readonly required type="text" id="arriver" name="rsv-arriver" placeholder="dd/mm/yy" value="{{ date1 | date }}">
 								</div>
 								<div class="form-group position-relative">
 									<div class="position-relative md-14"><label for="rsv-nbr">Date de départ*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " readonly required type="text" name="duree-depart" id="depart"  placeholder="dd/mm/yy" value="{{ date2  | date}}">
+									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " readonly required type="text" name="rsv-depart" id="depart"  placeholder="dd/mm/yy" value="{{ date2  | date}}">
 								</div>
 							</div>
 						</div>
-
+{% if connected %}
 						<div class="col-md-12 mt-3 mb-3">
 							<div class="p-3 bcl7 ">
 								<div class="mb-3 text-uppercase md-14 cl8">Justificatif</div>
 
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-prn">Nationalité*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-nt" id="rsv-nt" required>
+                                    {{ form_widget(form.nationalite, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
+
 								</div>
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-nom">Type de document*</label></div>
-									<select name="flt-type" class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14" id="fil-type" >
-										<option value="">Passeport</option>
-										<option value=""  selected >Carte nationale d'identité</option>
+                                    {{ form_widget(form.typedocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
 
-									</select>
 								</div>
 								<div class="form-group position-relative mb-3">
 									<div class="position-relative md-14"><label for="rsv-prn">Numéro du document*</label></div>
-									<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="">
+                                    {{ form_widget(form.numdocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14','readonly':'true'}}) }}
+
 								</div>
 
 							</div>
 						</div>
+	{% else %}
+		<div class="col-md-12 mt-3 mb-3">
+			<div class="p-3 bcl7 ">
+				<div class="mb-3 text-uppercase md-14 cl8">Justificatif</div>
 
+				<div class="form-group position-relative mb-3">
+					<div class="position-relative md-14"><label for="rsv-prn">Nationalité*</label></div>
+                    {{ form_widget(form.nationalite, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+				</div>
+				<div class="form-group position-relative mb-3">
+					<div class="position-relative md-14"><label for="rsv-nom">Type de document*</label></div>
+                    {{ form_widget(form.typedocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+				</div>
+				<div class="form-group position-relative mb-3">
+					<div class="position-relative md-14"><label for="rsv-prn">Numéro du document*</label></div>
+                    {{ form_widget(form.numdocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
+				</div>
+
+			</div>
+		</div>
+
+{% endif %}
 
 
 					</div>
@@ -413,6 +244,11 @@
 									</div>
 
 									<div class="form-group position-relative text-right mt-4">
+										<input type="hidden" name="rsv-idp" value="{{ piece.id }}">
+										<input type="hidden" name="rsv-quantite" value="{{ quantite }}">
+										<input type="hidden" name="rsv-nbrnuit" value="{{ nbrnuit }}">
+										<input type="hidden" name="rsv-connected" value="{{ connected }}">
+
 										<input type="submit" class=" pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12" value="Reserver"></input>
 									</div>
 
@@ -439,13 +275,13 @@
 								<div class="form-group row">
 									{% for paiment in paiments %}
 									<div class="col-md-4">
-										<input class="mr-2" type="radio" name="mny" value="{{ paiment.id }}" id="org">
+										<input class="mr-2" type="radio" name="rsv-mny" value="{{ paiment.id }}" id="org">
 										<label for="org">{{ paiment.nom }}</label>
 									</div>
 									{% endfor %}
 
 									<div class="col-md-4">
-										<input class="mr-2" type="radio" name="mny" checked value="0" id="air">
+										<input class="mr-2" type="radio" name="rsv-mny" checked value="0" id="air">
 										<label for="air">Pas maintenant</label>
 									</div>
 
@@ -455,8 +291,9 @@
 					</div>
 				</div>
 
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
 			</div>
-			</form>
 
 		</div>
 	</div>
@@ -466,34 +303,9 @@
 	<!-- modal-client -->
 
 	<!-- modal-reservation -->
-	<div class="modal fade" id="modal-rsv" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered pl-3">
-            <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
-			<div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
-			<div class="md-16 mb-4 mt-4 cl8 text-uppercase">Identification de <strong> reservation </strong> </div>
-			<form>
-				<div class="form-group position-relative mb-3">
-					<div class="md-14"><label for="rsv-nbr">Numéro du document</label></div>
-					<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Entrez le numéro votre document justificatif">
-				</div>
-				<div class="form-group position-relative mb-3">
-					<div class="md-14"><label for="rsv-nbr">Mot de passe</label></div>
-					<input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Entrez le mot de passe">
-				</div>
-				<div class="form-group text-right mt-4">
-					<a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Continuer</a>
-				</div>
-			</form>
-			<div class="brd-tp mt-3 mb-3 pt-2 cl8 ">
-				<span><strong>NB:</strong></span>
-				<span>
-					Pour voir vos précédentes réservations, veuillez entrez
-					les informations qui vous ont été envoyées par mail.
-				</span>
-			</div>
-		</div>
-        </div>
-    </div>
+      {{ render(controller('NanotechCanhebergementBundle:Default:loginreservation'))}}
+
+
 
 </section>
 

@@ -1,0 +1,15 @@
+fos_user_security_admin_login:
+    path: /login
+    defaults: { _controller: "FOSUserBundle:Security:login" }
+
+fos_user_security_admin_check:
+    path: /check
+    defaults: { _controller: "FOSUserBundle:Security:check" }
+
+fos_user_security_admin_logout:
+    path: /logout
+    defaults: { _controller: "FOSUserBundle:Security:logout" }
+
+fos_user_admin_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile

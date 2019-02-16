@@ -39,22 +39,6 @@ class Gallery extends BaseGallery
      *
      * @return Gallery
      */
-    public function addGalleryHasMedia(\Nanotech\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia)
-    {
-        $this->galleryHasMedias[] = $galleryHasMedia;
-
-        return $this;
-    }
-
-    /**
-     * Remove galleryHasMedia
-     *
-     * @param \Nanotech\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia
-     */
-    public function removeGalleryHasMedia(\Nanotech\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia)
-    {
-        $this->galleryHasMedias->removeElement($galleryHasMedia);
-    }
 
    
 }

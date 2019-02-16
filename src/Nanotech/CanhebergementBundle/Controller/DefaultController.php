@@ -2,14 +2,21 @@
 
 namespace Nanotech\CanhebergementBundle\Controller;
 
-use function GuzzleHttp\Psr7\copy_to_stream;
+use Nanotech\CanhebergementBundle\Entity\Internaute;
+use Nanotech\CanhebergementBundle\Entity\Piece;
+use Nanotech\CanhebergementBundle\Entity\Reservation;
+use Nanotech\CanhebergementBundle\Entity\ReservationConfirme;
+use Nanotech\CanhebergementBundle\Entity\Transaction;
+use Nanotech\CanhebergementBundle\Entity\Utilisateur;
+use Nanotech\CanhebergementBundle\Form\InternauteType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Nanotech\CanhebergementBundle\Repository\PartenaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Matcher\RedirectableUrlMatcher;
-
+use GuzzleHttp\Client;
 
 class DefaultController extends Controller
 {
@@ -43,14 +50,99 @@ class DefaultController extends Controller
     }
     
       public function reservationAction(Request $request)
+
     {
+
+        $error = false;
+        $usr= $this->get('security.token_storage')->getToken()->getUser();
+        $internaute = null;
+        if(is_object($usr)){
+            $internaute = $usr->getInternaute();
+        }
+        $connected = false;
+        if($internaute){
+            $connected = true;
+            $form = $this->get('form.factory')->create(InternauteType::class, $internaute);
+
+        }
+        else{
+            $internaute = new Internaute();
+            $form = $this->get('form.factory')->create(InternauteType::class, $internaute);
+        }
+
+        $posconnected = $request->request->get('rsv-connected');
+        if ($request->isMethod('POST') && isset ($posconnected) ) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if( ! $posconnected){
+
+                    $resulttes = $em->getRepository('NanotechCanhebergementBundle:Internaute')->findOneByEmail($internaute->getEmail());
+                    if(!$resulttes){
+                        $resulttes = $em->getRepository('NanotechCanhebergementBundle:Utilisateur')->findOneByEmail($internaute->getEmail());
+                    }
+                    if(!$resulttes){
+                        $em->persist($internaute);
+                        $em->flush();
+                        $this->createUser($internaute);
+                        $piece = $em->getRepository('NanotechCanhebergementBundle:Piece')->findOneById($request->request->get('rsv-idp'));
+                        $reservation = $this->createReservation($internaute,$request->request->get('rsv-arriver'),$request->request->get('rsv-depart'),$request->request->get('rsv-quantite'),$piece,$request->request->get('rsv-nbrnuit'));
+                        $moyenpaimentid = $request->request->get('rsv-mny');
+                        if($moyenpaimentid){
+                            $moyenpaiment = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findOneById($moyenpaimentid);
+                            if($moyenpaiment->getNom()=="SafiMoney"){
+                                return $this->paiementSafirmoney($reservation);
+                            }
+
+                        }
+                        else{
+                            return $this->render('NanotechCanhebergementBundle:Default:paiementterminer.html.twig',["reser"=> true, "user"=> true ,"payer"=> false ]);
+                        }
+
+                    }
+                    else{
+                        $error = true;
+                    }
+                }
+                else{
+                    $piece = $em->getRepository('NanotechCanhebergementBundle:Piece')->findOneById($request->request->get('rsv-idp'));
+                    $reservation = $this->createReservation($internaute,$request->request->get('rsv-arriver'),$request->request->get('rsv-depart'),$request->request->get('rsv-quantite'),$piece,$request->request->get('rsv-nbrnuit'));
+                    $moyenpaimentid = $request->request->get('rsv-mny');
+                    if($moyenpaimentid){
+                        $moyenpaiment = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findOneById($moyenpaimentid);
+                        if($moyenpaiment->getNom()=="SafiMoney"){
+                            return $this->paiementSafirmoney($reservation);
+                        }
+
+                    }
+                    else{
+                        return $this->render('NanotechCanhebergementBundle:Default:paiementterminer.html.twig',["reser"=> true,"payer"=> false ]);
+                    }
+
+                }
+            }
+
+        }
         $id = $request->request->get('piece');
         $arrive = $request->request->get('arriver');
         $depart = $request->request->get('depart');
         $quantite = $request->request->get('quantity');
+        if(!$id){
+            $id = $request->request->get('rsv-idp');
+        }
+        if(!$quantite){
+            $quantite = $request->request->get('rsv-quantite');
+        }
         if(!$quantite){
             $quantite = 1;
         }
+        if($arrive || !$arrive == ""){
+            $arrive = $request->request->get('rsv-arriver');
+        }
+        if($depart || !$depart == ""){
+            $depart = $request->request->get('rsv-depart');
+        }
+
         if($arrive || !$arrive == ""){
             $date1int = date_parse($arrive);
             $date1 = new \DateTime($date1int["year"]."-".$date1int["month"]."-".$date1int["day"]);
@@ -75,25 +167,195 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $piece = $em->getRepository('NanotechCanhebergementBundle:Piece')->findOneById($id);
-        $moyenpaiment = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findAll();
+        $moyenpaiment = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findByEnable(true);
 
         $nbrnuit = $this->date( $date1->format('Y-m-d H:i:s'),$date2->format('Y-m-d H:i:s'));
         if($nbrnuit == 0){
             $nbrnuit = 1;
         }
+
+
         return $this->render('NanotechCanhebergementBundle:Default:reservation.html.twig', array(
                              'piece' => $piece,
                              'nbrnuit' => $nbrnuit,
                              'date1' =>$date1,
                              'date2' =>$date2,
                              'quantite'=> $quantite,
-            'paiments'=>$moyenpaiment
+            'paiments'=>$moyenpaiment,
+            'form' => $form->createView(),
+            'error'=> $error,
+            'connected'=>$connected
                 ));
     }
+    public function terminersafimoneyAction(Request $request){
+        $uuid = $request->query->get("uuid");
+        if(!$uuid){
+            throw new NotFoundHttpException();
+        }
+        $em = $this->getDoctrine()->getManager();
+        $transaction = $em->getRepository('NanotechCanhebergementBundle:Transaction')->findOneByUuid($uuid);
+        if(!$transaction){
+            throw new NotFoundHttpException();
+        }
+        if($transaction->getReservation()->getConfirme() ){
+            throw new NotFoundHttpException();
+        }
 
-    public function confirmResaAction(Request $request){
-        return $this->redirect("​https://api.safimoney.com/v1/extern/send-request/");
+        $client = new Client();
+        $res = $client->request('POST', 'https://api.safimoney.com/v1/extern/transaction-status',
+            ['form_params' => [ 'api_user'=> '5c23b1e291e22',
+                'api_key'=>'dQhVmyLHUfzS8a0QMWRqA4fvLqHwnJApmdlLZTL2',
+                'uuid'=>$uuid,
+                'sandbox'=>'1'
+            ]
+            ]);
+
+        $response = $res->getBody();
+
+
+        $data = json_decode($response->getContents());
+
+        $status = $data->data->status;
+        $montant = $data->data->to_amount;
+        $email = $data->data->user_from->email;
+        $uuid = $data->data->uuid;
+
+        $internaute = $em->getRepository('NanotechCanhebergementBundle:Internaute')->findOneByEmail($email);
+        if($internaute){
+            $reservation = $transaction->getReservation();
+            if($reservation){
+                $reservationconfirmer = new ReservationConfirme();
+                $reservationconfirmer->setPrix($montant);
+                $reservationconfirmer->setType("AUTOMATIQUE");
+                $reservationconfirmer->setTransaction($uuid);
+                $reservation->setConfirme(true);
+                $reservationconfirmer->setReservation($reservation);
+                $reservationconfirmer->setMoyenPaiement($transaction->getMoyenPaiement());
+                $transaction->setStatus($status);
+                $em->merge($transaction);
+                $em->persist($reservationconfirmer);
+                $em->flush();
+
+                $message = (new \Swift_Message('Paiement réussi'))
+                    ->setFrom('wtakoutsing@gmail.com')
+                    ->setTo($internaute->getEmail())
+                    ->setBody(
+                        $this->renderView(
+                            'Emails/confirme.html.twig',
+                            array('internaute' => $internaute,'confirmer'=>$reservationconfirmer)
+                        ),
+                        'text/html'
+                    )
+
+                ;
+
+                $this->get('mailer')->send($message);
+
+            }
+        }
+        return $this->render('@NanotechCanhebergement/Default/paiementterminer.html.twig',['payer' => true ]);
     }
+    public function createUser(Internaute $internaute){
+        $utilisateur = new Utilisateur();
+        $utilisateur->setUsername($internaute->getNom().$internaute->getId());
+        $tokenGenerator = $this->container->get('fos_user.util.token_generator');
+        $password = substr($tokenGenerator->generateToken(), 0, 8); // 8 chars
+        $utilisateur->setPlainPassword($password);
+        $utilisateur->setInternaute($internaute);
+        $utilisateur->setEnabled(true);
+        $utilisateur->setRoles(["ROLE_CLIENT"]);
+        $utilisateur->setEmail($internaute->getEmail());
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($utilisateur);
+        $em->flush();
+        $message = (new \Swift_Message('Inscription réussi'))
+            ->setFrom('wtakoutsing@gmail.com')
+            ->setTo($internaute->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'Emails/inscription.html.twig',
+                    array('internaute' => $internaute,'username'=>$utilisateur->getUsername(),'password'=>$password)
+                ),
+                'text/html'
+            )    ;
+
+        $this->get('mailer')->send($message);
+        //cree le compte puis on envois les informations par mail;
+
+    }
+
+    public function createReservation($internaute,$arrive,$depart,$quantite,$piece,$nbrnuit){
+        $date1 = new \DateTime($arrive);
+        $date2 = new \DateTime($depart);
+        $reservation = new Reservation();
+        $reservation->setPrix($nbrnuit * $quantite * $piece->getPrix());
+        $reservation->setInternaute($internaute);
+        $reservation->setConfirme(false);
+        $reservation->setDateArrive($date1);
+        $reservation->setDateDepart($date2);
+        $reservation->setPiece($piece);
+        $reservation->setQuantite($quantite);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($reservation);
+        $em->flush();
+
+        //envoyer le mail
+        $message = (new \Swift_Message('Reservation réussi'))
+            ->setFrom('wtakoutsing@gmail.com')
+            ->setTo($internaute->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'Emails/reservation.html.twig',
+                    array('internaute' => $internaute,'reservation'=>$reservation)
+                ),
+                'text/html'
+            )
+
+        ;
+
+        $this->get('mailer')->send($message);
+
+        return $reservation;
+
+    }
+
+
+    public function paiementSafirmoney(Reservation $reservation){
+
+        $client = new Client();
+        $res = $client->request('POST', 'https://api.safimoney.com/v1/extern/send-request',
+            ['form_params' => [ 'api_user'=> '5c23b1e291e22',
+                                'api_key'=>'dQhVmyLHUfzS8a0QMWRqA4fvLqHwnJApmdlLZTL2',
+                                'email'=>$reservation->getInternaute()->getEmail(),
+                                'phone'=>$reservation->getInternaute()->getTelephone(),
+                                'email_true'=>'1',
+                                'phone_true'=>'1',
+                                'amount'=>$reservation->getPrix(),
+                                'purpose'=>'payement home',
+                                'return_url'=>'http%3A%2F%2Flocalhost%2Fcanhebergement%2Fweb%2Fapp_dev.php%2Fsafimoney',
+                                'sandbox'=>'1'
+                            ]
+            ]);
+
+        $response = $res->getBody();
+
+
+        $data = json_decode($response->getContents());
+
+        $url = $data->data->redirect_url."&return_url=".$data->data->return_url;
+        $em = $this->getDoctrine()->getManager();
+        $safi = $em->getRepository('NanotechCanhebergementBundle:MoyenPaiement')->findOneByCode("SAFIMONEY");
+        $transaction = new Transaction();
+        $transaction->setMoyenPaiement($safi);
+        $transaction->setReservation($reservation);
+        $transaction->setStatus( "prepared");
+        $transaction->setUuid( $data->data->uuid);
+        $em->persist($transaction);
+        $em->flush();
+        return $this->redirect($url);
+    }
+
       public function rechercheAction()
     {
           $em = $this->getDoctrine()->getManager();
@@ -184,10 +446,12 @@ class DefaultController extends Controller
                 ]);
     }
 
-    public function findpiece($pi,$ar,$de){
+    public function findpiece(Piece $pi,$ar,$de){
         $em = $this->getDoctrine()->getManager();
         $resas = $em->getRepository('NanotechCanhebergementBundle:Reservation')->findByPiece($pi);
+
         $tmpresas = [];
+        //recherche toutes les reservations confirmer avec cette piece //
         if($resas){
             foreach ($resas as $resa){
                 $resaconfirme = $em->getRepository('NanotechCanhebergementBundle:ReservationConfirme')->findByReservation($resa);
@@ -199,8 +463,12 @@ class DefaultController extends Controller
         else{
             return $pi;
         }
+
+
         $tmpnbr = 0;
         $tmpresas1 = [];
+
+        // je verifie si les dates concorde
         foreach ($tmpresas as $tmpresa){
             $tmpar = $tmpresa->getDateArrive()->getTimestamp();
             $tmpdep = $tmpresa->getDateDepart()->getTimestamp();
@@ -213,8 +481,9 @@ class DefaultController extends Controller
             }
 
         }
-        $pi->setQuantite($tmpnbr);
-        if($tmpnbr <= 0) {
+
+        $pi->setQuantite($pi->getQuantite() - $tmpnbr);
+        if($pi->getQuantite() <= 0) {
             return null;
         }
 

@@ -31,8 +31,8 @@ class ReservationAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('dateDepart')
             ->add('dateArrive')
+            ->add('dateDepart')
             ->add('quantite')
             ->add('piece')
             ->add('prix')
@@ -87,8 +87,8 @@ class ReservationAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('dateDepart')
             ->add('dateArrive')
+            ->add('dateDepart')
             ->add('quantite')
             ->add('piece')
             ->add('prix')

@@ -6,7 +6,7 @@
 							<span class="burg"></span>
 						</span>
 				<img style="width: 34px" src="{{ asset('can/images/logo1.svg') }}">
-				<span class="dorix"> <span class="jaune"> CAN</span>HEBERGEMENT</span>
+				<span class="dorix"> <span class="jaune"> CAN</span>HEBERGEMENT </span>
 			</div>
 			<div class="col-md-5 text-right menlor p-0">
 				<ul class="menu p-0">
@@ -30,28 +30,37 @@
 							</span>
 						</span>
 					</li>
-                    {% if id == 3 %}
-						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#" class="activ">RESERVATION</a> </li>
-                    {% else %}
-						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#">RESERVATION</a> </li>
-                    {% endif %}
 					<!-- <li class=""> <a href="#">CONTACT</a> </li> -->
+                    {% if id == 3 %}
+						<li > <a href="{{ path('fos_user_security_admin_login') }}" class="activ">PARTENAIRE</a> </li>
+                    {% else %}
+						<li > <a href="{{ path('fos_user_security_admin_login') }}" >PARTENAIRE</a> </li>
+                    {% endif %}
 					<li class=""> <a href="#">A PROPOS</a> </li>
+
 				</ul>
 			</div>
 			<div class="col-md-3 text-right menlor p-0">
 				<ul class="mencon p-0">
                     {% if id == 5 %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">{{  'Administration' | upper}}</a> </li>
+							{% if is_granted("ROLE_CLIENT") %}
+							<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" class="jaune">{{  'espace client' | upper}}</a> </li>
+							{% else %}
+								<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">{{  'Administration' | upper}}</a> </li>
+							{% endif %}
                         {% else %}
-							<li class="ins"> <a href="{{ path('fos_user_security_login') }}" class="jaune">{{ 'Inscription/Connexion' | upper }}</a> </li>
+							<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" class="jaune">{{ 'espace client' | upper }}</a> </li>
                         {% endif %}
                     {% else %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}">{{  'Administration' | upper}}</a> </li>
+                            {% if is_granted("ROLE_CLIENT") %}
+								<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" >{{  'espace client' | upper}}</a> </li>
+                            {% else %}
+								<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" >{{  'Administration' | upper}}</a> </li>
+                            {% endif %}
                         {% else %}
-							<li class="ins"> <a href="{{ path('fos_user_security_login') }}">{{ 'Inscription/Connexion' | upper }}</a> </li>
+							<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}">{{ 'espace client' | upper }}</a> </li>
                         {% endif %}
 
                     {% endif %}
@@ -81,23 +90,33 @@
                                 {% endfor %}
 
 					</div>
+
                     {% if id == 3 %}
-						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#" class="activ">RESERVATION</a> </li>
+						<li > <a  href="{{ path('fos_user_security_admin_login') }}" class="activ">PARTENAIRE</a> </li>
                     {% else %}
-						<li > <a data-toggle="modal" data-target="#modal-rsv" href="#">RESERVATION</a> </li>
+						<li > <a  href="{{ path('fos_user_security_admin_login') }}">PARTENAIRE</a> </li>
                     {% endif %}
 					<li><a href="#" >A PROPOS</a></li>
+
                     {% if id == 5 %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">{{  'Administration' | upper}}</a> </li>
+                            {% if is_granted("ROLE_CLIENT") %}
+								<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" class="jaune">{{  'espace client' | upper}}</a> </li>
+                            {% else %}
+								<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" class="jaune">{{  'Administration' | upper}}</a> </li>
+                            {% endif %}
                         {% else %}
-							<li class="ins"> <a href="{{ path('fos_user_security_login') }}" class="jaune">{{ 'Inscription/Connexion' | upper }}</a> </li>
+							<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" class="jaune">{{ 'espace client' | upper }}</a> </li>
                         {% endif %}
                     {% else %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-							<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}">{{  'Administration' | upper}}</a> </li>
+                            {% if is_granted("ROLE_CLIENT") %}
+								<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}" >{{  'espace client' | upper}}</a> </li>
+                            {% else %}
+								<li class="ins"> <a href="{{ path('sonata_admin_dashboard') }}" >{{  'Administration' | upper}}</a> </li>
+                            {% endif %}
                         {% else %}
-							<li class="ins"> <a href="{{ path('fos_user_security_login') }}">{{ 'Inscription/Connexion' | upper }}</a> </li>
+							<li class="ins"> <a href="{{ path('nanotech_canhebergement_client_index') }}">{{ 'espace client' | upper }}</a> </li>
                         {% endif %}
 
                     {% endif %}

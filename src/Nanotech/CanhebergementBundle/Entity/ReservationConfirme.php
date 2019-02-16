@@ -51,10 +51,16 @@ class ReservationConfirme
     /**
      * @var bool
      *
-     * @ORM\Column(name="confirme", type="string", length=255,nullable=false)
+     * @ORM\Column(name="type", type="string", length=255,nullable=false)
      */
     private $type;
-    
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="transaction", type="string", length=255,nullable=false)
+     */
+    private $transaction;
     
       public function __construct()
     {
@@ -190,5 +196,29 @@ class ReservationConfirme
     public function getReservation()
     {
         return $this->reservation;
+    }
+
+    /**
+     * Set transaction
+     *
+     * @param string $transaction
+     *
+     * @return ReservationConfirme
+     */
+    public function setTransaction($transaction)
+    {
+        $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * Get transaction
+     *
+     * @return string
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
     }
 }

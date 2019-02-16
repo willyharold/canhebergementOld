@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Controller\CRUDController;
 
 class UtilisateurAdminController extends CRUDController
 {
-    public function listAction()
+    /*public function listAction()
     {
         if (false === $this->admin->isGranted('LIST')) {
             throw new AccessDeniedException();
@@ -27,7 +27,7 @@ class UtilisateurAdminController extends CRUDController
             'datagrid'   => $datagrid,
             'csrf_token' => $this->getCsrfToken('sonata.batch'),
         ));
-    }
+    }*/
 
 
 }

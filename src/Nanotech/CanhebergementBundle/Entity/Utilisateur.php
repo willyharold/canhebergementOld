@@ -82,6 +82,12 @@ class Utilisateur extends BaseUser
      */
     private $partenaire;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Internaute" , cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $internaute;
+
     public function __construct()
     {
         parent::__construct();
@@ -265,5 +271,29 @@ class Utilisateur extends BaseUser
     public function getPartenaire()
     {
         return $this->partenaire;
+    }
+
+    /**
+     * Set internaute
+     *
+     * @param \Nanotech\CanhebergementBundle\Entity\Internaute $internaute
+     *
+     * @return Utilisateur
+     */
+    public function setInternaute(\Nanotech\CanhebergementBundle\Entity\Internaute $internaute = null)
+    {
+        $this->internaute = $internaute;
+
+        return $this;
+    }
+
+    /**
+     * Get internaute
+     *
+     * @return \Nanotech\CanhebergementBundle\Entity\Internaute
+     */
+    public function getInternaute()
+    {
+        return $this->internaute;
     }
 }

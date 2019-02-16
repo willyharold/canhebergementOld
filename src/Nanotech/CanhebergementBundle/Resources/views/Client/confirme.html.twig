@@ -1,0 +1,121 @@
+{% extends "::basereservation.html.twig" %}
+{% block title %}{{"Client"|trans }} {% endblock %}
+{% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
+
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 filtre bcl7 mb-5">
+                    <div class="row" id="filtre-rech">
+                        <div class="mb-3 col-md-12 mt-4">
+                            <div class="row">
+                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">14</span> </a>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-12">
+                            <div class="row">
+                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">{{ confirme | length }}</span> </a>
+                            </div>
+                        </div>
+                        <div class=" col-md-12 ">
+                            <div class="row">
+                                <div class="col-md-12 mrb10 critaire point cl9 hcl3"><i class="material-icons cl8 md-18">person</i> Profil </div>
+                                <div class="col-md-12 crtCnt cl9">
+                                    <div class="col-md-12 mb-2 mt-2">
+                                        <a href="{{ path('nanotech_canhebergement_client_profil') }}" class="pl-2 critaire hcl3 no-dec cl9"><i class="material-icons cl8 md-18">info</i> Information</a>
+                                    </div>
+                                    <div class="form-group col-md-12 mb-0 point tris">
+                                        <div class="pl-2  mrb10 critaire point"> <i class="material-icons cl8 md-18">create</i> Modification</div>
+                                        <div class="col-md-12 crtCnt cl9">
+                                            <div class="col-md-12 mb-0 pb-2 pt-2">
+                                                <a href="{{ path('nanotech_canhebergement_client_modifier_info') }}" class="pl-2 critaire hcl3 cl9 no-dec" ><i class="material-icons cl8 md-18">menu</i> Information</a>
+                                            </div>
+                                            <div class="col-md-12 mb-0 pb-2 pt-2">
+                                                <a href="{{ path('nanotech_canhebergement_client_modifier_password') }}" class="pl-2 critaire hcl3 cl9 no-dec" ><i class="material-icons cl8 md-18">lock</i> Mot de passe</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 mb-5">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <h5 class="h1-r font-weight-bold cl9 text-uppercase">Mes reservations en confirmées</h5>
+                        </div>
+                        <div class="col-md-12 mt-3 mb-3">
+                            <table class=" table-hover table-responsive">
+
+                                <thead class="bcl7 table-bordered">
+                                <tr><th class="dorix cl8 md-16 ">N°</th>
+                                    <th class="dorix cl8 md-16">Date d'arrivée</th>
+                                    <th class="dorix cl8 md-16">Date de départ</th>
+                                    <th class="dorix cl8 md-16">Hebergement</th>
+                                    <th class="dorix cl8 md-16">Prix</th>
+                                    <th class="dorix cl8 md-16">Moyen de paiements </th>
+                                    <th class="dorix cl8 md-16">Date </th>
+                                    <th class="dorix cl8 md-16">Facture </th>
+
+
+                                </tr></thead>
+                                <tbody class="table-bordered">
+                                {% for conf in confirme %}
+                                    {% if loop.index is divisible by(2) %}
+                                            <tr class="cl8 bcl7">
+                                        {% else %}
+                                            <tr class="cl8">
+                                    {% endif %}
+                                    <td>{{ conf.id }}</td>
+                                    <td>{{ conf.reservation.dateArrive | date("d/m/Y") }}</td>
+                                    <td>{{ conf.reservation.dateDepart | date("d/m/Y") }}</td>
+                                    <td>{{ conf.reservation.piece.partenaire.nom }}</td>
+                                    <td><span class="dorix">{{ conf.prix }}</span> XAF</td>
+
+                                    <td>{{ conf.moyenpaiement }}</td>
+                                    <td>{{ conf.dateEnreg | date("d/m/Y") }}</td>
+
+                                    <td>
+                                        <a href="{{ path('nanotech_canhebergement_client_facture',{id: conf.id }) }}" class="btn btn-primary btn-sm no-dec">Voir</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+        </div>
+        <div id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- modal-reservation -->
+
+        <div class="modal fade" id="modal-dtl" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Reservation <strong> N°21457 </strong></div>
+
+                    <div class="cl8">
+                        Equipement de la chambre:
+                        <ul class="cl9 mt-2  pl-3">
+                            <li>3 Pièce</li>
+                            <li>2 lits</li>
+                            <li>2 sale de bain</li>
+                            <li>Télévision</li>
+                            <li>Climatisée</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

@@ -47,7 +47,7 @@ twig:
     form:
         resources:
             - 'media_widgets.html.twig'
-            - 'SonataCoreBundle:Form:datepicker.html.twig'
+            - '@SonataCore/Form/datepicker.html.twig'
     form_themes:
         - 'bootstrap_3_layout.html.twig'
 
@@ -143,7 +143,7 @@ sensio_framework_extra:
 
 fos_user:
     db_driver: orm
-    firewall_name: api                                  # Seems to be used when registering user/reseting password,
+    firewall_name: client                                  # Seems to be used when registering user/reseting password,
                                                         # but since there is no "login", as so it seems to be useless in
                                                         # our particular context, but still required by "FOSUserBundle"
     user_class: Nanotech\CanhebergementBundle\Entity\Utilisateur
@@ -182,3 +182,12 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+knp_snappy:
+
+    pdf:
+
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    temporary_folder: "%kernel.cache_dir%/snappy"

@@ -1,0 +1,288 @@
+{% extends "::basereservation.html.twig" %}
+{% block title %}{{"Client"|trans }} {% endblock %}
+{% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
+
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 filtre bcl7 mb-5">
+                    <div class="row" id="filtre-rech">
+                        <div class="mb-3 col-md-12 mt-4">
+                            <div class="row">
+                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">{{ reservation | length }}</span> </a>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-12">
+                            <div class="row">
+                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">02</span> </a>
+                            </div>
+                        </div>
+                        <div class=" col-md-12 ">
+                            <div class="row">
+                                <div class="col-md-12 mrb10 critaire point cl9 hcl3"><i class="material-icons cl8 md-18">person</i> Profil </div>
+                                <div class="col-md-12 crtCnt cl9">
+                                    <div class="col-md-12 mb-2 mt-2">
+                                        <a href="{{ path('nanotech_canhebergement_client_profil') }}" class="pl-2 critaire hcl3 no-dec cl9"><i class="material-icons cl8 md-18">info</i> Information</a>
+                                    </div>
+                                    <div class="form-group col-md-12 mb-0 point tris">
+                                        <div class="pl-2  mrb10 critaire point"> <i class="material-icons cl8 md-18">create</i> Modification</div>
+                                        <div class="col-md-12 crtCnt cl9">
+                                            <div class="col-md-12 mb-0 pb-2 pt-2">
+                                                <a href="{{ path('nanotech_canhebergement_client_modifier_info') }}" class="pl-2 critaire hcl3 cl9 no-dec" ><i class="material-icons cl8 md-18">menu</i> Information</a>
+                                            </div>
+                                            <div class="col-md-12 mb-0 pb-2 pt-2">
+                                                <a href="{{ path('nanotech_canhebergement_client_modifier_password') }}" class="pl-2 critaire hcl3 cl9 no-dec" ><i class="material-icons cl8 md-18">lock</i> Mot de passe</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 mb-5">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <h5 class="h1-r font-weight-bold cl9 text-uppercase">Mes reservations en cour...</h5>
+                        </div>
+                        <div class="col-md-12 mt-3 mb-3">
+                            <table class=" table-hover table-responsive">
+
+                                <thead class="bcl7 table-bordered">
+                                <tr><th class="dorix cl8 md-16 ">N°</th>
+                                    <th class="dorix cl8 md-16">Date d'arrivée</th>
+                                    <th class="dorix cl8 md-16">Date de départ</th>
+                                    <th class="dorix cl8 md-16">Nombre de chambre</th>
+                                    <th class="dorix cl8 md-16">Prix</th>
+                                    <th class="dorix cl8 md-16">Equipements</th>
+                                    <th class="dorix cl8 md-16">Date</th>
+                                    <th class="dorix cl8 md-16">Actions</th>
+                                </tr></thead>
+                                <tbody class="table-bordered">
+
+                                {% for reser in reservation %}
+                                    {% if loop.index is divisible by(2) %}
+                                        <tr class="cl8 bcl7">
+                                    {% else %}
+                                        <tr class="cl8">
+                                    {% endif %}
+                                    <td>{{ reser.id }}</td>
+                                    <td>{{ reser.dateArrive | date("d/m/Y") }}</td>
+                                    <td>{{ reser.dateDepart | date("d/m/Y") }}</td>
+                                    <td class="text-right"> <span class="badge badge-info">{{ reser.quantite }}</span></td>
+                                    <td><span class="dorix">{{ reser.prix }}</span> XAF</td>
+
+                                    <td>
+                                        <ul class="cl8 pl-3">
+                                            <li>2 chambre</li>
+                                            <li>2 télévion</li>
+                                            <li><a href="" class="no-dec" data-toggle="modal" data-target="#modal-dtl"><i class="material-icons dpb2">add</i> Détails</a></li>
+                                        </ul>
+                                    </td>
+                                    <td>{{ reser.dateEnreg | date("d/m/Y") }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            <li><a href="" class=" btn btn-danger btn-sm no-dec" data-toggle="modal" data-target="#modal-xrsv">Annuler</a></li>
+                                            <br>
+                                            <li><a href="facture.html" class="btn btn-primary btn-sm no-dec">Confirmer</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+        </div>
+        <div id="toT" class="toTop text-center" title="remonter"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- modal-reservation -->
+        <div class="modal fade" id="modal-xrsv" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase"><strong> Annulation </strong></div>
+                    <form>
+                        <div>
+                            Voulez-vous vraiment annuler la réservation ?
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Oui</a>
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Non</a>
+                        </div>
+                    </form>
+                    <div class="brd-tp mt-3 mb-3 pt-2 cl8 ">
+                        <span><strong>NB:</strong></span>
+                        <span>
+					Si vous éffectuer cette opération, un mail vous sera envoyé pour confirmer l'annulation,
+					veuillez vérifier votre boite mail.
+				</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-mdf" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-2 mt-4 cl8 text-uppercase">Réservation <strong> N°12554 </strong> </div>
+                    <div class="md-16 mb-4  cl8 text-uppercase"><strong> Modification </strong> </div>
+                    <form>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Nombre de chambre</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="number" name="" id="" placeholder="Endiquer le nombre de chambre à réserver">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Arrivé</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 js-datepicker1 " type="text" name="" id="" placeholder="Date d'arrivée">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Départ</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 js-datepicker2 " type="text" name="" id="" placeholder="Date de départ">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Venant de</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Ville ou pays de provenance">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Allant à</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Déstination">
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Modifier</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-dtl" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Reservation <strong> N°21457 </strong></div>
+
+                    <div class="cl8">
+                        Equipement de la chambre:
+                        <ul class="cl9 mt-2  pl-3">
+                            <li>3 Pièce</li>
+                            <li>2 lits</li>
+                            <li>2 sale de bain</li>
+                            <li>Télévision</li>
+                            <li>Climatisée</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-pwd" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Modification du <strong> Mot de passe </strong> </div>
+                    <form>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Ancien mot de passe</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Entrer l'ancien mot de passe ">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Nouveau mot de passe</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Entrer le nouveau mot de passe">
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Modifier</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-doc" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Modification du <strong> Document justificatif</strong> </div>
+                    <form>
+                        <div class="form-group position-relative mb-3">
+                            <div class="position-relative md-14"><label for="rsv-nom">Type de document</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Type de piece ex:cni,passport...">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="position-relative md-14"><label for="rsv-prn">Numéro du document</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Indiquez le numéro du document">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="position-relative md-14"><label for="rsv-nbr">Fichier joint</label></div>
+                            <input type="file" name="logo" id="logo" class="inputfile">
+                            <label for="logo" class="point fchr cl8 font-weight-bold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
+                                <span class="dpb2">Choisir un fichier…</span></label>
+                            <div class="rsv-error md-12 cl3 ">I-erreur</div>
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Modifier</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-rsd" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Modification de la <strong> Résidence </strong> </div>
+                    <form>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Pays de résidence</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Entrer votre pays de résidence ">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">adrésse</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Indiquer votre adrésse">
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Modifier</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-dtlPro" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered pl-3">
+                <div class="p-3 position-relative modal-content" style="background-color: #fff; max-width:600px; margin: auto;">
+                    <div class="cls-clt point" data-dismiss="modal"><i class="material-icons">close</i></div>
+                    <div class="md-16 mb-4 mt-4 cl8 text-uppercase">Modification du <strong> Détail client </strong> </div>
+                    <form>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Nom</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Votre nom">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">prénom</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Votre prénom">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Numéro de téléphone</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Votre numéro de téléphone">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Email</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Votre adrésse email">
+                        </div>
+                        <div class="form-group position-relative mb-3">
+                            <div class="md-14"><label for="rsv-nbr">Nationalité</label></div>
+                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Votre nationalité">
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="#" id="btn-clt" data-dismiss="modal" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 ">Modifier</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

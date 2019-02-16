@@ -25,11 +25,11 @@ nanotech_canhebergement_confirm_reserver:
 nanotech_canhebergement_recherche:
     path:     /recherche
     defaults: { _controller: NanotechCanhebergementBundle:Default:recherche }
-    
-nanotech_canhebergement_recherchemaison:
-    path:     /recherche
-    defaults: { _controller: NanotechCanhebergementBundle:Default:recherchemaison }
-    
+
+nanotech_canhebergement_terminer:
+    path:     /safimoney
+    defaults: { _controller: NanotechCanhebergementBundle:Default:terminersafimoney }
+
 
 nanotech_canhebergement_form_inscription:
     path:     /login
@@ -50,3 +50,4 @@ nanotech_canhebergement_check_email:
     path:     /check-email
     defaults: { _controller: NanotechCanhebergementBundle:Inscription:checkEmail }
     methods: GET
+

@@ -1,0 +1,40 @@
+{% extends '::baseinscription.html.twig'%}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-4 mt-4">
+                <div class="row inpl " style="min-height: 200px" >
+                    <div class="col-md-6 pt-4">
+                        <h4 class="h1-r font-weight-bold cl8 text-uppercase"><strong> Connexion </strong> </h4>
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <form class="mt-5" action="{{ path("fos_user_security_check") }}" method="post">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <div class="form-group position-relative mb-3">
+                                <div class="md-14"><label for="login">Identifiant</label></div>
+                                <input class="col-md-12 rsv-inp bo pt-2 pb-2 cl9 md-14" type="text"id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Entrez votre identifiant">
+                            </div>
+                            <div class="form-group position-relative mb-3">
+                                <div class="md-14"><label for="pwd">Mot de passe</label></div>
+                                <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="password" id="password" name="_password" required="required" placeholder="Entrez votre mot de passe">
+                                <div class="rsv-error text-right md-12 cl3 "> <a class="cl3" href="{{ path('fos_user_resetting_request') }}">{{ 'Mot de passe oublié' | trans }}</a></div>
+
+                            </div>
+                            <div class="form-group text-right mt-4">
+                                <input id="btn-clt" type="submit" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 " name="_submit" value="{{ 'Se connecter'|trans }}" />
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-md-6" style="background-position:center top;background-size: cover; background-image: url('{{ asset('can/images/3.jpg') }}');"></div>
+                    <a href="hotel.html" class="lien"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

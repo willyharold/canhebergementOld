@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\Form\Type\DatePickerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UtilisateurAdmin extends AbstractAdmin
@@ -68,7 +69,7 @@ class UtilisateurAdmin extends AbstractAdmin
                         'feminin' => 'FEMININ',  
                     ],
                 ])
-            ->add('dateNaissance',null,  ['label' => 'Date de Naissance'])
+            ->add('dateNaissance',DatePickerType::class,  ['label' => 'Date de Naissance'])
             ->add('telephone');
         if(!$this->getUser()->getPartenaire()) {
             $formMapper->add('partenaire');
@@ -90,8 +91,7 @@ class UtilisateurAdmin extends AbstractAdmin
                     'ROLE_RECEPTION' => 'Reception',
                     'ROLE_SERVICE' => 'Chef service',
                     'ROLE_PARTENAIRE' => 'Partenaire',
-                    'ROLE_ADMIN' => 'Administrateur',
-                    'ROLE_SUPER_ADMIN' => 'super administrateur',
+                    'ROLE_SUPER_ADMIN' => 'Administrateur',
                 ],
                 'multiple'=> true,
                 'expanded'=> false,

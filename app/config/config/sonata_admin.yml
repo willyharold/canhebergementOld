@@ -39,7 +39,8 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.proximite
                     - nanotech_canhebergement_admin.admin.commentaire_client
                     - nanotech_canhebergement_admin.admin.categorie
-                roles: [ROLE_ADMIN,ROLE_SUPER_ADMIN]
+                    - nanotech_canhebergement_admin.admin.transaction
+                roles: [ROLE_SUPER_ADMIN]
             
             app.admin.group.admin:
                 label: "Administration"
@@ -56,7 +57,7 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.commentaire
 
 
-                roles: [ROLE_PARTENAIRE,ROLE_ADMIN,ROLE_SUPER_ADMIN]
+                roles: [ROLE_PARTENAIRE ,ROLE_SUPER_ADMIN]
 
             app.admin.group.service:
                 label: "Service"
@@ -65,7 +66,7 @@ sonata_admin:
                 items:
                     - nanotech_canhebergement_admin.admin.planning
 
-                roles: [ROLE_PARTENAIRE,ROLE_SERVICE,ROLE_ADMIN,ROLE_SUPER_ADMIN]
+                roles: [ROLE_PARTENAIRE,ROLE_SERVICE,ROLE_SUPER_ADMIN]
 
             app.admin.group.reception:
                 label: "Reception"
@@ -76,6 +77,6 @@ sonata_admin:
                     - nanotech_canhebergement_admin.admin.reservation_confirme
                     - nanotech_canhebergement_admin.admin.internaute
 
-                roles: [ROLE_PARTENAIRE,ROLE_RECEPTION,ROLE_ADMIN,ROLE_SUPER_ADMIN]
+                roles: [ROLE_PARTENAIRE,ROLE_RECEPTION,ROLE_SUPER_ADMIN]
 
         

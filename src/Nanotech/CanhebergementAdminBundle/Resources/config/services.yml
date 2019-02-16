@@ -148,3 +148,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
         public: true
+
+    nanotech_canhebergement_admin.admin.transaction:
+        class: Nanotech\CanhebergementAdminBundle\Admin\TransactionAdmin
+        arguments: [~, Nanotech\CanhebergementBundle\Entity\Transaction, NanotechCanhebergementAdminBundle:TransactionAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Transaction }
+        public: true

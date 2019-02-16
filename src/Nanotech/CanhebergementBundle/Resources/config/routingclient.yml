@@ -1,0 +1,45 @@
+nanotech_canhebergement_client_index:
+    path:     /
+    defaults: { _controller: NanotechCanhebergementBundle:Client:index }
+    methods: GET
+
+nanotech_canhebergement_client_confirme:
+    path:     /confirmer
+    defaults: { _controller: NanotechCanhebergementBundle:Client:confirmer }
+    methods: GET
+
+nanotech_canhebergement_client_profil:
+    path:     /profil
+    defaults: { _controller: NanotechCanhebergementBundle:Client:profil }
+    methods: GET
+
+nanotech_canhebergement_client_modifier_info:
+    path:     /modifierinfo
+    defaults: { _controller: NanotechCanhebergementBundle:Client:modifierinfo }
+    methods: [GET ,POST]
+
+nanotech_canhebergement_client_modifier_password:
+    path:     /modifierpass
+    defaults: { _controller: NanotechCanhebergementBundle:Client:modifierpass }
+    methods: [GET ,POST]
+
+nanotech_canhebergement_client_facture:
+    path:     /facture/{id}
+    defaults: { _controller: NanotechCanhebergementBundle:Client:facture }
+
+nanotech_canhebergement_client_exportpdffacture:
+    path:     /export-facture
+    defaults: { _controller: NanotechCanhebergementBundle:Client:exportpdf }
+
+
+fos_user_security_login:
+    path: /login
+    defaults: { _controller: "FOSUserBundle:Security:login" }
+
+fos_user_security_check:
+    path: /check
+    defaults: { _controller: "FOSUserBundle:Security:check" }
+
+fos_user_security_logout:
+    path: /logout
+    defaults: { _controller: "FOSUserBundle:Security:logout" }

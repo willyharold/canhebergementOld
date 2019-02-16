@@ -1317,3 +1317,27 @@ svg{
 .allhtl:hover{
   background-color: rgba(228,22,59,1);
 }
+
+.logo2{
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+.rad-btt{
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.hcl3:hover{
+  color: rgba(228,22,59,1);
+}
+
+table th, tr td{
+  padding:10px;
+}

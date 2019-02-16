@@ -144,7 +144,7 @@
 	if($_GET('direct')){
 		local = true;
 	}
-    $('#autocomplete').val($_GET('direct'))
+    $('#autocomplete').val(decodeURIComponent($_GET('direct')))
 
     $('#flt-etl').val($_GET('etoile'))
     $('#fil-type').val($_GET('categorie'))
