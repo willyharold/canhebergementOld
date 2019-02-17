@@ -182,43 +182,43 @@ class Partenaire
      */
     private  $utilisateur;
      /**
-    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Proximite" )
+    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Proximite",cascade={"all"} )
     * @ORM\JoinColumn(nullable=true) 
     */
     private $proximite;
     
      /**
-    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Service")
+    * @ORM\ManyToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Service", cascade={"all"})
     * @ORM\JoinColumn(nullable=true) 
     */
     private $services;
     
     /**
-    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CarteBar",mappedBy="partenaire")
+    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CarteBar",mappedBy="partenaire",cascade={"all"})
     * @ORM\JoinColumn(nullable=true) 
     */
     private $carteBar;
     
     /**
-    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CarteRestaurant",mappedBy="partenaire")
+    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CarteRestaurant",mappedBy="partenaire",cascade={"all"})
     * @ORM\JoinColumn(nullable=true) 
     */
     private $carteRestaurant;
     
     /**
-    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CommandeBar",mappedBy="partenaire")
+    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CommandeBar",mappedBy="partenaire",cascade={"all"})
     * @ORM\JoinColumn(nullable=true) 
     */
     private $commandeBar;
     
     /**
-    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CommandeRestaurant",mappedBy="partenaire")
+    * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\CommandeRestaurant",mappedBy="partenaire",cascade={"all"})
     * @ORM\JoinColumn(nullable=true) 
     */
     private $commandeRestaurant;
     
      /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Categorie")
+    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Categorie",cascade={"all"})
     * @ORM\JoinColumn(nullable=false) 
     */
     private $categorie; 
@@ -230,7 +230,7 @@ class Partenaire
     private  $baniere;
 
     /**
-     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Piece",mappedBy="partenaire")
+     * @ORM\OneToMany(targetEntity="Nanotech\CanhebergementBundle\Entity\Piece",mappedBy="partenaire", cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $piece;

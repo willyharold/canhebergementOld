@@ -31,6 +31,13 @@ nanotech_canhebergement_client_exportpdffacture:
     path:     /export-facture
     defaults: { _controller: NanotechCanhebergementBundle:Client:exportpdf }
 
+nanotech_canhebergement_client_removererservation:
+    path: /remove/{id}
+    defaults: {_controller: NanotechCanhebergementBundle:Client:supprimerresa}
+
+nanotech_canhebergement_client_confirmerrerservation:
+    path: /confirmer/{id}
+    defaults: {_controller: NanotechCanhebergementBundle:Client:confirmerpaiement}
 
 fos_user_security_login:
     path: /login

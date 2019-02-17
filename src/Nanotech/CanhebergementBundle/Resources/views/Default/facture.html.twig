@@ -15,7 +15,7 @@
                                     <h4 class="text-uppercase cl1 "><span class="dorix"> <span class="jaune"> CAN</span>HEBERGEMENT</span></h4>
                                 </div>
                                 <div class="col-md-8 text-right">
-                                    <h4 class="text-uppercase cl1 dorix">NUMERO DE RESERVATION N° 001</h4>
+                                    <h4 class="text-uppercase cl1 dorix">NUMERO DE RESERVATION N° {{ reservationconfirmer.id }}</h4>
                                 </div>
                             </div>
 
@@ -23,11 +23,11 @@
                         <div class="mt-2 mb-2 col-12 p-3 bcl7">
                             <div class="row">
                                 <div class="col-md-9 mb-2">
-                                    <h4 class="text-uppercase cl1">MAKEPE PALACE***HOTEL</h4>
+                                    <h4 class="text-uppercase cl1">{{ reservationconfirmer.reservation.piece.partenaire.nom  }}</h4>
                                     <div class="cl82">
-                                        BP 17808 DOUALA <br>
-                                        TEL: (+237) 697 14 80 32 / 679 47 67 68 / 233 47 48 88 <br>
-                                        hotelmakepepalace@gmail.com <br>
+                                        BP {{ reservationconfirmer.reservation.piece.partenaire.boitPost }} <br>
+                                        TEL: (+237) {{ reservationconfirmer.reservation.piece.partenaire.numTel1 }} / {{ reservationconfirmer.reservation.piece.partenaire.numTel2 }} / {{ reservationconfirmer.reservation.piece.partenaire.numTel3  }} <br>
+                                        {{ reservationconfirmer.reservation.piece.partenaire.adrEmail }} <br>
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-right ">
@@ -39,27 +39,27 @@
                             <div class="row">
                                 <div class="col-md-3 col-sm-4 col-6 pt-2 pb-2">
                                     <h5 class="h1-r cl9">Date arrivée</h5>
-                                    <h5 class="h1-r cl9 font-weight-bold">12-01-2019</h5>
+                                    <h5 class="h1-r cl9 font-weight-bold">{{ reservationconfirmer.reservation.dateArrive | date("d-M-Y") }}</h5>
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-6 pt-2 pb-2">
                                     <h5 class="h1-r cl9">Date départ</h5>
-                                    <h5 class="h1-r cl9 font-weight-bold">25-01-2019</h5>
+                                    <h5 class="h1-r cl9 font-weight-bold">{{ reservationconfirmer.reservation.dateDepart | date("d-M-Y") }}</h5>
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-6 pt-2 pb-2">
                                     <h5 class="h1-r cl9">Nombre de nuits</h5>
-                                    <h5 class="h1-r cl3 font-weight-bold">09</h5>
+                                    <h5 class="h1-r cl3 font-weight-bold">01</h5>
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-6 pt-2 pb-2">
-                                    <h5 class="h1-r cl9">Prix à payé</h5>
-                                    <h5 class="h1-r cl3 font-weight-bold">120000 XAF</h5>
+                                    <h5 class="h1-r cl9">Prix  payé</h5>
+                                    <h5 class="h1-r cl3 font-weight-bold">{{ reservationconfirmer.prix  }} XAF</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="mt-2 mb-2 col-12 p-3 bcl7">
                             <div class="row">
                                 <div class="col-md-6 pb-1">
-                                    <h4 class="cl9 font-weight-bold">Chambre de Luxe</h4>
-                                    <h6 class=" cl9 mb-3">Client: OSUJIBELLS GODWIN</h6>
+                                    <h4 class="cl9 font-weight-bold">{{ reservationconfirmer.reservation.piece.nomFr | upper }}</h4>
+                                    <h6 class=" cl9 mb-3">Client: {{ reservationconfirmer.reservation.internaute.prenom | upper  }} {{ reservationconfirmer.reservation.internaute.nom |upper }}</h6>
                                     <div class="cl82 mb-3">
                                         douche - climatisation - articles de toilette gratuits -
                                         toilettes - salle de bains - chaînes de câble - télévision à
@@ -67,8 +67,7 @@
                                     </div>
                                     <h6 class=" cl9 mb-2 font-weight-bold">Chambre réservée :</h6>
                                     <div class="cl82">
-                                        la chambre 116 a été réservée provisioirement pour vous.
-                                        une autre chambre peut vous être allouée à votre arrivée.
+
                                     </div>
                                 </div>
                                 <div class="col-md-6 pt-1 ">
@@ -78,8 +77,7 @@
                                     </div>
                                     <h6 class=" cl9 mb-2 font-weight-bold">Frais d'annulation :</h6>
                                     <div class="cl82">
-                                        jusqu'au 16/10/2018 : 0 XAF <br>
-                                        à partir du 17/10/2018 : 40 000 XAF
+
                                     </div>
                                 </div>
                             </div>

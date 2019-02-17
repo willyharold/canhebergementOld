@@ -77,13 +77,13 @@ class Utilisateur extends BaseUser
     protected  $enabled;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire" , cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Partenaire" , cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $partenaire;
 
     /**
-     * @ORM\OneToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Internaute" , cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Internaute" , cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $internaute;

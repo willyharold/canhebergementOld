@@ -47,7 +47,7 @@
                 <div class="col-md-9 mb-5">
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <h5 class="h1-r font-weight-bold cl9 text-uppercase">Mes reservations en confirmées</h5>
+                            <h5 class="h1-r font-weight-bold cl9 text-uppercase">Confirmer la reservation</h5>
                         </div>
                         <div class="col-md-12 mt-3 mb-3">
                             <table class=" table-hover table-responsive">
@@ -56,37 +56,44 @@
                                 <tr><th class="dorix cl8 md-16 ">N°</th>
                                     <th class="dorix cl8 md-16">Date d'arrivée</th>
                                     <th class="dorix cl8 md-16">Date de départ</th>
-                                    <th class="dorix cl8 md-16">Hebergement</th>
+                                    <th class="dorix cl8 md-16">Nombre de chambre</th>
                                     <th class="dorix cl8 md-16">Prix</th>
-                                    <th class="dorix cl8 md-16">Moyen de paiements </th>
-                                    <th class="dorix cl8 md-16">Date </th>
-                                    <th class="dorix cl8 md-16">Facture </th>
-
-
+                                    <th class="dorix cl8 md-16">Equipements</th>
+                                    <th class="dorix cl8 md-16">Date</th>
                                 </tr></thead>
                                 <tbody class="table-bordered">
-                                {% for conf in confirme %}
-                                    {% if loop.index is divisible by(2) %}
-                                            <tr class="cl8 bcl7">
-                                        {% else %}
-                                            <tr class="cl8">
-                                    {% endif %}
-                                    <td>{{ conf.id }}</td>
-                                    <td>{{ conf.reservation.dateArrive | date("d/m/Y") }}</td>
-                                    <td>{{ conf.reservation.dateDepart | date("d/m/Y") }}</td>
-                                    <td>{{ conf.reservation.piece.partenaire.nom }}</td>
-                                    <td><span class="dorix">{{ conf.prix }}</span> XAF</td>
+                                  <tr class="cl8 bcl7">
+                                        <td>{{ reser.id }}</td>
+                                        <td>{{ reser.dateArrive | date("d/m/Y") }}</td>
+                                        <td>{{ reser.dateDepart | date("d/m/Y") }}</td>
+                                        <td class="text-right"> <span class="badge badge-info">{{ reser.quantite }}</span></td>
+                                        <td><span class="dorix">{{ reser.prix }}</span> XAF</td>
 
-                                    <td>{{ conf.moyenpaiement }}</td>
-                                    <td>{{ conf.dateEnreg | date("d/m/Y") }}</td>
-
-                                    <td>
-                                        <a href="{{ path('nanotech_canhebergement_client_facture',{id: conf.id }) }}" class="btn btn-primary btn-sm no-dec">Voir</a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
+                                        <td>
+                                            <ul class="cl8 pl-3">
+                                                <li>2 chambre</li>
+                                                <li>2 télévion</li>
+                                                <li><a href="" class="no-dec" data-toggle="modal" data-target="#modal-dtl"><i class="material-icons dpb2">add</i> Détails</a></li>
+                                            </ul>
+                                        </td>
+                                        <td>{{ reser.dateEnreg | date("d/m/Y") }}</td>
+                                  </tr>
                                 </tbody>
                             </table>
+                            <br>
+                            <div class="mb-3 text-uppercase md-14 cl8 ">selectionnez un Moyen de paiement</div>
+
+                            <div class="mt-5 row mb-5">
+                                {% for paiment in paiments %}
+                                    <div class="col-md-4">
+                                        <label for="org" class="mny point">
+                                            <img src="{% path paiment.logo, 'big' %}" height="100%">
+                                        </label>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -116,6 +123,5 @@
                 </div>
             </div>
         </div>
-
     </section>
 {% endblock %}

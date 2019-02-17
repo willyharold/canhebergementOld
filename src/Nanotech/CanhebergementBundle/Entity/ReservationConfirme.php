@@ -36,7 +36,7 @@ class ReservationConfirme
     private $moyenPaiement;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Reservation", cascade={"persist"})
+    * @ORM\ManyToOne(targetEntity="Nanotech\CanhebergementBundle\Entity\Reservation", cascade={"all"})
     * @ORM\JoinColumn(nullable=false) 
     */
     private $reservation; 

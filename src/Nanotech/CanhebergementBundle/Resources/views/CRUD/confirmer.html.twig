@@ -45,18 +45,18 @@
                                 <div class="mt-3">
                                     <div class="position-relative mt-3">
                                         <div class="position-relative md-14">
-                                            <label for="etoile-eta">Cni<span class="cl3">*</span></label>
+                                            <label for="etoile-eta">Type de document<span class="cl3">*</span></label>
                                         </div>
-                                        {{ form_widget(form.reservation.internaute.cni, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                        {{ form_widget(form.reservation.internaute.typedocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                     </div>
 
                                 </div>
                                 <div class="mt-3">
                                     <div class="position-relative mt-3">
                                         <div class="position-relative md-14">
-                                            <label for="etoile-eta">Passeport<span class="cl3">*</span></label>
+                                            <label for="etoile-eta">Numero du document<span class="cl3">*</span></label>
                                         </div>
-                                        {{ form_widget(form.reservation.internaute.passeport, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                        {{ form_widget(form.reservation.internaute.numdocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                     </div>
 
                                 </div>
@@ -81,11 +81,37 @@
                                 <div class="mt-3">
                                     <div class="position-relative mt-3">
                                         <div class="position-relative md-14">
+                                            <label for="etoile-eta">Téléphone<span class="cl3">*</span></label>
+                                        </div>
+                                        {{ form_widget(form.reservation.internaute.telephone, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                    </div>
+
+                                </div>
+                                <div class="mt-3">
+                                    <div class="position-relative mt-3">
+                                        <div class="position-relative md-14">
+                                            <label for="etoile-eta">Adresse<span class="cl3">*</span></label>
+                                        </div>
+                                        {{ form_widget(form.reservation.internaute.adresse, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                    </div>
+
+                                </div>
+                                <div class="mt-3">
+                                    <div class="position-relative mt-3">
+                                        <div class="position-relative md-14">
+                                            <label for="etoile-eta">Nationalite<span class="cl3">*</span></label>
+                                        </div>
+                                        {{ form_widget(form.reservation.internaute.nationalite, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+                                    </div>
+
+                                </div>
+                                <div class="mt-3">
+                                    <div class="position-relative mt-3">
+                                        <div class="position-relative md-14">
                                             <label for="etoile-eta">date de naissance<span class="cl3">*</span></label>
                                         </div>
-                                        {{ form_widget(form.reservation.internaute.dateNai.day , {'attr': {'class': 'datetaille'}}) }}
-                                        {{ form_widget(form.reservation.internaute.dateNai.month, {'attr': {'class': 'datetaille'}} ) }}
-                                        {{ form_widget(form.reservation.internaute.dateNai.year, {'attr': {'class': 'datetaille'}} ) }}
+                                        {{ form_widget(form.reservation.internaute.dateNai, {'attr': {'class': 'datetaille'}}) }}
+
                                     </div>
 
                                 </div>
@@ -106,18 +132,15 @@
                                 <div class="mt-3">
                                     <div class=" position-relative">
                                         <div class="position-relative md-14"><label for="nm-eta">Date d'arrive<span class="cl3">*</span></label></div>
-                                        {{ form_widget(form.reservation.dateArrive.day, {'attr': {'class': 'datetaille'}}) }}
-                                        {{ form_widget(form.reservation.dateArrive.month, {'attr': {'class': 'datetaille'}}) }}
-                                        {{ form_widget(form.reservation.dateArrive.year, {'attr': {'class': 'datetaille'}}) }}
+                                        {{ form_widget(form.reservation.dateArrive, {'attr': {'class': 'datetaille'}}) }}
+
 
                                     </div>
                                 </div>
                                 <div class="mt-3">
                                     <div class=" position-relative">
                                         <div class="position-relative md-14"><label for="nm-eta">Date de départ <span class="cl3">*</span></label></div>
-                                        {{ form_widget(form.reservation.dateDepart.day,{'attr': {'class': 'datetaille'}} ) }}
-                                        {{ form_widget(form.reservation.dateDepart.month,{'attr': {'class': 'datetaille'}} ) }}
-                                        {{ form_widget(form.reservation.dateDepart.year,{'attr': {'class': 'datetaille'}} ) }}
+                                        {{ form_widget(form.reservation.dateDepart,{'attr': {'class': 'datetaille'}} ) }}
 
                                     </div>
                                 </div>

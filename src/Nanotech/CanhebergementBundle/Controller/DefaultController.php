@@ -116,7 +116,7 @@ class DefaultController extends Controller
 
                     }
                     else{
-                        return $this->render('NanotechCanhebergementBundle:Default:paiementterminer.html.twig',["reser"=> true,"payer"=> false ]);
+                        return $this->render('NanotechCanhebergementBundle:Default:paiementterminer.html.twig',["reser"=> true,"payer"=> false,"user"=>null ]);
                     }
 
                 }

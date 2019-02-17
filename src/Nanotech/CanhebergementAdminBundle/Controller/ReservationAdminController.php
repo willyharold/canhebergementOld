@@ -20,23 +20,18 @@ class ReservationAdminController extends CRUDController
             throw new NotFoundHttpException(sprintf('unable to find the object with id : %s', $object->id));
         }
 
-        //$this->addFlash('sonata_flash_success', 'Confirmation reussi');
         $reservationconfirme = new ReservationConfirme();
         $reservation = new Reservation();
         $reservationconfirme->setReservation($object);
         $form = $this->get('form.factory')->create(ReservationConfirmeType::class, $reservationconfirme);
 
         if ($request->isMethod('POST')) {
-            // On fait le lien Requête <-> Formulaire
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
-            $form->handleRequest($request);
-            // On vérifie que les valeurs entrées sont correctes
-            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+           $form->handleRequest($request);
             if ($form->isValid()) {
-                // On enregistre notre objet $advert dans la base de données, par exemple
                 $em = $this->getDoctrine()->getManager();
 
                 $reservationconfirme->setType("MANUEL");
+                $reservationconfirme->setTransaction("MANUEL");
                 $reservationconfirme->getReservation()->setConfirme(true);
                 $em->persist($reservationconfirme);
                 $em->flush();

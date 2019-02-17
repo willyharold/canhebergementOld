@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% set locale = app.request.locale %}
+<html lang="{{ locale }}" prefix="og: http://ogp.me/ns#">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta property="og:locale" content="{{ locale }}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Canhebergement | {% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+	<meta name="description" content="herbergement ">
+	<meta name="author" content="nanotech-solutions">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('can/images/ch.ico') }}">
+
+	<!--  CSS -->
+	<link href="{{ asset('can/css/font-awesome.css') }}" rel="stylesheet">
+	<link href="{{ asset('can/css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ asset('can/css/animations.css') }}" rel="stylesheet">
+	<link href="{{ asset('can/css/bxslider.css') }}" rel="stylesheet">
+	<link href="{{ asset('can/css/custom.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('can/css/jquery-ui.min.css') }}" type="text/css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('can/css/rangestyle.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('can/css/fotorama.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('can/css/datepicker/bootstrap-datepicker3.standalone.css') }}"/>
+</head>
+<body>
+    
+{% include 'layoutclient/header.html.twig' %}
+{% block body %}{% endblock %}
+{{ render(controller('NanotechCanhebergementBundle:Default:footer'))}}
+
+   <!-- codes js -->
+<script type="text/javascript" src="{{ asset('can/js/jquery-3.3.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('can/js/jquery.velocity.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('can/js/mdb.js') }}"></script>
+<script type="text/javascript" src="{{ asset('can/js/popper.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('can/js/bxslider.js') }}"></script>
+<script src="{{ asset('can/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('can/js/rangescript.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/rangescriptet.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/custom.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/fotorama.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.min.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('can/js/datepicker/bootstrap-datepicker.fr.min.js') }}" ></script>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0V1K6eya1M35KgHRT6q2XOP-1uV9Czo&callback=initMap"
+    async defer></script>
+<script type="text/javascript">
+	$(function(){ 
+		$('.js-datepicker').datepicker({
+			weekStart: 1,
+			format:'dd/mm/yy',
+			autoclose: true,
+			todayHighlight: true,
+			language:'fr'
+		});
+		$('#btn-clt').click(function(e){
+			e.preventDefault();
+		});
+		$(".drl-inp").focus(function(e){
+			// remplir_select_pays($(this).parent(),$(this));
+			$(this).next('.drl').velocity({opacity:[1,0]},{display:'block',duration: 100,easing: "ease-out"});
+		}).focusout(function(e){
+			$(this).next('.drl').velocity({opacity:[0,1]},{duration: 100,easing: "ease-in",
+				complete:function()
+				{
+					var val = $(this).find('.drl-item:focus').text();
+					if( val != "")
+						{
+							$(this).parent().find('input').val(val);
+						};
+				},
+				display:'none',});
+		});
+		
+		$('.drl-inp').keyup(function(){
+			remplir_select_pays($(this).parent(),$(this));
+		});
+
+		$('#nbc').keyup(function(){
+			verif_nbr($(this).parent(),$(this));
+		}).focusout(function(){
+			verif_nbr($(this).parent(),$(this));
+		});
+		
+	});
+	function recup_pays(recherche,inp,content){
+		//methode ajax
+		$.ajax({
+		url:'https://restcountries.eu/rest/v2/name/'+recherche+'?fields=name',
+		method:'GET',
+		async: true,
+		dataType:'json',
+		success: function(data){	
+			alert(data.length)
+			fillIt(data,inp,content);
+		}
+		});
+	}
+	function fillIt(data,inp,content){
+		var drl = content.find('.drl');//recup du conteneur du selecteur
+		drl.empty();//on vide le contenu actuel
+		drl.prepend( '<div class="cl8 rst pt-2 pb-1">Resultat: <span>'+data.length+'</span></div>');// on affiche les resultats
+		if(data.length > 0){
+			$.map(data, function(item){
+				drl.append('<a href="" class="drl-item point d-inline-block">'+ item.name +'</a>');
+			});
+			$('.drl-item').click(function(e){
+				e.preventDefault();	
+			});
+		}
+	}
+	function remplir_select_pays(contAll,inp){
+		recup_pays(inp.val(),inp,contAll);//on recherche la saisie
+	}
+	function verif_nbr(drlc, elm){
+		drlc.find('.rsv-error').remove('.rsv-error');
+		if(elm.val() == 1){
+			elm.removeClass('brd-error');
+			return ;
+		}
+		elm.addClass('brd-error');
+		drlc.append('<div class="md-11 cl3 position-absolute font-weight-bold rsv-error">Entrez un nombre (max 3) </div>');
+	}
+</script>
+    
+</body>
+</html>

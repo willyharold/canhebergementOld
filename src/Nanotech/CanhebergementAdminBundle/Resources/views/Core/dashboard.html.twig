@@ -19,7 +19,7 @@ file that was distributed with this source code.
       <div class="row"> 
              <div class="box-header with-border">
              
-              <h1 class="" >CAN Hebergement</h1>
+              <h1 class="" >{% if(app.user.partenaire) %} {{ app.user.partenaire.nom | upper }}{% else %} Administration de Canhebergement {% endif %}</h1>
             </div>
 
 
@@ -36,7 +36,7 @@ file that was distributed with this source code.
             <a href="" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-              
+              {% if is_granted("ROLE_SUPER_ADMIN") %}
               <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
@@ -51,6 +51,7 @@ file that was distributed with this source code.
             <a href="" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        {% endif %}
         
                   <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -127,6 +128,8 @@ file that was distributed with this source code.
             <a href="" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        {% if is_granted("ROLE_SUPER_ADMIN") %}
+
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-jaune">
@@ -141,6 +144,7 @@ file that was distributed with this source code.
             <a href="" class="small-box-footer">Plus d'informations<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        {% endif %}
 
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->

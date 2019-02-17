@@ -1,4 +1,4 @@
-{% extends "::basereservation.html.twig" %}
+{% extends "::baseclient.html.twig" %}
 {% block title %}{{"Client"|trans }} {% endblock %}
 {% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
 
@@ -11,12 +11,12 @@
                     <div class="row" id="filtre-rech">
                         <div class="mb-3 col-md-12 mt-4">
                             <div class="row">
-                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">14</span> </a>
+                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">{{ render(controller('NanotechCanhebergementBundle:Client:nbrreser'))}}</span> </a>
                             </div>
                         </div>
                         <div class="mb-3 col-md-12">
                             <div class="row">
-                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">02</span> </a>
+                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">{{ render(controller('NanotechCanhebergementBundle:Client:nbrreserconfirmer'))}}</span> </a>
                             </div>
                         </div>
                         <div class=" col-md-12 ">
@@ -44,6 +44,8 @@
                     </div>
                 </div>
                 <div class="col-md-9 mb-5">
+                    {{ form_start(form , {'method': 'POST'}) }}
+
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <h5 class="h1-r font-weight-bold cl9 text-uppercase">Modification informations personnelles</h5>
@@ -55,24 +57,25 @@
                                         <div class="mb-3 text-uppercase md-14 cl8">Détails du client</div>
                                         <div class="form-group position-relative mb-3">
                                             <div class="position-relative md-14"><label for="rsv-nom">Nom*</label></div>
-                                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-nom" id="rsv-nom" placeholder="Votre nom">
+                                            {{ form_widget(form.nom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
 
                                         </div>
                                         <div class="form-group position-relative mb-3">
                                             <div class="position-relative md-14"><label for="rsv-prn">Prenom*</label></div>
-                                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-prn" id="rsv-prn" placeholder="Votre prenom">
+                                            {{ form_widget(form.prenom, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
+
                                         </div>
                                         <div class="form-group position-relative mb-3">
                                             <div class="position-relative md-14"><label for="rsv-prn">Numéro téléphone*</label></div>
-                                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-phn" id="rsv-phn" placeholder="Votre numéro de téléphone">
+                                            {{ form_widget(form.telephone, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                         </div>
                                         <div class="form-group position-relative mb-3">
                                             <div class="position-relative md-14"><label for="rsv-prn">Email*</label></div>
-                                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-eml" id="rsv-eml" placeholder="Votre adresse mail">
+                                            {{ form_widget(form.email, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                         </div>
                                         <div class="form-group position-relative mb-3">
                                             <div class="position-relative md-14"><label for="rsv-prn">Nationalité*</label></div>
-                                            <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="rsv-nt" id="rsv-nt" placeholder="votre Nationalité">
+                                            {{ form_widget(form.nationalite, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                         </div>
                                     </div>
                                 </div>
@@ -83,12 +86,12 @@
                                             <div class="form-group position-relative mb-3">
                                                 <div class="position-relative md-14"><label for="rsv-nbr">Pays de résidence*</label></div>
                                                 <div id="locationFiel">
-                                                    <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="residense">
+                                                    {{ form_widget(form.pays, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                                 </div>
                                             </div>
                                             <div class="form-group position-relative">
                                                 <div class="position-relative md-14"><label for="rsv-nbr">Adresse*</label></div>
-                                                <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Indiquez votre adresse">
+                                                {{ form_widget(form.adresse, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                             </div>
                                         </div>
                                     </div>
@@ -97,12 +100,12 @@
                                             <div class="mb-3 text-uppercase md-14 cl8">Justificatif</div>
                                             <div class="form-group position-relative mb-3">
                                                 <div class="position-relative md-14"><label for="rsv-nom">Type de document*</label></div>
-                                                <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="type de piece ex:cni,passport...">
+                                                {{ form_widget(form.typedocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
 
                                             </div>
                                             <div class="form-group position-relative mb-3">
                                                 <div class="position-relative md-14"><label for="rsv-prn">Numéro du document*</label></div>
-                                                <input class="col-md-12 rsv-inp pt-2 pb-2 cl9 md-14 " type="text" name="" id="" placeholder="Indiquez le numéro du document">
+                                                {{ form_widget(form.numdocument, {'attr': {'class': 'col-md-12 rsv-inp pt-2 pb-2 cl9 md-14'}}) }}
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +116,10 @@
                             <input type="hidden" name="rsv-id" value="username">
                             <input type="submit" class="pl-3 pr-3 text-uppercase d-inline-block text-white bcl1 allhtl md-12 pl-2 pr-2" value="envoyer">
                         </div>
+
                     </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
                 </div>
             </div>
             <div class="divider"></div>

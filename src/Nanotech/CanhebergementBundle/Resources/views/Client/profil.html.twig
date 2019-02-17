@@ -1,4 +1,4 @@
-{% extends "::basereservation.html.twig" %}
+{% extends "::baseclient.html.twig" %}
 {% block title %}{{"Client"|trans }} {% endblock %}
 {% block ogtitle %}{{"Canhebergement"|trans }}{% endblock %}
 
@@ -11,12 +11,12 @@
                     <div class="row" id="filtre-rech">
                         <div class="mb-3 col-md-12 mt-4">
                             <div class="row">
-                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">14</span> </a>
+                                <a href="{{ path('nanotech_canhebergement_client_index') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18" style="transform:rotate(-90deg)">note</i> Reservation <span class="badge badge-warning">{{ render(controller('NanotechCanhebergementBundle:Client:nbrreser'))}}</span> </a>
                             </div>
                         </div>
                         <div class="mb-3 col-md-12">
                             <div class="row">
-                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">02</span> </a>
+                                <a href="{{ path('nanotech_canhebergement_client_confirme') }}" class="col-md-12 critaire no-dec cl9 hcl3"><i class="material-icons cl8 md-18">description</i> Reservation Confirmée <span class="badge badge-primary">{{ render(controller('NanotechCanhebergementBundle:Client:nbrreserconfirmer'))}}</span> </a>
                             </div>
                         </div>
                         <div class=" col-md-12 ">
